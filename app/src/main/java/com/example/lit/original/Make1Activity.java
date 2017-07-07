@@ -41,6 +41,7 @@ public class Make1Activity extends AppCompatActivity {
                 startActivityForResult(intent, 1);  //
 
             }});
+        //
 
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
