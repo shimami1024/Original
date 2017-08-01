@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -16,10 +17,9 @@ import java.io.InputStream;
 
 public class Make1Activity extends AppCompatActivity {
     private static final int REQUEST_GALLERY = 0;
-    ImageView imageView1;
-    ImageView imageView2;
-    EditText editText1;
-    EditText editText2;
+
+    ImageView imageView;
+    EditText editText;
 
     SharedPreferences preferences;
 
@@ -30,50 +30,44 @@ public class Make1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make1);
 
-        imageView1 = (ImageView)findViewById(R.id.imageView1);
-        imageView2 = (ImageView)findViewById(R.id.imageView2);
-        editText1 = (EditText)findViewById(R.id.editText1);
-        editText2 = (EditText)findViewById(R.id.editText2);
+        imageView = (ImageView)findViewById(R.id.imageView);
+        editText = (EditText)findViewById(R.id.editText);
 
         preferences = getSharedPreferences("pref_memo", MODE_PRIVATE);
 
-        editText1.setText(preferences.getString("memo1",""));
-        editText2.setText(preferences.getString("memo2",""));
+        editText.setText(preferences.getString("memo",""));
 
-        imageView1.setOnClickListener(new View.OnClickListener() {
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // ギャラリー呼び出し
                 Intent intent = new Intent();
-                intent.setType("image/*");
+                intent.setType("image/*");   //←jpegに限定する場合は, "image/jpeg"と指定.
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(intent, 1);
-
-            }});
-
-        //gitHubはCommit&Pushにする
-        //editTextの文字の入力位置
-        //画鋲の画像
-
-        imageView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // ギャラリー呼び出し
-                Intent intent = new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(intent, 2);
+                startActivityForResult(intent, REQUEST_GALLERY);
 
             }});
     }
 
+    public void rotate(View v){
+        Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), REQUEST_GALLERY);
+        Log.d("か","き");
+        int imageWidth = bitmap1.getWidth();
+        int imageHeight = bitmap1.getHeight();
+        Log.d("かか","きき");
+
+        Matrix matrix = new Matrix();
+        matrix.setRotate(90, imageWidth/2 , imageHeight/2);
+        Log.d("かかか","ききき");
+        Bitmap bitmap2 = Bitmap.createBitmap(bitmap1, 0, 0, imageWidth, imageHeight, matrix, true);
+        imageView.setImageBitmap(bitmap2);
+    }
+
     public void save(View v){
-        String memo1Text = editText1.getText().toString();
-        String memo2Text = editText2.getText().toString();
+        String memoText = editText.getText().toString();
 
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("memo1",memo1Text);
-        editor.putString("memo2",memo2Text);
+        editor.putString("memo",memoText);
         editor.commit();
 
         finish();
@@ -89,20 +83,16 @@ public class Make1Activity extends AppCompatActivity {
                 InputStream in = getContentResolver().openInputStream(data.getData());
                 Bitmap img = BitmapFactory.decodeStream(in);
                 in.close();
-                Log.d("あああ", "いいい");
+                Log.d("あ", "い");
                 // 選択した画像を表示
-                if (requestCode == 1){
-                    imageView1.setImageBitmap(img);
-                } else if(requestCode == 2){
-                    imageView2.setImageBitmap(img);
-                }
-
+                imageView.setImageBitmap(img);
             } catch (Exception e) {
                 System.out.println("test");
             }
         }
     }
 
-
+    //android
+    //device monitor
 
 }
