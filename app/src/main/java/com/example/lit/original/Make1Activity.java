@@ -43,7 +43,7 @@ public class Make1Activity extends AppCompatActivity {
                 // ギャラリー呼び出し
                 Intent intent = new Intent();
                 intent.setType("image/*");   //←jpegに限定する場合は, "image/jpeg"と指定.
-                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setAction(Intent.ACTION_GET_CONTENT);//
                 startActivityForResult(intent, REQUEST_GALLERY);
 
             }});
