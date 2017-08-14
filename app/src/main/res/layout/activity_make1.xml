@@ -13,65 +13,81 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="1dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="2dp">
+            android:layout_height="0dp"
+            android:layout_weight="2">
 
-            <ImageView
+            <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/imageView1"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:background="#fefefe"
+                android:id="@+id/imageButton1"
                 android:layout_weight="1"
-                android:layout_margin="5dp" />
+                android:layout_margin="0dp" />
 
-            <TextView
+            <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/textView1"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="false"
-                android:background="#fdfdfd"
+                android:id="@+id/imageButton2"
                 android:layout_weight="1"
-                android:layout_margin="5dp" />
+                android:layout_margin="0dp"
+                android:onClick="rotate" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageButton3"
+                android:layout_weight="1"
+                android:layout_margin="0dp" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageButton4"
+                android:layout_weight="1"
+                android:layout_margin="0dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="save"
+                android:id="@+id/button"
+                android:onClick="save"
+                android:layout_margin="0dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="2dp">
+            android:layout_height="0dp"
+            android:layout_weight="9">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/imageView2"
-                android:layout_alignParentBottom="true"
-                android:layout_margin="5dp"
+                android:id="@+id/imageView"
                 android:background="#fefefe"
-                android:layout_weight="1" />
+                android:layout_margin="5dp"
+                android:src="@drawable/background11" />
+        </LinearLayout>
 
-            <TextView
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9">
+
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/textView2"
-                android:layout_margin="5dp"
+                android:id="@+id/editText"
                 android:background="#fefefe"
-                android:layout_weight="1" />
-
+                android:layout_margin="5dp"
+                android:gravity="top|left" />
         </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>
