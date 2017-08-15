@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import java.io.InputStream;
 
@@ -44,9 +45,20 @@ public class Make1Activity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setType("image/*");   //←jpegに限定する場合は, "image/jpeg"と指定.
                 intent.setAction(Intent.ACTION_GET_CONTENT);//
-                startActivityForResult(intent, REQUEST_GALLERY);
+                startActivityForResult(intent, 0);
 
             }});
+
+        //RelativeLayout layout = (RelativeLayout)findViewById(R.id.RelativeLayout0);
+        //Intent intent = getIntent();
+        //intent.putExtra("background1", 1);
+        //layout.setBackgroundResource(R.drawable.backgrounda1);
+        //intent.putExtra("background2", 2);
+        //layout.setBackgroundResource(R.drawable.backgrounda2);
+        //intent.putExtra("background3", 3);
+        //layout.setBackgroundResource(R.drawable.backgrounda3);
+        //intent.putExtra("background4", 4);
+        //layout.setBackgroundResource(R.drawable.backgrounda4);
     }
 
     public void rotate(View v){
@@ -63,6 +75,11 @@ public class Make1Activity extends AppCompatActivity {
         imageView.setImageBitmap(bitmap2);
     }
 
+    public void background1(View v){
+        Intent intent = new Intent(this, BackGroundActivity.class);
+        startActivity(intent);
+    }
+
     public void save(View v){
         String memoText = editText.getText().toString();
 
@@ -77,6 +94,13 @@ public class Make1Activity extends AppCompatActivity {
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         // TODO Auto-generated method stub
 
+        RelativeLayout layout = (RelativeLayout)findViewById(R.id.RelativeLayout0);
+        Intent intent1 = getIntent();
+        intent1.putExtra("background1", 1);
+        Intent intent2 = getIntent();
+        intent2.putExtra("background2", 2);
+        Log.d("あいうえお", "かきくけこ");
+
         if(resultCode == RESULT_OK) {
             //ギャラリーから画像を選択してくる
             try {
@@ -85,14 +109,23 @@ public class Make1Activity extends AppCompatActivity {
                 in.close();
                 Log.d("あ", "い");
                 // 選択した画像を表示
-                imageView.setImageBitmap(img);
+                if(requestCode == 0){
+                    imageView.setImageBitmap(img);
+                } else if(requestCode == 1){
+                    layout.setBackgroundResource(R.drawable.backgrounda1);
+                } else if(requestCode == 2){
+                    layout.setBackgroundResource(R.drawable.backgrounda2);
+                }
+
             } catch (Exception e) {
                 System.out.println("test");
             }
         }
     }
 
+
+}
+
     //android
     //device monitor
 
-}
