@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import java.io.InputStream;
 
@@ -46,6 +47,149 @@ public class Make2Activity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_GALLERY);
 
             }});
+
+        RelativeLayout layout = (RelativeLayout)findViewById(R.id.RelativeLayout0);
+
+        //Intent intentMMM2 = getIntent();
+        //int number02 = intentMMM2.getIntExtra("M2", 0);
+        Log.d("完了", "最終段階！");
+
+            Intent intent1 = getIntent();
+            int number1 = intent1.getIntExtra("background1", 0);
+        Log.d("完了", "最終段階！");
+
+        if(number1 == 0){
+            Log.d("あいうえお", "あいうえお");
+        } else if (number1 == 1) {
+            layout.setBackgroundResource(R.drawable.backgrounda1);
+        }
+
+            Intent intent2 = getIntent();
+            int number2 = intent2.getIntExtra("background2", 0);
+            if(number2 == 0){
+                Log.d("あいうえお", "あいうえお");
+            } else if (number2 == 2) {
+                layout.setBackgroundResource(R.drawable.backgrounda2);
+            }
+
+            Intent intent3 = getIntent();
+            int number3 = intent3.getIntExtra("background3", 0);
+            if(number3 == 0){
+                Log.d("あいうえお", "あいうえお");
+            } else if (number3 == 3) {
+                layout.setBackgroundResource(R.drawable.backgrounda3);
+            }
+
+            Intent intent4 = getIntent();
+            int number4 = intent4.getIntExtra("background4", 0);
+            if(number4 == 0){
+                Log.d("あいうえお", "あいうえお");
+            } else if (number4 == 4) {
+                layout.setBackgroundResource(R.drawable.backgrounda4);
+            }
+
+            Intent intent5 = getIntent();
+            int number5 = intent5.getIntExtra("background5", 0);
+            if(number5 == 0){
+                Log.d("あいうえお", "あいうえお");
+            } else if (number5 == 5) {
+                layout.setBackgroundResource(R.drawable.backgrounda5);
+            }
+
+            Intent intent6 = getIntent();
+            int number6 = intent6.getIntExtra("background6", 0);
+            if(number6 == 0){
+                Log.d("あいうえお", "あいうえお");
+            } else if (number6 == 6) {
+                layout.setBackgroundResource(R.drawable.backgrounda6);
+            }
+
+            Intent intent7 = getIntent();
+            int number7 = intent7.getIntExtra("background7", 0);
+            if(number7 == 0){
+                Log.d("あいうえお", "あいうえお");
+            } else if (number7 == 7) {
+                layout.setBackgroundResource(R.drawable.backgrounda7);
+            }
+
+            Intent intent8 = getIntent();
+            int number8 = intent8.getIntExtra("background8", 0);
+            if(number8 == 0){
+                Log.d("あいうえお", "あいうえお");
+            } else if (number8 == 8) {
+                layout.setBackgroundResource(R.drawable.backgrounda8);
+            }
+
+            Intent intent9 = getIntent();
+            int number9 = intent9.getIntExtra("background9", 0);
+            if(number9 == 0){
+                Log.d("あいうえお", "あいうえお");
+            } else if (number9 == 9) {
+                layout.setBackgroundResource(R.drawable.backgrounda9);
+            }
+
+            Intent intent10 = getIntent();
+            int number10 = intent10.getIntExtra("background10", 0);
+            if(number10 == 0){
+                Log.d("あいうえお", "あいうえお");
+            } else if (number10 == 10) {
+                layout.setBackgroundResource(R.drawable.backgrounda10);
+            }
+
+            Intent intent11 = getIntent();
+            int number11 = intent11.getIntExtra("background11", 0);
+            if(number11 == 0){
+                Log.d("あいうえお", "あいうえお");
+            } else if (number11 == 11) {
+                layout.setBackgroundResource(R.drawable.backgrounda11);
+            }
+
+            Intent intent12 = getIntent();
+            int number12 = intent12.getIntExtra("background12", 0);
+            if(number12 == 0){
+                Log.d("あいうえお", "あいうえお");
+            } else if (number12 == 12) {
+                layout.setBackgroundResource(R.drawable.backgrounda12);
+            }
+
+            Intent intent13 = getIntent();
+            int number13 = intent13.getIntExtra("background13", 0);
+            if(number13 == 0){
+                Log.d("あいうえお", "あいうえお");
+            } else if (number13 == 13) {
+                layout.setBackgroundResource(R.drawable.backgrounda13);
+            }
+
+            Intent intent14 = getIntent();
+            int number14 = intent14.getIntExtra("background14", 0);
+            if(number14 == 0){
+                Log.d("あいうえお", "あいうえお");
+            } else if (number14 == 14) {
+                layout.setBackgroundResource(R.drawable.backgrounda14);
+            }
+
+            Intent intent15 = getIntent();
+            int number15 = intent15.getIntExtra("background15", 0);
+            if(number15 == 0){
+                Log.d("あいうえお", "あいうえお");
+            } else if (number15 == 15) {
+                layout.setBackgroundResource(R.drawable.backgrounda15);
+            }
+
+            Intent intent16 = getIntent();
+            int number16 = intent16.getIntExtra("background16", 0);
+            if(number16 == 0){
+                Log.d("あいうえお", "あいうえお");
+            } else if (number16 == 16) {
+                layout.setBackgroundResource(R.drawable.backgrounda16);
+            }
+
+    }
+
+    public void background2(View v){
+        Intent intentM2 = new Intent(this, BackGroundActivity.class);
+        intentM2.putExtra("M2", 102);
+        startActivity(intentM2);
     }
 
     public void save(View v){
