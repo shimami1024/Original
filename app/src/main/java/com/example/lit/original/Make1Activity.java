@@ -49,9 +49,14 @@ public class Make1Activity extends AppCompatActivity {
 
             }});
 
-        //RelativeLayout layout = (RelativeLayout)findViewById(R.id.RelativeLayout0);
-        //Intent intent = getIntent();
-        //intent.putExtra("background1", 1);
+        RelativeLayout layout = (RelativeLayout)findViewById(R.id.RelativeLayout0);
+        Intent intent1 = getIntent();
+        Intent intent2 = getIntent();
+        int number = intent1.getIntExtra("background1");
+        if(number == 1){
+            layout.setBackgroundResource(R.drawable.backgrounda1);
+        }
+        //intent.putExtra("background1", 1)
         //layout.setBackgroundResource(R.drawable.backgrounda1);
         //intent.putExtra("background2", 2);
         //layout.setBackgroundResource(R.drawable.backgrounda2);
