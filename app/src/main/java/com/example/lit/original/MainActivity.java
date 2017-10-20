@@ -28,6 +28,46 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void third(View v){
+        Intent intent = new Intent(this, Make3Activity.class);
+        startActivity(intent);
+    }
+
+    public void fourth(View v){
+        Intent intent = new Intent(this, Make4Activity.class);
+        startActivity(intent);
+    }
+
+    public void fifth(View v){
+        Intent intent = new Intent(this, Make5Activity.class);
+        startActivity(intent);
+    }
+
+    public void sixth(View v){
+        Intent intent = new Intent(this, Make6Activity.class);
+        startActivity(intent);
+    }
+
+    public void seventh(View v){
+        Intent intent = new Intent(this, Make7Activity.class);
+        startActivity(intent);
+    }
+
+    public void eighth(View v){
+        Intent intent = new Intent(this, Make8Activity.class);
+        startActivity(intent);
+    }
+
+    public void ninth(View v){
+        Intent intent = new Intent(this, Make9Activity.class);
+        startActivity(intent);
+    }
+
+    public void tenth(View v){
+        Intent intent = new Intent(this, Make10Activity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     }

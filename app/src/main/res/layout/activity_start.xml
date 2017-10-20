@@ -7,12 +7,13 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.lit.original.StartActivity">
+    tools:context="com.example.lit.original.StartActivity"
+    android:background="@drawable/test1">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Load"
+        android:text="Make"
         android:id="@+id/MakeButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
@@ -24,8 +25,9 @@
         android:layout_height="wrap_content"
         android:text="See"
         android:id="@+id/SeeButton"
+        android:layout_marginTop="62dp"
+        android:onClick="see"
         android:layout_alignTop="@+id/MakeButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp"
-        android:onClick="see" />
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
