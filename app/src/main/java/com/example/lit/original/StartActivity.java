@@ -12,12 +12,19 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-//        ActionBar actionBar = getActionBar();
-//        actionBar.hide();
     }
 
     public void make(View v){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    //HomeWork10/20
+    //BackGroundActivityの画像の透明度みたいなのの編集
+    //画鋲のイラストの表示（大きさ合わせる）
+
+    //角度調整のときの角度を記入するときの表示
+    //FileActivityのlistView
+    //TouchEvent
+    //galleryからとってきた画像の固定化
 }

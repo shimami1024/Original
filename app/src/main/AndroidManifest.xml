@@ -8,7 +8,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
         <activity
             android:name=".StartActivity"
             android:theme="@style/AppThemeNoActionBar">
@@ -19,49 +18,365 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppThemeNoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".Make1Activity"
-            android:theme="@style/AppThemeNoActionBar"/>
-        <activity android:name=".Make2Activity" />
-        <activity android:name=".Make3Activity" />
-        <activity android:name=".Make4Activity" />
-        <activity android:name=".Make5Activity" />
-        <activity android:name=".Make6Activity" />
-        <activity android:name=".Make7Activity" />
-        <activity android:name=".Make8Activity" />
-        <activity android:name=".Make9Activity" />
-        <activity android:name=".Make10Activity" />
-        <activity android:name=".BackGround0Activity" />
-        <activity android:name=".BackGroundA1Activity" />
-        <activity android:name=".BackGroundA2Activity" />
-        <activity android:name=".BackGroundA3Activity" />
-        <activity android:name=".BackGroundA4Activity" />
-        <activity android:name=".BackGroundB1Activity" />
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".BackGroundB2Activity" />
-        <activity android:name=".BackGroundC1Activity" />
-        <activity android:name=".BackGroundC2Activity" />
-        <activity android:name=".BackGroundD1Activity" />
-        <activity android:name=".BackGroundD2Activity" />
-        <activity android:name=".BackGroundE1Activity" />
-        <activity android:name=".BackGroundE2Activity" />
-        <activity android:name=".BackGroundF1Activity" />
-        <activity android:name=".BackGroundF2Activity" />
-        <activity android:name=".BackGroundF3Activity" />
-        <activity android:name=".BackGroundG1Activity" />
-        <activity android:name=".BackGroundG2Activity" />
-        <activity android:name=".BackGroundH1Activity" />
-        <activity android:name=".BackGroundH2Activity" />
-        <activity android:name=".BackGroundH3Activity" />
-        <activity android:name=".BackGroundI1Activity" />
-        <activity android:name=".BackGroundI2Activity" />
-        <activity android:name=".BackGroundI3Activity" />
-        <activity android:name=".BackGroundJ1Activity" />
-        <activity android:name=".BackGroundJ2Activity" />
-        <activity android:name=".BackGroundJ3Activity" />
-        <activity android:name=".TestActivity" />
-        <activity android:name=".SaveActivity" />
-        <activity android:name=".PinActivity" />
-        <activity android:name=".FileActivity"></activity>
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".Make2Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".Make3Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".Make4Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".Make5Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".Make6Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".Make7Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".Make8Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".Make9Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".Make10Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGround0Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundA1Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundA2Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundA3Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundA4Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundB1Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundB2Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundC1Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundC2Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundD1Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundD2Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundE1Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundE2Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundF1Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundF2Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundF3Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundG1Activity"
+            android:theme="@style/AppThemeNoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundH1Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundH2Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundH3Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundI1Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundI2Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundI3Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundJ1Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundJ2Activity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".BackGroundJ3Activity"
+            android:theme="@style/AppThemeNoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SaveActivity"
+            android:theme="@style/AppThemeNoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PinActivity"
+            android:theme="@style/AppThemeNoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".FileActivity"
+            android:theme="@style/AppThemeNoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

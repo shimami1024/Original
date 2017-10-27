@@ -26,7 +26,7 @@
                 android:id="@+id/imageButton1"
                 android:layout_weight="1"
                 android:layout_margin="1dp"
-                android:background="@drawable/backgrounda1"
+                android:background="@drawable/a1"
                 android:onClick="a1" />
 
             <ImageButton
@@ -35,7 +35,7 @@
                 android:id="@+id/imageButton2"
                 android:layout_weight="1"
                 android:layout_margin="1dp"
-                android:background="@drawable/backgrounda2"
+                android:background="@drawable/a2"
                 android:onClick="a2" />
 
         </LinearLayout>
@@ -52,7 +52,7 @@
                 android:id="@+id/imageButton3"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="@drawable/backgrounda3"
+                android:background="@drawable/a3"
                 android:onClick="a3" />
 
             <ImageButton
@@ -61,7 +61,7 @@
                 android:id="@+id/imageButton4"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="@drawable/backgrounda4"
+                android:background="@drawable/a4"
                 android:onClick="a4" />
         </LinearLayout>
 

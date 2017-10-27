@@ -10,9 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -80,23 +80,28 @@ public class Make1Activity extends AppCompatActivity {
                 linearLayoutR.setOrientation(LinearLayout.HORIZONTAL);
                 linearLayoutR.setX(320);
                 linearLayoutR.setY(250);
-                linearLayoutR.setBackgroundColor(Color.parseColor("#000000"));
-                frameLayout.addView(linearLayoutR, 200, 100);
-                rotation.setBackgroundColor(Color.parseColor("#ffffff"));
+                //linearLayoutR.setBackgroundColor(Color.parseColor("#A9F5BC"));
+                //frameLayout.addView(linearLayoutR, 200, 100);
+                //rotation.setBackgroundColor(Color.parseColor("#F5BCA9"));
+                rotation.setBackgroundColor(Color.parseColor("#000000"));
                 LinearLayout.LayoutParams rLP = new LinearLayout.LayoutParams
-                        (80, 80);
-                rLP.setMargins(10, 10, 10, 10);
+                        (ViewGroup.LayoutParams.MATCH_PARENT, 0, 1);
+                rLP.setMargins(1, 1, 1, 1);
                 rotation.setLayoutParams(rLP);
-                rotation.setGravity(Gravity.TOP);
                 rotation.setTextSize(20);
-                buttonR.setBackgroundColor(Color.parseColor("#ffffff"));
+                //buttonR.setBackgroundColor(Color.parseColor("#F5BCA9"));
+                buttonR.setBackgroundColor(Color.parseColor("#000000"));
                 LinearLayout.LayoutParams bRLP = new LinearLayout.LayoutParams
-                        (80, 80);
-                bRLP.setMargins(10, 10, 10, 10);
+                        (ViewGroup.LayoutParams.MATCH_PARENT, 0, 1);
+                bRLP.setMargins(1, 1, 1, 1);
                 buttonR.setLayoutParams(bRLP);
-                linearLayoutR.addView(rotation, 80, 80);
-                linearLayoutR.addView(buttonR, 80, 80);
+                //linearLayoutR.addView(rotation, 80, 80);
+                //linearLayoutR.addView(buttonR, 80, 80);
+                linearLayoutR.addView(rotation);
+                linearLayoutR.addView(buttonR);
+                frameLayout.addView(linearLayoutR, 200, 100);
                 Log.d("editText/button", "完了");
+                //linearLayoutR.setBackgroundColor(Color.parseColor("#ffffff"));
                 rotation.setInputType(InputType.TYPE_CLASS_NUMBER);
 
                 buttonR.setOnClickListener(new View.OnClickListener() {
@@ -1011,6 +1016,10 @@ public class Make1Activity extends AppCompatActivity {
         Intent intentSave = new Intent(this, SaveActivity.class);
         startActivity(intentSave);
     }
+
+    //gitHub
+    //VCSのCommitChangesでコメントを書いてCommit
+    //Commitしたら再びVCSでPush
 }
 
 
