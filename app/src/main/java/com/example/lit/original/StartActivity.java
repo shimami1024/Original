@@ -19,12 +19,12 @@ public class StartActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //HomeWork10/20
-    //BackGroundActivityの画像の透明度みたいなのの編集
-    //画鋲のイラストの表示（大きさ合わせる）
+    public void see(View v){
+        Intent intentS = new Intent(this, SaveActivity.class);
+        intentS.putExtra("SS", 1);
+        startActivity(intentS);
+    }
 
-    //角度調整のときの角度を記入するときの表示
-    //FileActivityのlistView
-    //TouchEvent
-    //galleryからとってきた画像の固定化
+    //スタート画面を素敵に！！(Animation)
+
 }

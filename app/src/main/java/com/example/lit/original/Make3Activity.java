@@ -523,7 +523,7 @@ public class Make3Activity extends AppCompatActivity {
         if(number57 == 0){
             Log.d("あいうえお563", "あいうえお");
         } else if (number57 == 563) {
-            layout.setBackgroundResource(R.drawable.backgroundf9);
+            layout.setBackgroundResource(R.drawable.backgroundg1);
         }
 
         Intent intent573 = getIntent();
@@ -531,7 +531,7 @@ public class Make3Activity extends AppCompatActivity {
         if(number58 == 0){
             Log.d("あいうえお573", "あいうえお");
         } else if (number58 == 573) {
-            layout.setBackgroundResource(R.drawable.backgroundf10);
+            layout.setBackgroundResource(R.drawable.backgroundg2);
         }
 
         Intent intent583 = getIntent();
@@ -539,7 +539,7 @@ public class Make3Activity extends AppCompatActivity {
         if(number59 == 0){
             Log.d("あいうえお583", "あいうえお");
         } else if (number59 == 583) {
-            layout.setBackgroundResource(R.drawable.backgroundf11);
+            layout.setBackgroundResource(R.drawable.backgroundg3);
         }
 
         Intent intent593 = getIntent();
@@ -547,7 +547,7 @@ public class Make3Activity extends AppCompatActivity {
         if(number60 == 0){
             Log.d("あいうえお593", "あいうえお");
         } else if (number60 == 593) {
-            layout.setBackgroundResource(R.drawable.backgroundf12);
+            layout.setBackgroundResource(R.drawable.backgroundg4);
         }
 
         Intent intent603 = getIntent();
@@ -555,7 +555,7 @@ public class Make3Activity extends AppCompatActivity {
         if(number61 == 0){
             Log.d("あいうえお603", "あいうえお");
         } else if (number61 == 603) {
-            layout.setBackgroundResource(R.drawable.backgroundg1);
+            layout.setBackgroundResource(R.drawable.backgroundh1);
         }
 
         Intent intent613 = getIntent();
@@ -563,14 +563,15 @@ public class Make3Activity extends AppCompatActivity {
         if(number62 == 0){
             Log.d("あいうえお613", "あいうえお");
         } else if (number62 == 613) {
-            layout.setBackgroundResource(R.drawable.backgroundg2);
+            layout.setBackgroundResource(R.drawable.backgroundh2);
         }
+
         Intent intent623 = getIntent();
         int number63 = intent623.getIntExtra("background623", 0);
         if(number63 == 0){
             Log.d("あいうえお623", "あいうえお");
         } else if (number63 == 623) {
-            layout.setBackgroundResource(R.drawable.backgroundg3);
+            layout.setBackgroundResource(R.drawable.backgroundh3);
         }
 
         Intent intent633 = getIntent();
@@ -578,7 +579,7 @@ public class Make3Activity extends AppCompatActivity {
         if(number64 == 0){
             Log.d("あいうえお633", "あいうえお");
         } else if (number64 == 633) {
-            layout.setBackgroundResource(R.drawable.backgroundg4);
+            layout.setBackgroundResource(R.drawable.backgroundh4);
         }
 
         Intent intent643 = getIntent();
@@ -586,28 +587,31 @@ public class Make3Activity extends AppCompatActivity {
         if(number65 == 0){
             Log.d("あいうえお643", "あいうえお");
         } else if (number65 == 643) {
-            layout.setBackgroundResource(R.drawable.backgroundh1);
+            layout.setBackgroundResource(R.drawable.backgroundh5);
         }
+
         Intent intent653 = getIntent();
         int number66 = intent653.getIntExtra("background653", 0);
         if(number66 == 0){
             Log.d("あいうえお653", "あいうえお");
         } else if (number66 == 653) {
-            layout.setBackgroundResource(R.drawable.backgroundh2);
+            layout.setBackgroundResource(R.drawable.backgroundh6);
         }
+
         Intent intent663 = getIntent();
         int number67 = intent663.getIntExtra("background663", 0);
         if(number67 == 0){
             Log.d("あいうえお663", "あいうえお");
         } else if (number67 == 663) {
-            layout.setBackgroundResource(R.drawable.backgroundh3);
+            layout.setBackgroundResource(R.drawable.backgroundh7);
         }
+
         Intent intent673 = getIntent();
         int number68 = intent673.getIntExtra("background673", 0);
         if(number68 == 0){
             Log.d("あいうえお673", "あいうえお");
         } else if (number68 == 673) {
-            layout.setBackgroundResource(R.drawable.backgroundh4);
+            layout.setBackgroundResource(R.drawable.backgroundh8);
         }
 
         Intent intent683 = getIntent();
@@ -615,7 +619,7 @@ public class Make3Activity extends AppCompatActivity {
         if(number69 == 0){
             Log.d("あいうえお683", "あいうえお");
         } else if (number69 == 683) {
-            layout.setBackgroundResource(R.drawable.backgroundh5);
+            layout.setBackgroundResource(R.drawable.backgroundh9);
         }
 
         Intent intent693 = getIntent();
@@ -623,7 +627,7 @@ public class Make3Activity extends AppCompatActivity {
         if(number70 == 0){
             Log.d("あいうえお693", "あいうえお");
         } else if (number70 == 693) {
-            layout.setBackgroundResource(R.drawable.backgroundh6);
+            layout.setBackgroundResource(R.drawable.backgroundh10);
         }
 
         Intent intent703 = getIntent();
@@ -631,7 +635,7 @@ public class Make3Activity extends AppCompatActivity {
         if(number71 == 0){
             Log.d("あいうえお703", "あいうえお");
         } else if (number71 == 703) {
-            layout.setBackgroundResource(R.drawable.backgroundh7);
+            layout.setBackgroundResource(R.drawable.backgroundh11);
         }
 
         Intent intent713 = getIntent();
@@ -639,36 +643,41 @@ public class Make3Activity extends AppCompatActivity {
         if(number72 == 0){
             Log.d("あいうえお713", "あいうえお");
         } else if (number72 == 713) {
-            layout.setBackgroundResource(R.drawable.backgroundh8);
+            layout.setBackgroundResource(R.drawable.backgroundh12);
         }
+
         Intent intent723 = getIntent();
         int number73 = intent723.getIntExtra("background723", 0);
         if(number73 == 0){
             Log.d("あいうえお723", "あいうえお");
         } else if (number73 == 723) {
-            layout.setBackgroundResource(R.drawable.backgroundh9);
+            layout.setBackgroundResource(R.drawable.backgroundh13);
         }
+
         Intent intent733 = getIntent();
         int number74 = intent733.getIntExtra("background733", 0);
         if(number74 == 0){
             Log.d("あいうえお733", "あいうえお");
         } else if (number74 == 733) {
-            layout.setBackgroundResource(R.drawable.backgroundh10);
+            layout.setBackgroundResource(R.drawable.backgroundh14);
         }
+
         Intent intent743 = getIntent();
         int number75 = intent743.getIntExtra("background743", 0);
         if(number75 == 0){
             Log.d("あいうえお743", "あいうえお");
         } else if (number75 == 743) {
-            layout.setBackgroundResource(R.drawable.backgroundh11);
+            layout.setBackgroundResource(R.drawable.backgroundh15);
         }
+
         Intent intent753 = getIntent();
         int number76 = intent753.getIntExtra("background753", 0);
         if(number76 == 0){
             Log.d("あいうえお753", "あいうえお");
         } else if (number76 == 753) {
-            layout.setBackgroundResource(R.drawable.backgroundh12);
+            layout.setBackgroundResource(R.drawable.backgroundh16);
         }
+
         Intent intent763 = getIntent();
         int number77 = intent763.getIntExtra("background763", 0);
         if(number77 == 0){
@@ -676,6 +685,7 @@ public class Make3Activity extends AppCompatActivity {
         } else if (number77 == 763) {
             layout.setBackgroundResource(R.drawable.backgroundi1);
         }
+
         Intent intent773 = getIntent();
         int number78 = intent773.getIntExtra("background773", 0);
         if(number78 == 0){
@@ -683,6 +693,7 @@ public class Make3Activity extends AppCompatActivity {
         } else if (number78 == 773) {
             layout.setBackgroundResource(R.drawable.backgroundi2);
         }
+
         Intent intent783 = getIntent();
         int number79 = intent783.getIntExtra("background783", 0);
         if(number79 == 0){
@@ -690,6 +701,7 @@ public class Make3Activity extends AppCompatActivity {
         } else if (number79 == 783) {
             layout.setBackgroundResource(R.drawable.backgroundi3);
         }
+
         Intent intent793 = getIntent();
         int number80 = intent793.getIntExtra("background793", 0);
         if(number80 == 0){
@@ -697,6 +709,7 @@ public class Make3Activity extends AppCompatActivity {
         } else if (number80 == 793) {
             layout.setBackgroundResource(R.drawable.backgroundi4);
         }
+
         Intent intent803 = getIntent();
         int number81 = intent803.getIntExtra("background803", 0);
         if(number81 == 0){
@@ -704,6 +717,7 @@ public class Make3Activity extends AppCompatActivity {
         } else if (number81 == 803) {
             layout.setBackgroundResource(R.drawable.backgroundi5);
         }
+
         Intent intent813 = getIntent();
         int number82 = intent813.getIntExtra("background813", 0);
         if(number82 == 0){
@@ -711,6 +725,7 @@ public class Make3Activity extends AppCompatActivity {
         } else if (number82 == 813) {
             layout.setBackgroundResource(R.drawable.backgroundi6);
         }
+
         Intent intent823 = getIntent();
         int number83 = intent823.getIntExtra("background823", 0);
         if(number83 == 0){
@@ -718,6 +733,7 @@ public class Make3Activity extends AppCompatActivity {
         } else if (number83 == 823) {
             layout.setBackgroundResource(R.drawable.backgroundi7);
         }
+
         Intent intent833 = getIntent();
         int number84 = intent833.getIntExtra("background833", 0);
         if(number84 == 0){

@@ -31,7 +31,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_weight="1"
                 android:layout_margin="1dp"
-                android:onClick="a01"
+                android:onClick="a"
                 android:textSize="25dp"
                 android:background="@drawable/ba" />
 
@@ -46,7 +46,7 @@
                 android:layout_weight="1"
                 android:layout_margin="1dp"
                 android:textSize="25dp"
-                android:onClick="g01"
+                android:onClick="g"
                 android:background="@drawable/bg" />
         </LinearLayout>
 
@@ -67,7 +67,7 @@
                 android:layout_margin="1dp"
                 android:textSize="25dp"
                 android:text="空"
-                android:onClick="b01"
+                android:onClick="b"
                 android:background="@drawable/bb" />
 
             <Button
@@ -81,7 +81,7 @@
                 android:layout_weight="1"
                 android:layout_margin="1dp"
                 android:textSize="25dp"
-                android:onClick="c01"
+                android:onClick="c"
                 android:background="@drawable/bc" />
         </LinearLayout>
 
@@ -102,7 +102,7 @@
                 android:layout_weight="1"
                 android:layout_margin="1dp"
                 android:textSize="25dp"
-                android:onClick="d01"
+                android:onClick="d"
                 android:background="@drawable/bd" />
 
             <Button
@@ -116,7 +116,7 @@
                 android:layout_weight="1"
                 android:layout_margin="1dp"
                 android:textSize="25dp"
-                android:onClick="e01"
+                android:onClick="e"
                 android:background="@drawable/be" />
         </LinearLayout>
 
@@ -137,7 +137,7 @@
                 android:layout_weight="1"
                 android:layout_margin="1dp"
                 android:textSize="25dp"
-                android:onClick="h01"
+                android:onClick="h"
                 android:background="@drawable/bh" />
 
             <Button
@@ -151,7 +151,7 @@
                 android:layout_weight="1"
                 android:layout_margin="1dp"
                 android:textSize="25dp"
-                android:onClick="i01"
+                android:onClick="i"
                 android:background="@drawable/bi" />
         </LinearLayout>
 
@@ -172,7 +172,7 @@
                 android:layout_weight="1"
                 android:layout_margin="1dp"
                 android:textSize="25dp"
-                android:onClick="f01"
+                android:onClick="f"
                 android:background="@drawable/bf" />
 
             <Button
@@ -186,7 +186,7 @@
                 android:layout_weight="1"
                 android:layout_margin="1dp"
                 android:textSize="25dp"
-                android:onClick="j01"
+                android:onClick="j"
                 android:background="@drawable/bj" />
         </LinearLayout>
     </LinearLayout>

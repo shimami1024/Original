@@ -8,56 +8,58 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.lit.original.SaveActivity"
-    android:background="#dddcdc">
+    android:background="#e3e3e3"
+    android:id="@+id/relativeLayoutS">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2" >
+            android:text="New Text"
+            android:id="@+id/textViewS"
+            android:gravity="center_vertical|center_horizontal"
+            android:background="#ffffff"
+            android:layout_weight="1" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="New Text"
-                android:id="@+id/textView"
-                android:gravity="center_vertical|center_horizontal"
-                android:background="#ffffff" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:id="@+id/frameLayoutS"
             android:layout_weight="9" >
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="256dp"
+                android:layout_height="160dp"
                 android:id="@+id/imageViewS"
-                android:background="#fefefe"
-                android:layout_margin="5dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="9" >
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="25dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#ffffff"
+                android:scrollbarAlwaysDrawHorizontalTrack="false" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="125dp"
+                android:layout_height="160dp"
                 android:id="@+id/editTextS"
-                android:background="#fefefe"
-                android:layout_margin="5dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="100dp"
+                android:background="#ffffff"
                 android:gravity="top|left" />
-        </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="back"
+                android:id="@+id/buttonS"
+                android:layout_gravity="bottom|center_horizontal"
+                android:focusableInTouchMode="false"
+                android:onClick="back" />
+        </FrameLayout>
 
     </LinearLayout>
 </RelativeLayout>

@@ -534,7 +534,7 @@ public class Make7Activity extends AppCompatActivity {
         if(number57 == 0){
             Log.d("あいうえお567", "あいうえお");
         } else if (number57 == 567) {
-            layout.setBackgroundResource(R.drawable.backgroundf9);
+            layout.setBackgroundResource(R.drawable.backgroundg1);
         }
 
         Intent intent577 = getIntent();
@@ -542,7 +542,7 @@ public class Make7Activity extends AppCompatActivity {
         if(number58 == 0){
             Log.d("あいうえお577", "あいうえお");
         } else if (number58 == 577) {
-            layout.setBackgroundResource(R.drawable.backgroundf10);
+            layout.setBackgroundResource(R.drawable.backgroundg2);
         }
 
         Intent intent587 = getIntent();
@@ -550,7 +550,7 @@ public class Make7Activity extends AppCompatActivity {
         if(number59 == 0){
             Log.d("あいうえお587", "あいうえお");
         } else if (number59 == 587) {
-            layout.setBackgroundResource(R.drawable.backgroundf11);
+            layout.setBackgroundResource(R.drawable.backgroundg3);
         }
 
         Intent intent597 = getIntent();
@@ -558,7 +558,7 @@ public class Make7Activity extends AppCompatActivity {
         if(number60 == 0){
             Log.d("あいうえお597", "あいうえお");
         } else if (number60 == 597) {
-            layout.setBackgroundResource(R.drawable.backgroundf12);
+            layout.setBackgroundResource(R.drawable.backgroundg4);
         }
 
         Intent intent607 = getIntent();
@@ -566,7 +566,7 @@ public class Make7Activity extends AppCompatActivity {
         if(number61 == 0){
             Log.d("あいうえお607", "あいうえお");
         } else if (number61 == 607) {
-            layout.setBackgroundResource(R.drawable.backgroundg1);
+            layout.setBackgroundResource(R.drawable.backgroundh1);
         }
 
         Intent intent617 = getIntent();
@@ -574,14 +574,15 @@ public class Make7Activity extends AppCompatActivity {
         if(number62 == 0){
             Log.d("あいうえお617", "あいうえお");
         } else if (number62 == 617) {
-            layout.setBackgroundResource(R.drawable.backgroundg2);
+            layout.setBackgroundResource(R.drawable.backgroundh2);
         }
+
         Intent intent627 = getIntent();
         int number63 = intent627.getIntExtra("background627", 0);
         if(number63 == 0){
             Log.d("あいうえお627", "あいうえお");
         } else if (number63 == 627) {
-            layout.setBackgroundResource(R.drawable.backgroundg3);
+            layout.setBackgroundResource(R.drawable.backgroundh3);
         }
 
         Intent intent637 = getIntent();
@@ -589,7 +590,7 @@ public class Make7Activity extends AppCompatActivity {
         if(number64 == 0){
             Log.d("あいうえお637", "あいうえお");
         } else if (number64 == 637) {
-            layout.setBackgroundResource(R.drawable.backgroundg4);
+            layout.setBackgroundResource(R.drawable.backgroundh4);
         }
 
         Intent intent647 = getIntent();
@@ -597,28 +598,31 @@ public class Make7Activity extends AppCompatActivity {
         if(number65 == 0){
             Log.d("あいうえお647", "あいうえお");
         } else if (number65 == 647) {
-            layout.setBackgroundResource(R.drawable.backgroundh1);
+            layout.setBackgroundResource(R.drawable.backgroundh5);
         }
+
         Intent intent657 = getIntent();
         int number66 = intent657.getIntExtra("background657", 0);
         if(number66 == 0){
             Log.d("あいうえお657", "あいうえお");
         } else if (number66 == 657) {
-            layout.setBackgroundResource(R.drawable.backgroundh2);
+            layout.setBackgroundResource(R.drawable.backgroundh6);
         }
+
         Intent intent667 = getIntent();
         int number67 = intent667.getIntExtra("background667", 0);
         if(number67 == 0){
             Log.d("あいうえお667", "あいうえお");
         } else if (number67 == 667) {
-            layout.setBackgroundResource(R.drawable.backgroundh3);
+            layout.setBackgroundResource(R.drawable.backgroundh7);
         }
+
         Intent intent677 = getIntent();
         int number68 = intent677.getIntExtra("background677", 0);
         if(number68 == 0){
             Log.d("あいうえお677", "あいうえお");
         } else if (number68 == 677) {
-            layout.setBackgroundResource(R.drawable.backgroundh4);
+            layout.setBackgroundResource(R.drawable.backgroundh8);
         }
 
         Intent intent687 = getIntent();
@@ -626,7 +630,7 @@ public class Make7Activity extends AppCompatActivity {
         if(number69 == 0){
             Log.d("あいうえお687", "あいうえお");
         } else if (number69 == 687) {
-            layout.setBackgroundResource(R.drawable.backgroundh5);
+            layout.setBackgroundResource(R.drawable.backgroundh9);
         }
 
         Intent intent697 = getIntent();
@@ -634,7 +638,7 @@ public class Make7Activity extends AppCompatActivity {
         if(number70 == 0){
             Log.d("あいうえお697", "あいうえお");
         } else if (number70 == 697) {
-            layout.setBackgroundResource(R.drawable.backgroundh6);
+            layout.setBackgroundResource(R.drawable.backgroundh10);
         }
 
         Intent intent707 = getIntent();
@@ -642,7 +646,7 @@ public class Make7Activity extends AppCompatActivity {
         if(number71 == 0){
             Log.d("あいうえお707", "あいうえお");
         } else if (number71 == 707) {
-            layout.setBackgroundResource(R.drawable.backgroundh7);
+            layout.setBackgroundResource(R.drawable.backgroundh11);
         }
 
         Intent intent717 = getIntent();
@@ -650,36 +654,41 @@ public class Make7Activity extends AppCompatActivity {
         if(number72 == 0){
             Log.d("あいうえお717", "あいうえお");
         } else if (number72 == 717) {
-            layout.setBackgroundResource(R.drawable.backgroundh8);
+            layout.setBackgroundResource(R.drawable.backgroundh12);
         }
+
         Intent intent727 = getIntent();
         int number73 = intent727.getIntExtra("background727", 0);
         if(number73 == 0){
             Log.d("あいうえお727", "あいうえお");
         } else if (number73 == 727) {
-            layout.setBackgroundResource(R.drawable.backgroundh9);
+            layout.setBackgroundResource(R.drawable.backgroundh13);
         }
+
         Intent intent737 = getIntent();
         int number74 = intent737.getIntExtra("background737", 0);
         if(number74 == 0){
             Log.d("あいうえお737", "あいうえお");
         } else if (number74 == 737) {
-            layout.setBackgroundResource(R.drawable.backgroundh10);
+            layout.setBackgroundResource(R.drawable.backgroundh14);
         }
+
         Intent intent747 = getIntent();
         int number75 = intent747.getIntExtra("background747", 0);
         if(number75 == 0){
             Log.d("あいうえお747", "あいうえお");
         } else if (number75 == 747) {
-            layout.setBackgroundResource(R.drawable.backgroundh11);
+            layout.setBackgroundResource(R.drawable.backgroundh15);
         }
+
         Intent intent757 = getIntent();
         int number76 = intent757.getIntExtra("background757", 0);
         if(number76 == 0){
             Log.d("あいうえお757", "あいうえお");
         } else if (number76 == 757) {
-            layout.setBackgroundResource(R.drawable.backgroundh12);
+            layout.setBackgroundResource(R.drawable.backgroundh16);
         }
+
         Intent intent767 = getIntent();
         int number77 = intent767.getIntExtra("background767", 0);
         if(number77 == 0){
@@ -687,6 +696,7 @@ public class Make7Activity extends AppCompatActivity {
         } else if (number77 == 767) {
             layout.setBackgroundResource(R.drawable.backgroundi1);
         }
+
         Intent intent777 = getIntent();
         int number78 = intent777.getIntExtra("background777", 0);
         if(number78 == 0){
@@ -694,6 +704,7 @@ public class Make7Activity extends AppCompatActivity {
         } else if (number78 == 777) {
             layout.setBackgroundResource(R.drawable.backgroundi2);
         }
+
         Intent intent787 = getIntent();
         int number79 = intent787.getIntExtra("background787", 0);
         if(number79 == 0){
@@ -701,6 +712,7 @@ public class Make7Activity extends AppCompatActivity {
         } else if (number79 == 787) {
             layout.setBackgroundResource(R.drawable.backgroundi3);
         }
+
         Intent intent797 = getIntent();
         int number80 = intent797.getIntExtra("background797", 0);
         if(number80 == 0){
@@ -708,6 +720,7 @@ public class Make7Activity extends AppCompatActivity {
         } else if (number80 == 797) {
             layout.setBackgroundResource(R.drawable.backgroundi4);
         }
+
         Intent intent807 = getIntent();
         int number81 = intent807.getIntExtra("background807", 0);
         if(number81 == 0){
@@ -715,6 +728,7 @@ public class Make7Activity extends AppCompatActivity {
         } else if (number81 == 807) {
             layout.setBackgroundResource(R.drawable.backgroundi5);
         }
+
         Intent intent817 = getIntent();
         int number82 = intent817.getIntExtra("background817", 0);
         if(number82 == 0){
@@ -722,6 +736,7 @@ public class Make7Activity extends AppCompatActivity {
         } else if (number82 == 817) {
             layout.setBackgroundResource(R.drawable.backgroundi6);
         }
+
         Intent intent827 = getIntent();
         int number83 = intent827.getIntExtra("background827", 0);
         if(number83 == 0){
@@ -729,6 +744,7 @@ public class Make7Activity extends AppCompatActivity {
         } else if (number83 == 827) {
             layout.setBackgroundResource(R.drawable.backgroundi7);
         }
+
         Intent intent837 = getIntent();
         int number84 = intent837.getIntExtra("background837", 0);
         if(number84 == 0){
