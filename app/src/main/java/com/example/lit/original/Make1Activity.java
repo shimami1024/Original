@@ -1130,7 +1130,7 @@ public class Make1Activity extends AppCompatActivity {
     }
 
     //gitHub
-    //VCSのCommitChangesでコメントを書いてCommit, Commitしたら再びVCSでPush
+    //VCSのCommitChangesでコメントを書いてCommit, Commitしたら再びVCSのGitHubのPush
 
     //valuesのdimens.xml見てみて
 
@@ -1141,10 +1141,10 @@ public class Make1Activity extends AppCompatActivity {
     //editTextに背景つけられるように
     //画鋲やボタンの画像集め
     //画鋲やボタンおくときのパレットつくらんと
-    //Dailyに写真をのせて、そのあとギャラリーで乗せた写真を消してもきちんとDailyでは保存できてるようにする
+    //Dailyに写真をのせて、そのあとギャラリーから移した写真を消してもきちんとDailyでは保存できてるようにする
     //（→アルバム整理みたいなのに役に立てるように！！）
-    //
-    //
+    //（→追記　bitmapにしてるので後で消しても大丈夫っぽい）
+    //レイアウト選ぶところからmakeに飛ぶときに、背景選択画面みたいに配列つくってmakeは1つにして
     //
 }
 

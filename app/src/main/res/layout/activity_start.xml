@@ -8,7 +8,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.lit.original.StartActivity"
-    android:background="@drawable/test1">
+    android:background="@drawable/test1"
+    android:hapticFeedbackEnabled="false"
+    android:id="@+id/relative">
 
     <Button
         android:layout_width="wrap_content"
@@ -29,5 +31,45 @@
         android:onClick="see"
         android:layout_alignTop="@+id/MakeButton"
         android:layout_centerHorizontal="true" />
+
+    <FrameLayout
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:id="@+id/frame"
+        android:visibility="invisible"
+        android:background="@drawable/teste">
+
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:id="@+id/imageView4"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/MakeButton"
+            android:layout_toEndOf="@+id/MakeButton"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp" />
+
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:id="@+id/imageView5"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="0dp" />
+
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:id="@+id/imageView6"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="128dp" />
+
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:id="@+id/imageView7"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="128dp" />
+
+    </FrameLayout>
 
 </RelativeLayout>

@@ -77,7 +77,7 @@ public class SaveActivity extends AppCompatActivity {
         Intent intentSS = getIntent();
         int ss = intentSS.getIntExtra("SS", 0);
         if(ss == 0){
-            Toast.makeText(this, "保存しました", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "保存しました", Toast.LENGTH_LONG).show();
         } else if(ss == 1){
             buttonS.setVisibility(View.GONE);
         }
