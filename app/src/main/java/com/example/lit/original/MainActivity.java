@@ -19,56 +19,65 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void first(View v){
-        Intent intent = new Intent(this, Make1Activity.class);
+        Intent intent = new Intent(this, MakeActivity.class);
+        intent.putExtra("L", 1);
         startActivity(intent);
     }
 
     public void second(View v){
-        Intent intent = new Intent(this, Make2Activity.class);
+        Intent intent = new Intent(this, MakeActivity.class);
+        intent.putExtra("L", 2);
         startActivity(intent);
     }
 
     public void third(View v){
-        Intent intent = new Intent(this, Make3Activity.class);
+        Intent intent = new Intent(this, MakeActivity.class);
+        intent.putExtra("L", 3);
         startActivity(intent);
     }
 
     public void fourth(View v){
-        Intent intent = new Intent(this, Make4Activity.class);
+        Intent intent = new Intent(this, MakeActivity.class);
+        intent.putExtra("L", 4);
         startActivity(intent);
     }
 
     public void fifth(View v){
-        Intent intent = new Intent(this, Make5Activity.class);
+        Intent intent = new Intent(this, MakeActivity.class);
+        intent.putExtra("L", 5);
         startActivity(intent);
     }
 
     public void sixth(View v){
-        Intent intent = new Intent(this, Make6Activity.class);
+        Intent intent = new Intent(this, MakeActivity.class);
+        intent.putExtra("L", 6);
         startActivity(intent);
     }
 
     public void seventh(View v){
-        Intent intent = new Intent(this, Make7Activity.class);
+        Intent intent = new Intent(this, MakeActivity.class);
+        intent.putExtra("L", 7);
         startActivity(intent);
     }
 
     public void eighth(View v){
-        Intent intent = new Intent(this, Make8Activity.class);
+        Intent intent = new Intent(this, MakeActivity.class);
+        intent.putExtra("L", 8);
         startActivity(intent);
     }
 
     public void ninth(View v){
-        Intent intent = new Intent(this, Make9Activity.class);
+        Intent intent = new Intent(this, MakeActivity.class);
+        intent.putExtra("L", 9);
         startActivity(intent);
     }
 
     public void tenth(View v){
-        Intent intent = new Intent(this, Make10Activity.class);
+        Intent intent = new Intent(this, MakeActivity.class);
+        intent.putExtra("L", 10);
         startActivity(intent);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    }
+    //レイアウトの選択ボタンの背景の画像をmakeActivityからつくっておくこと
+    //listViewにbuttonを組み込む
 }

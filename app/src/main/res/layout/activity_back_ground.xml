@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.lit.original.BackGroundAActivity"
+    tools:context=".BackGroundActivity"
     android:background="#ffffff">
 
     <LinearLayout
@@ -24,18 +24,18 @@
             <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/imageButton1"
+                android:id="@+id/topLeftImageButton"
                 android:layout_weight="1"
                 android:layout_margin="1dp"
-                android:onClick="atl" />
+                android:onClick="tl" />
 
             <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/imageButton2"
+                android:id="@+id/topRightImageButton"
                 android:layout_weight="1"
                 android:layout_margin="1dp"
-                android:onClick="atr" />
+                android:onClick="tr" />
         </LinearLayout>
 
         <LinearLayout
@@ -47,47 +47,47 @@
             <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/imageButton3"
+                android:id="@+id/bottomLeftImageButton"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:onClick="abl" />
+                android:onClick="bl" />
 
             <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/imageButton4"
+                android:id="@+id/bottomRightImageButton"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:onClick="abr" />
+                android:onClick="br" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2" >
+            android:layout_weight="2"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="6dp">
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/BACK"
+                android:id="@+id/backButton"
                 android:layout_weight="1"
                 android:textSize="25dp"
                 android:onClick="back"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginRight="25dp"
                 android:background="@drawable/arrow007" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/NEXT"
+                android:id="@+id/nextButton"
                 android:textSize="25dp"
                 android:onClick="next"
                 android:layout_weight="1"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginRight="25dp"
                 android:background="@drawable/arrow001" />
         </LinearLayout>

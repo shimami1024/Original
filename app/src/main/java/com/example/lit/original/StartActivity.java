@@ -1,13 +1,9 @@
 package com.example.lit.original;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
-import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.graphics.Shader;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -51,20 +47,20 @@ public class StartActivity extends AppCompatActivity {
         //rotate.start();
 
         //Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.backgroundh13);
-        Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.zz);
-        Bitmap circleBitmap1 = Bitmap.createBitmap(bitmap1.getWidth(), bitmap1.getHeight(), Bitmap.Config.ARGB_8888);
+        //Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.zz);
+        //Bitmap circleBitmap1 = Bitmap.createBitmap(bitmap1.getWidth(), bitmap1.getHeight(), Bitmap.Config.ARGB_8888);
 
         //Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.backgroundh14);
-        Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.zzz);
-        Bitmap circleBitmap2 = Bitmap.createBitmap(bitmap2.getWidth(), bitmap2.getHeight(), Bitmap.Config.ARGB_8888);
+        //Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.zzz);
+        //Bitmap circleBitmap2 = Bitmap.createBitmap(bitmap2.getWidth(), bitmap2.getHeight(), Bitmap.Config.ARGB_8888);
 
         //Bitmap bitmap3 = BitmapFactory.decodeResource(getResources(), R.drawable.backgroundh15);
-        Bitmap bitmap3 = BitmapFactory.decodeResource(getResources(), R.drawable.zzzz);
-        Bitmap circleBitmap3 = Bitmap.createBitmap(bitmap3.getWidth(), bitmap3.getHeight(), Bitmap.Config.ARGB_8888);
+        //Bitmap bitmap3 = BitmapFactory.decodeResource(getResources(), R.drawable.zzzz);
+        //Bitmap circleBitmap3 = Bitmap.createBitmap(bitmap3.getWidth(), bitmap3.getHeight(), Bitmap.Config.ARGB_8888);
 
         //Bitmap bitmap4 = BitmapFactory.decodeResource(getResources(), R.drawable.backgroundh16);
-        Bitmap bitmap4 = BitmapFactory.decodeResource(getResources(), R.drawable.zzzzz);
-        Bitmap circleBitmap4 = Bitmap.createBitmap(bitmap4.getWidth(), bitmap4.getHeight(), Bitmap.Config.ARGB_8888);
+        //Bitmap bitmap4 = BitmapFactory.decodeResource(getResources(), R.drawable.zzzzz);
+        //Bitmap circleBitmap4 = Bitmap.createBitmap(bitmap4.getWidth(), bitmap4.getHeight(), Bitmap.Config.ARGB_8888);
 
 
         //background13のbitmapを作成（.decodeResource:resource型の変数をbitmap型の変数に変換する）
@@ -78,16 +74,16 @@ public class StartActivity extends AppCompatActivity {
         //　8888が最高段階（これ以上は無理）であとは4444、実はこの2つしかない（笑））
 
         BitmapShader shader1;
-        shader1 = new BitmapShader(bitmap1, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        //shader1 = new BitmapShader(bitmap1, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
 
         BitmapShader shader2;
-        shader2 = new BitmapShader(bitmap2, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        //shader2 = new BitmapShader(bitmap2, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
 
         BitmapShader shader3;
-        shader3 = new BitmapShader(bitmap3, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        //shader3 = new BitmapShader(bitmap3, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
 
         BitmapShader shader4;
-        shader4 = new BitmapShader(bitmap4, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        //shader4 = new BitmapShader(bitmap4, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
 
         //shader:陰影やグラデーションをつけるコンピュータープログラムのこと
         //BitmapShaderという変数はそのbitmap版というだけ
@@ -101,7 +97,7 @@ public class StartActivity extends AppCompatActivity {
 
         Paint paint = new Paint();
         paint.setAntiAlias(true);
-        paint.setShader(shader1);
+        //paint.setShader(shader1);
         //paint:描画する際に使われるペンのようなものの設定ができる変数（canvasで使う）
         //.setAntiAlias:文字やラインを滑らかに見せるための処理を有効（true）にするか無効（false）にするかの設定ができる
 
@@ -117,39 +113,39 @@ public class StartActivity extends AppCompatActivity {
         rotation.setDuration(10000);
 
         RectF rectf = new RectF(0, 0, 1000, 1000);
-        Canvas canvas = new Canvas(circleBitmap1);
-        canvas.drawArc(rectf, 50, 90, true, paint);
+        //Canvas canvas = new Canvas(circleBitmap1);
+        //canvas.drawArc(rectf, 50, 90, true, paint);
 
         //LinearLayout.LayoutParams IV = new LinearLayout.LayoutParams(1000, 1000);
         LinearLayout.LayoutParams IV = new LinearLayout.LayoutParams(100, 100);
         imageViewTL.setLayoutParams(IV);
-        imageViewTL.setImageBitmap(circleBitmap1);
+        //imageViewTL.setImageBitmap(circleBitmap1);
         //imageViewTL.setX(400);
         //imageViewTL.setY(-320);
         //imageViewTL.startAnimation(rotation);
         relative.addView(imageViewTL);
 
-        paint.setShader(shader2);
+        //paint.setShader(shader2);
         //rectf.offset(-20, -20);
-        canvas.drawArc(rectf, 140, 90, true, paint);
+        //canvas.drawArc(rectf, 140, 90, true, paint);
         imageViewTR.setLayoutParams(IV);
-        imageViewTR.setImageBitmap(circleBitmap2);
+        //imageViewTR.setImageBitmap(circleBitmap2);
         relative.addView(imageViewTR);
         //imageViewTR.startAnimation(rotation);
 
-        paint.setShader(shader3);
+        //paint.setShader(shader3);
         //rectf.offset(20, -20);
-        canvas.drawArc(rectf, 230, 90, true, paint);
+        //canvas.drawArc(rectf, 230, 90, true, paint);
         imageViewBL.setLayoutParams(IV);
-        imageViewBL.setImageBitmap(circleBitmap3);
+        //imageViewBL.setImageBitmap(circleBitmap3);
         relative.addView(imageViewBL);
         //imageViewBL.startAnimation(rotation);
 
-        paint.setShader(shader4);
+        //paint.setShader(shader4);
         //rectf.offset(20, 20);
-        canvas.drawArc(rectf, 320, 90, true, paint);
+        //canvas.drawArc(rectf, 320, 90, true, paint);
         imageViewBR.setLayoutParams(IV);
-        imageViewBR.setImageBitmap(circleBitmap4);
+        //imageViewBR.setImageBitmap(circleBitmap4);
         relative.addView(imageViewBR);
         //imageViewBR.startAnimation(rotation);
 

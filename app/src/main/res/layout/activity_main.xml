@@ -14,98 +14,133 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="レイアウト１"
-            android:id="@+id/button"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:onClick="first"
-            android:layout_weight="1"
-            android:layout_margin="1dp" />
+            android:layout_weight="1">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:text="レイアウト２"
-            android:id="@+id/button2"
-            android:layout_below="@+id/button"
-            android:layout_centerHorizontal="true"
-            android:onClick="second"
-            android:layout_weight="1"
-            android:layout_margin="1dp" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="レイアウト１"
+                android:id="@+id/button1"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:onClick="first"
+                android:layout_weight="1"
+                android:layout_margin="1dp" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:text="レイアウト３"
-            android:id="@+id/button3"
-            android:layout_weight="1"
-            android:layout_margin="1dp"
-            android:onClick="third" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="レイアウト２"
+                android:id="@+id/button2"
+                android:layout_below="@+id/button1"
+                android:layout_centerHorizontal="true"
+                android:onClick="second"
+                android:layout_weight="1"
+                android:layout_margin="1dp" />
+        </LinearLayout>
 
-        <Button
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="レイアウト４"
-            android:id="@+id/button4"
-            android:layout_weight="1"
-            android:layout_margin="1dp"
-            android:onClick="fourth" />
+            android:layout_weight="1">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:text="レイアウト５"
-            android:id="@+id/button5"
-            android:layout_weight="1"
-            android:layout_margin="1dp"
-            android:onClick="fifth" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="レイアウト３"
+                android:id="@+id/button3"
+                android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:onClick="third" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:text="レイアウト６"
-            android:id="@+id/button6"
-            android:layout_weight="1"
-            android:layout_margin="1dp"
-            android:onClick="sixth" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="レイアウト４"
+                android:id="@+id/button4"
+                android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:onClick="fourth" />
+        </LinearLayout>
 
-        <Button
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="レイアウト７"
-            android:id="@+id/button7"
-            android:layout_weight="1"
-            android:layout_margin="1dp"
-            android:onClick="seventh" />
+            android:layout_weight="1">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:text="レイアウト８"
-            android:id="@+id/button8"
-            android:layout_weight="1"
-            android:layout_margin="1dp"
-            android:onClick="eighth" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="レイアウト５"
+                android:id="@+id/button5"
+                android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:onClick="fifth" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:text="レイアウト９"
-            android:id="@+id/button9"
-            android:layout_weight="1"
-            android:layout_margin="1dp"
-            android:onClick="ninth" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="レイアウト６"
+                android:id="@+id/button6"
+                android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:onClick="sixth" />
+        </LinearLayout>
 
-        <Button
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="レイアウト１０"
-            android:id="@+id/button10"
-            android:layout_weight="1"
-            android:layout_margin="1dp"
-            android:onClick="tenth" />
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="レイアウト７"
+                android:id="@+id/button7"
+                android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:onClick="seventh" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="レイアウト８"
+                android:id="@+id/button8"
+                android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:onClick="eighth" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="レイアウト９"
+                android:id="@+id/button9"
+                android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:onClick="ninth" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="レイアウト１０"
+                android:id="@+id/button10"
+                android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:onClick="tenth" />
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

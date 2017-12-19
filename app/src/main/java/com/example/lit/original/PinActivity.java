@@ -14,7 +14,7 @@ public class PinActivity extends AppCompatActivity {
     }
 
     public void f9(View v){
-        Intent intentPin = new Intent(this, Make1Activity.class);
+        Intent intentPin = new Intent(this, MakeActivity.class);
         intentPin.putExtra("Test", 1);
         startActivity(intentPin);
     }
