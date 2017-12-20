@@ -23,19 +23,22 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
 
-public class MakeActivity extends AppCompatActivity
-        implements View.OnTouchListener {
+public class MakeActivity extends AppCompatActivity implements View.OnLongClickListener {
     //private static final int REQUEST_GALLERY = 0;
+
+    private View mDraggedView;
 
     boolean flag;
 
     int layoutNumber;
+
+    float x;
+    float y;
 
     //imageViewの画像になる変数の宣言
     Bitmap img;
@@ -100,10 +103,7 @@ public class MakeActivity extends AppCompatActivity
 
     LinearLayout tapesLinearLayout;
 
-    private CustomImageView cImageView;
-    private int preDx, preDy;
-    private TextView textView;
-
+    ImageView tape1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,6 +150,7 @@ public class MakeActivity extends AppCompatActivity
         frameLayout = (FrameLayout)findViewById(R.id.frameLayout);
 
         relativeLayout = (RelativeLayout)findViewById(R.id.RelativeLayout);
+        //relativeLayout.setOnDragListener(dragListener);
 
         //imageViewとeditTextで角度設定か背景設定かを選ぶための変数の関連付け
         choiceBackgroundOrAngleLinearLayout = (LinearLayout)findViewById(R.id.choiceBackgroundOrAngleLinearLayout);
@@ -190,6 +191,14 @@ public class MakeActivity extends AppCompatActivity
 
         tapesLinearLayout = (LinearLayout)findViewById(R.id.tapesLinearLayout);
 
+        //tape1 = (ImageView)findViewById(R.id.imageView10);
+        //tape1.setVisibility(View.GONE);
+
+        /* layoutファイルからTextViewを取得 */
+        //mDraggedView = findViewById(R.id.imageView10);
+        /* OnLongClickListenerをTextViewにセット */
+        //mDraggedView.setOnLongClickListener(this);
+
         String sIV = preferencesPhoto.getString("img","");
         if(sIV == ""){
 
@@ -229,14 +238,6 @@ public class MakeActivity extends AppCompatActivity
 
         Intent intentBG = getIntent();
         int backgroundNumber = intentBG.getIntExtra("BG", 0);
-
-        //cImageView = this.findViewById(R.id.tape1);
-
-        cImageView = (CustomImageView)findViewById(R.id.tape1);
-        cImageView.setOnTouchListener(this);
-        textView = (TextView)findViewById(R.id.text_view);
-
-        cImageView.setVisibility(View.GONE);
 
         if (backgroundNumber == 0) {
             //imageView.setOnClickListener(imageViewOnClick);
@@ -549,8 +550,10 @@ public class MakeActivity extends AppCompatActivity
         // TODO Auto-generated method stub
         gesDetect.onTouchEvent(event);
 
-        float x = event.getX();
-        float y = event.getY();
+        //float x = event.getX();
+        //float y = event.getY();
+        x = event.getX();
+        y = event.getY();
         String action = "";
 
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
@@ -562,24 +565,10 @@ public class MakeActivity extends AppCompatActivity
                 break;
             case MotionEvent.ACTION_UP:
                 action = "Touch Up";
-
-                Intent intentPin = getIntent();
-                int PIN = intentPin.getIntExtra("Test", 0);
-                Log.d("値", String.valueOf(PIN));
-                if (PIN == 1) {
-                    ImageView Pin = new ImageView(this);
-
-                    float PinX = x - 80;
-                    float PinY = y - 320;
-                    Pin.setX(PinX);
-                    Pin.setY(PinY);
-                    Pin.setBackgroundResource(R.drawable.pin1);
-                    frameLayout.addView(Pin, 100, 100);
-                } else {
-                    Log.d("error", "エラー");
-                }
+                tape1.setX(x);
+                tape1.setY(y);
+                tape1.setVisibility(View.VISIBLE);
                 break;
-
             case MotionEvent.ACTION_CANCEL:
                 action = "Touch Cancel";
                 break;
@@ -646,51 +635,70 @@ public class MakeActivity extends AppCompatActivity
     }
 
     public void tape1(View v){
-        //tape1 = (ImageView)findViewById(R.id.tape1);
-        //cImageView = this.findViewById(R.id.tape1);
-        //cImageView.setOnTouchListener(this);
-        //textView = (TextView)findViewById(R.id.text_view);
-        cImageView.setVisibility(View.VISIBLE);
+        tapesLinearLayout.setVisibility(View.GONE);
+        tape1 = (ImageView)findViewById(R.id.imageView10);
+        //tape1.setVisibility(View.GONE);
+
+        /* layoutファイルからTextViewを取得 */
+        mDraggedView = findViewById(R.id.imageView10);
+        /* OnLongClickListenerをTextViewにセット */
+        mDraggedView.setOnLongClickListener(this);
+
+        tape1.setVisibility(View.VISIBLE);
     }
 
+
+
+    /* OnLongClickListenerを実装したViewが長押しされた際に呼び出されるメソッド */
     @Override
-    public boolean onTouch(View v, MotionEvent event) {
-        // x,y 位置取得
-        int newDx = (int)event.getRawX();
-        int newDy = (int)event.getRawY();
+    public boolean onLongClick(View v) {
+    /* ここに長押しした際の処理を記述します */
+        /* ドラッグ&ドロップ処理を開始する */
+        //v.setVisibility(View.GONE);
 
-        switch (event.getAction()) {
-            // タッチダウンでdragされた
-            case MotionEvent.ACTION_MOVE:
-                // ACTION_MOVEでの位置
-                // performCheckを入れろと警告が出るので
-                v.performClick();
-                int dx = cImageView.getLeft() + (newDx - preDx);
-                int dy = cImageView.getTop() + (newDy - preDy);
-                int imgW = dx + cImageView.getWidth();
-                int imgH = dy + cImageView.getHeight();
-
-                // 画像の位置を設定する
-                cImageView.layout(dx, dy, imgW, imgH);
-                String str = "dx="+dx+"\ndy="+dy;
-                textView.setText(str);
-
-                Log.d("onTouch","ACTION_MOVE: dx="+dx+", dy="+dy);
-                break;
-            case MotionEvent.ACTION_DOWN:
-                break;
-            case MotionEvent.ACTION_UP:
-                break;
-            default:
-                break;
-        }
-
-        // タッチした位置を古い位置とする
-        preDx = newDx;
-        preDy = newDy;
+        v.startDrag(null, new View.DragShadowBuilder(v), v, 0);
+        v.setOnTouchListener(touchListener);
+        //x = mDraggedView.getX();
+        //y = mDraggedView.getY();
+        //Log.v("Drag", " x=" + x + ", y=" + y);
 
         return true;
     }
+
+    private View.OnTouchListener touchListener = new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            // TODO Auto-generated method stub
+            gesDetect.onTouchEvent(event);
+
+            //float x = event.getX();
+            //float y = event.getY();
+            x = event.getX();
+            y = event.getY();
+            String action = "";
+
+            switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                case MotionEvent.ACTION_DOWN:
+                    action = "Touch Down";
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    action = "Touch Move";
+                    break;
+                case MotionEvent.ACTION_UP:
+                    action = "Touch Up";
+                    tape1.setX(x);
+                    tape1.setY(y);
+                    tape1.setVisibility(View.VISIBLE);
+                    break;
+                case MotionEvent.ACTION_CANCEL:
+                    action = "Touch Cancel";
+                    break;
+            }
+
+            Log.v("Touch", action + " x=" + x + ", y=" + y);
+            return false;
+        }
+    };
 
     private final GestureDetector.SimpleOnGestureListener onGestureListener = new GestureDetector.SimpleOnGestureListener() {
         @Override
