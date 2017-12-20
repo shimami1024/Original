@@ -13,7 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableStringBuilder;
 import android.util.Base64;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -23,12 +22,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
 
-public class MakeActivity extends AppCompatActivity implements View.OnLongClickListener {
+public class MakeActivity extends AppCompatActivity {
     //private static final int REQUEST_GALLERY = 0;
 
     private View mDraggedView;
@@ -97,13 +97,17 @@ public class MakeActivity extends AppCompatActivity implements View.OnLongClickL
     SharedPreferences preferencesPhoto;
     SharedPreferences preferencesBackground;
 
-    private GestureDetector gesDetect;
-
-    //WindowManager.LayoutParams lp;
-
     LinearLayout tapesLinearLayout;
 
-    ImageView tape1;
+    DragViewListener listener;
+
+    int tapeNumber;
+
+    ImageView dragTapeView1;
+    ImageView dragTapeView2;
+    ImageView dragTapeView3;
+    ImageView dragTapeView4;
+    ImageView dragTapeView5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,8 +189,6 @@ public class MakeActivity extends AppCompatActivity implements View.OnLongClickL
         preferencesPhoto = getSharedPreferences("pref_img", Context.MODE_PRIVATE);
         preferencesBackground = getSharedPreferences("pref_bg", Context.MODE_PRIVATE);
 
-        gesDetect = new GestureDetector(this, onGestureListener);
-
         //lp = getWindow().getAttributes();
 
         tapesLinearLayout = (LinearLayout)findViewById(R.id.tapesLinearLayout);
@@ -198,6 +200,8 @@ public class MakeActivity extends AppCompatActivity implements View.OnLongClickL
         //mDraggedView = findViewById(R.id.imageView10);
         /* OnLongClickListenerをTextViewにセット */
         //mDraggedView.setOnLongClickListener(this);
+
+        tapeNumber = 0;
 
         String sIV = preferencesPhoto.getString("img","");
         if(sIV == ""){
@@ -545,40 +549,6 @@ public class MakeActivity extends AppCompatActivity implements View.OnLongClickL
         }
     };
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        // TODO Auto-generated method stub
-        gesDetect.onTouchEvent(event);
-
-        //float x = event.getX();
-        //float y = event.getY();
-        x = event.getX();
-        y = event.getY();
-        String action = "";
-
-        switch (event.getAction() & MotionEvent.ACTION_MASK) {
-            case MotionEvent.ACTION_DOWN:
-                action = "Touch Down";
-                break;
-            case MotionEvent.ACTION_MOVE:
-                action = "Touch Move";
-                break;
-            case MotionEvent.ACTION_UP:
-                action = "Touch Up";
-                tape1.setX(x);
-                tape1.setY(y);
-                tape1.setVisibility(View.VISIBLE);
-                break;
-            case MotionEvent.ACTION_CANCEL:
-                action = "Touch Cancel";
-                break;
-        }
-
-        Log.v("Touch", action + " x=" + x + ", y=" + y);
-        return super.onTouchEvent(event);
-
-    }
-
     public void background(View v) {
         if (layoutNumber == 0){
             Intent intentM1 = new Intent(this, BackGroundActivity.class);
@@ -629,141 +599,225 @@ public class MakeActivity extends AppCompatActivity implements View.OnLongClickL
     }
 
     public void tape(View v){
-        //lp.screenBrightness = 0.0f;
-        //getWindow().setAttributes(lp);
         tapesLinearLayout.setVisibility(View.VISIBLE);
     }
 
+    // ドラッグ対象Viewとイベント処理クラスを紐付ける
+
     public void tape1(View v){
         tapesLinearLayout.setVisibility(View.GONE);
-        tape1 = (ImageView)findViewById(R.id.imageView10);
-        //tape1.setVisibility(View.GONE);
+        tapeNumber++;
 
-        /* layoutファイルからTextViewを取得 */
-        mDraggedView = findViewById(R.id.imageView10);
-        /* OnLongClickListenerをTextViewにセット */
-        mDraggedView.setOnLongClickListener(this);
-
-        tape1.setVisibility(View.VISIBLE);
-    }
-
-
-
-    /* OnLongClickListenerを実装したViewが長押しされた際に呼び出されるメソッド */
-    @Override
-    public boolean onLongClick(View v) {
-    /* ここに長押しした際の処理を記述します */
-        /* ドラッグ&ドロップ処理を開始する */
-        //v.setVisibility(View.GONE);
-
-        v.startDrag(null, new View.DragShadowBuilder(v), v, 0);
-        v.setOnTouchListener(touchListener);
-        //x = mDraggedView.getX();
-        //y = mDraggedView.getY();
-        //Log.v("Drag", " x=" + x + ", y=" + y);
-
-        return true;
-    }
-
-    private View.OnTouchListener touchListener = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            // TODO Auto-generated method stub
-            gesDetect.onTouchEvent(event);
-
-            //float x = event.getX();
-            //float y = event.getY();
-            x = event.getX();
-            y = event.getY();
-            String action = "";
-
-            switch (event.getAction() & MotionEvent.ACTION_MASK) {
-                case MotionEvent.ACTION_DOWN:
-                    action = "Touch Down";
-                    break;
-                case MotionEvent.ACTION_MOVE:
-                    action = "Touch Move";
-                    break;
-                case MotionEvent.ACTION_UP:
-                    action = "Touch Up";
-                    tape1.setX(x);
-                    tape1.setY(y);
-                    tape1.setVisibility(View.VISIBLE);
-                    break;
-                case MotionEvent.ACTION_CANCEL:
-                    action = "Touch Cancel";
-                    break;
-            }
-
-            Log.v("Touch", action + " x=" + x + ", y=" + y);
-            return false;
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tape1);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tape1);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tape1);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tape1);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tape1);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT);
         }
-    };
+    }
 
-    private final GestureDetector.SimpleOnGestureListener onGestureListener = new GestureDetector.SimpleOnGestureListener() {
+    public void tape2(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tape2);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tape2);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tape2);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tape2);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tape2);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT);
+        }
+    }
+
+    public void tape3(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tape3);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tape3);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tape3);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tape3);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tape3);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT);
+        }
+    }
+
+    public void tape4(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tape4);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tape4);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tape4);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tape4);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tape4);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT);
+        }
+    }
+
+    public void tape5(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tape5);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tape5);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tape5);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tape5);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tape5);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT);
+        }
+    }
+
+    public class DragViewListener implements View.OnTouchListener {
+        // ドラッグ対象のView
+        private ImageView dragView;
+        // ドラッグ中に移動量を取得するための変数
+        private int oldX;
+        private int oldY;
+
+        public DragViewListener(ImageView dragView) {
+            if (tapeNumber == 1){
+                this.dragView = dragTapeView1;
+            } else if (tapeNumber == 2){
+                this.dragView = dragTapeView2;
+            } else if (tapeNumber == 3){
+                this.dragView = dragTapeView3;
+            } else if (tapeNumber == 4){
+                this.dragView = dragTapeView4;
+            } else if (tapeNumber == 5){
+                this.dragView = dragTapeView5;
+            }
+        }
+
         @Override
-        public boolean onDoubleTap(MotionEvent e) {
-            // TODO Auto-generated method stub
-            Log.v("Gesture", "onDoubleTap");
-            return super.onDoubleTap(e);
+        public boolean onTouch(View view, MotionEvent event) {
+            // タッチしている位置取得
+            int x = (int) event.getRawX();
+            int y = (int) event.getRawY();
+
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_MOVE:
+                    // 今回イベントでのView移動先の位置
+                    int left = dragView.getLeft() + (x - oldX);
+                    int top = dragView.getTop() + (y - oldY);
+                    // Viewを移動する
+                    dragView.layout(left, top, left + dragView.getWidth(), top + dragView.getHeight());
+                    break;
             }
 
-        @Override
-        public boolean onDoubleTapEvent(MotionEvent e) {
-            // TODO Auto-generated method stub
-            Log.v("Gesture", "onDoubleTapEvent");
-            return super.onDoubleTapEvent(e);
-            }
-
-        @Override
-        public boolean onDown(MotionEvent e) {
-            // TODO Auto-generated method stub
-            Log.v("Gesture", "onDown");
-            return super.onDown(e);
-            }
-
-        @Override
-        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-            // TODO Auto-generated method stub
-            Log.v("Gesture", "onFling");
-            return super.onFling(e1, e2, velocityX, velocityY);
-            }
-
-        @Override
-        public void onLongPress(MotionEvent e) {
-            // TODO Auto-generated method stub
-            Log.v("Gesture", "onLongPress");
-            super.onLongPress(e);
-            }
-
-        @Override
-        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-            // TODO Auto-generated method stub
-            Log.v("Gesture", "onScroll");
-            return super.onScroll(e1, e2, distanceX, distanceY);
-            }
-
-        @Override
-        public void onShowPress(MotionEvent e) {
-            // TODO Auto-generated method stub
-            Log.v("Gesture", "onShowPress");
-            super.onShowPress(e);
-            }
-
-        @Override
-        public boolean onSingleTapConfirmed(MotionEvent e) {
-            // TODO Auto-generated method stub
-            Log.v("Gesture", "onSingleTapConfirmed");
-            return super.onSingleTapConfirmed(e);
-            }
-
-        @Override
-        public boolean onSingleTapUp(MotionEvent e) {
-            // TODO Auto-generated method stub
-            Log.v("Gesture", "onSingleTapUp");
-            return super.onSingleTapUp(e);
-            }
-        };
+            // 今回のタッチ位置を保持
+            oldX = x;
+            oldY = y;
+            // イベント処理完了
+            return true;
+        }
+    }
 
     public void save(View v) {
         String memoText = editText.getText().toString();

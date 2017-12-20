@@ -461,32 +461,35 @@
                     android:layout_weight="1">
 
                     <ImageButton
+                        android:id="@+id/imageButton40"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton40"
                         android:layout_weight="1"
-                        android:src="@drawable/tape1"
-                        android:onClick="tape1" />
+                        android:onClick="tape1"
+                        android:src="@drawable/tape1" />
 
                     <ImageButton
+                        android:id="@+id/imageButton41"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton41"
                         android:layout_weight="1"
+                        android:onClick="tape2"
                         android:src="@drawable/tape2" />
 
                     <ImageButton
+                        android:id="@+id/imageButton42"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton42"
                         android:layout_weight="1"
+                        android:onClick="tape3"
                         android:src="@drawable/tape3" />
 
                     <ImageButton
+                        android:id="@+id/imageButton43"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton43"
                         android:layout_weight="1"
+                        android:onClick="tape4"
                         android:src="@drawable/tape4" />
 
                 </LinearLayout>
@@ -498,32 +501,36 @@
                     android:layout_weight="1">
 
                     <ImageButton
+                        android:id="@+id/imageButton44"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:src="@drawable/tape5"
-                        android:id="@+id/imageButton44" />
+                        android:onClick="tape5"
+                        android:src="@drawable/tape5" />
 
                     <ImageButton
+                        android:id="@+id/imageButton45"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton45"
                         android:layout_weight="1"
+                        android:onClick="tape6"
                         android:src="@drawable/tape6" />
 
                     <ImageButton
+                        android:id="@+id/imageButton46"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton46"
                         android:layout_weight="1"
+                        android:onClick="tape7"
                         android:src="@drawable/tape7" />
 
                     <ImageButton
+                        android:id="@+id/imageButton47"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton47"
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
+                        android:onClick="tape8"
                         android:src="@drawable/tape8" />
                 </LinearLayout>
 
@@ -534,32 +541,36 @@
                     android:layout_weight="1">
 
                     <ImageButton
+                        android:id="@+id/imageButton48"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:src="@drawable/tape9"
-                        android:id="@+id/imageButton48" />
+                        android:onClick="tape9"
+                        android:src="@drawable/tape9" />
 
                     <ImageButton
+                        android:id="@+id/imageButton49"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton49"
                         android:layout_weight="1"
+                        android:onClick="tape10"
                         android:src="@drawable/tape10" />
 
                     <ImageButton
+                        android:id="@+id/imageButton50"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton50"
                         android:layout_weight="1"
+                        android:onClick="tape11"
                         android:src="@drawable/tape11" />
 
                     <ImageButton
+                        android:id="@+id/imageButton51"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton51"
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
+                        android:onClick="tape12"
                         android:src="@drawable/tape12" />
                 </LinearLayout>
 
@@ -570,32 +581,36 @@
                     android:layout_weight="1">
 
                     <ImageButton
+                        android:id="@+id/imageButton52"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:src="@drawable/tape13"
-                        android:id="@+id/imageButton52" />
+                        android:onClick="tape13"
+                        android:src="@drawable/tape13" />
 
                     <ImageButton
+                        android:id="@+id/imageButton53"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton53"
                         android:layout_weight="1"
+                        android:onClick="tape14"
                         android:src="@drawable/tape14" />
 
                     <ImageButton
+                        android:id="@+id/imageButton54"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton54"
                         android:layout_weight="1"
+                        android:onClick="tape15"
                         android:src="@drawable/tape15" />
 
                     <ImageButton
+                        android:id="@+id/imageButton55"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton55"
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
+                        android:onClick="tape16"
                         android:src="@drawable/tape16" />
                 </LinearLayout>
 
@@ -606,43 +621,66 @@
                     android:layout_weight="1">
 
                     <ImageButton
+                        android:id="@+id/imageButton56"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton56"
                         android:layout_weight="1"
+                        android:onClick="tape17"
                         android:src="@drawable/tape17" />
 
                     <ImageButton
+                        android:id="@+id/imageButton57"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton57"
                         android:layout_weight="1"
+                        android:onClick="tape18"
                         android:src="@drawable/tape18" />
 
                     <ImageButton
+                        android:id="@+id/imageButton58"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton58"
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
+                        android:onClick="tape19"
                         android:src="@drawable/tape19" />
 
                     <ImageButton
+                        android:id="@+id/imageButton59"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:src="@drawable/tape20"
-                        android:id="@+id/imageButton59" />
+                        android:onClick="tape20"
+                        android:src="@drawable/tape20" />
                 </LinearLayout>
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/imageView10"
+                android:id="@+id/tape1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
-                android:src="@drawable/tape1"
                 android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/tape2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/tape3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/tape4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/tape5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </FrameLayout>
     </LinearLayout>
