@@ -15,6 +15,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -609,32 +610,37 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
-            dragTapeView1 = (ImageView) findViewById(R.id.tape1);
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape1);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
-            dragTapeView2 = (ImageView) findViewById(R.id.tape1);
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape1);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
-            dragTapeView3 = (ImageView) findViewById(R.id.tape1);
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape1);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
-            dragTapeView4 = (ImageView) findViewById(R.id.tape1);
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape1);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
-            dragTapeView5 = (ImageView) findViewById(R.id.tape1);
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape1);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -643,32 +649,37 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
-            dragTapeView1 = (ImageView) findViewById(R.id.tape2);
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape2);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
-            dragTapeView2 = (ImageView) findViewById(R.id.tape2);
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape2);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
-            dragTapeView3 = (ImageView) findViewById(R.id.tape2);
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape2);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
-            dragTapeView4 = (ImageView) findViewById(R.id.tape2);
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape2);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
-            dragTapeView5 = (ImageView) findViewById(R.id.tape2);
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape2);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -677,32 +688,37 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
-            dragTapeView1 = (ImageView) findViewById(R.id.tape3);
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape3);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
-            dragTapeView2 = (ImageView) findViewById(R.id.tape3);
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape3);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
-            dragTapeView3 = (ImageView) findViewById(R.id.tape3);
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape3);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
-            dragTapeView4 = (ImageView) findViewById(R.id.tape3);
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape3);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
-            dragTapeView5 = (ImageView) findViewById(R.id.tape3);
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape3);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -711,32 +727,37 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
-            dragTapeView1 = (ImageView) findViewById(R.id.tape4);
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape4);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
-            dragTapeView2 = (ImageView) findViewById(R.id.tape4);
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape4);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
-            dragTapeView3 = (ImageView) findViewById(R.id.tape4);
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape4);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
-            dragTapeView4 = (ImageView) findViewById(R.id.tape4);
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape4);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
-            dragTapeView5 = (ImageView) findViewById(R.id.tape4);
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape4);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -745,32 +766,622 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
-            dragTapeView1 = (ImageView) findViewById(R.id.tape5);
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape5);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
-            dragTapeView2 = (ImageView) findViewById(R.id.tape5);
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape5);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
-            dragTapeView3 = (ImageView) findViewById(R.id.tape5);
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape5);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
-            dragTapeView4 = (ImageView) findViewById(R.id.tape5);
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape5);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
-            dragTapeView5 = (ImageView) findViewById(R.id.tape5);
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape5);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void tape6(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape6);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape6);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape6);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape6);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape6);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void tape7(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape7);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape7);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape7);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape7);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape7);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void tape8(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape8);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape8);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape8);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape8);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape8);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void tape9(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape9);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape9);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape9);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape9);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape9);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void tape10(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape10);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape10);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape10);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape10);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape10);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void tape11(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape11);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape11);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape11);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape11);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape11);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void tape12(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape12);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape12);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape12);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape12);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape12);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void tape13(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape13);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape13);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape13);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape13);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape13);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void tape14(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape14);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape14);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape14);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape14);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape14);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void tape15(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape15);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape15);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape15);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape15);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape15);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void tape16(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape16);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape16);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape16);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape16);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape16);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void tape17(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape17);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape17);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape17);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape17);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape17);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void tape18(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape18);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape18);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape18);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape18);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape18);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void tape19(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape19);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape19);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape19);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape19);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape19);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void tape20(View v){
+        tapesLinearLayout.setVisibility(View.GONE);
+        tapeNumber++;
+
+        if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
+            dragTapeView1.setImageResource(R.drawable.tape20);
+            dragTapeView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView1);
+            dragTapeView1.setOnTouchListener(listener);
+        } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
+            dragTapeView2.setImageResource(R.drawable.tape20);
+            dragTapeView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView2);
+            dragTapeView2.setOnTouchListener(listener);
+        } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
+            dragTapeView3.setImageResource(R.drawable.tape20);
+            dragTapeView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView3);
+            dragTapeView3.setOnTouchListener(listener);
+        } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
+            dragTapeView4.setImageResource(R.drawable.tape20);
+            dragTapeView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView4);
+            dragTapeView4.setOnTouchListener(listener);
+        } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
+            dragTapeView5.setImageResource(R.drawable.tape20);
+            dragTapeView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapeView5);
+            dragTapeView5.setOnTouchListener(listener);
+        } else if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -801,13 +1412,41 @@ public class MakeActivity extends AppCompatActivity {
             int x = (int) event.getRawX();
             int y = (int) event.getRawY();
 
+            // ViewGroup.MarginLayoutParamsでキャストすることで
+            // FrameLayoutの子要素であっても同様に扱える。
+            final ViewGroup.MarginLayoutParams param = (ViewGroup.MarginLayoutParams)dragView.getLayoutParams();
+
             switch (event.getAction()) {
                 case MotionEvent.ACTION_MOVE:
                     // 今回イベントでのView移動先の位置
-                    int left = dragView.getLeft() + (x - oldX);
-                    int top = dragView.getTop() + (y - oldY);
+                    //if (tapeNumber == 1){}
+                    //int left = dragView.getLeft() + (x - oldX);
+                    param.leftMargin = dragView.getLeft() + (x - oldX);
+                    //int top = dragView.getTop() + (y - oldY);
+                    param.topMargin = dragView.getTop() + (y - oldY);
                     // Viewを移動する
-                    dragView.layout(left, top, left + dragView.getWidth(), top + dragView.getHeight());
+                    if (tapeNumber == 1){
+                        //dragTapeView1.layout(left, top, left + dragView.getWidth(), top + dragView.getHeight());
+                        dragTapeView1.layout(param.leftMargin, param.topMargin,
+                                param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                    } else if (tapeNumber == 2){
+                        //dragTapeView2.layout(left, top, left + dragView.getWidth(), top + dragView.getHeight());
+                        dragTapeView2.layout(param.leftMargin, param.topMargin,
+                                param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                    } else if (tapeNumber == 3){
+                        //dragTapeView2.layout(left, top, left + dragView.getWidth(), top + dragView.getHeight());
+                        dragTapeView3.layout(param.leftMargin, param.topMargin,
+                                param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                    } else if (tapeNumber == 4){
+                        //dragTapeView2.layout(left, top, left + dragView.getWidth(), top + dragView.getHeight());
+                        dragTapeView4.layout(param.leftMargin, param.topMargin,
+                                param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                    } else if (tapeNumber == 5){
+                        //dragTapeView2.layout(left, top, left + dragView.getWidth(), top + dragView.getHeight());
+                        dragTapeView5.layout(param.leftMargin, param.topMargin,
+                                param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                    }
+
                     break;
             }
 
@@ -875,12 +1514,6 @@ public class MakeActivity extends AppCompatActivity {
     //VCSのCommitChangesでコメントを書いてCommit, Commitしたら再びVCSのGitHubのPush
 
     //valuesのdimens.xml見てみて
-
-    //アプリ開発も大詰めをむかえました！！
-    //12/18 背景設定機能80%,フレーム設定機能50%,メモ背景設定機能50%,マステ配置機能0%,アクセサリー配置機能0%,
-    //      角度入力機能40%,back機能0%,save機能20%
-
-
 
     //フレーム機能設定
     //画鋲をおけるようにする
