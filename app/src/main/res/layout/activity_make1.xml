@@ -60,15 +60,15 @@
                 android:layout_marginRight="20dp">
 
                 <ImageButton
+                    android:id="@+id/backgroundButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/imageButton2"
-                    android:onClick="background"
-                    android:background="@drawable/icon2"
-                    android:layout_marginTop="1dp"
                     android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="2.5dp"
                     android:layout_marginRight="2.5dp"
-                    android:layout_marginLeft="2.5dp" />
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/icon2"
+                    android:onClick="background" />
             </LinearLayout>
 
             <LinearLayout
@@ -83,13 +83,13 @@
                 android:layout_marginRight="20dp">
 
                 <ImageButton
+                    android:id="@+id/tapeButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/imageButton3"
-                    android:onClick="tape"
-                    android:background="@drawable/icon3"
                     android:layout_marginLeft="4dp"
-                    android:layout_marginRight="1dp" />
+                    android:layout_marginRight="1dp"
+                    android:background="@drawable/icon3"
+                    android:onClick="tape" />
             </LinearLayout>
 
             <LinearLayout
@@ -104,7 +104,7 @@
                 android:layout_marginRight="20dp">
 
                 <ImageButton
-                    android:id="@+id/imageButton4"
+                    android:id="@+id/ornamentButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="2dp"
@@ -193,24 +193,75 @@
                 android:layout_height="wrap_content"
                 android:visibility="gone" />
 
+            <ImageView
+                android:id="@+id/ornamentView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/ornamentView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/ornamentView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/ornamentView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/ornamentView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/ornamentView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/ornamentView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/ornamentView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
             <LinearLayout
                 android:id="@+id/ornamentsLinearLayout"
                 android:layout_width="320dp"
                 android:layout_height="256dp"
-                android:layout_marginLeft="50dp"
-                android:alpha="1"
+                android:layout_marginLeft="70dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/eachOrnamentsLinearLayout"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="4"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:id="@+id/pinLinearLayout"
                         android:layout_width="match_parent"
-                        android:layout_height="64dp"
+                        android:layout_height="62dp"
+                        android:alpha="0.8"
+                        android:background="#a0a0a0"
                         android:orientation="horizontal"
                         android:visibility="gone">
 
@@ -219,6 +270,7 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:background="#a0a0a0"
                             android:onClick="pin1"
                             android:src="@drawable/pin1" />
 
@@ -227,6 +279,7 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:background="#a0a0a0"
                             android:onClick="pin2"
                             android:src="@drawable/pin2" />
 
@@ -235,6 +288,7 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:background="#a0a0a0"
                             android:onClick="pin3"
                             android:src="@drawable/pin3" />
 
@@ -243,6 +297,7 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:background="#a0a0a0"
                             android:onClick="pin4"
                             android:src="@drawable/pin4" />
                     </LinearLayout>
@@ -251,6 +306,8 @@
                         android:id="@+id/ribbonLinearLayout"
                         android:layout_width="match_parent"
                         android:layout_height="128dp"
+                        android:alpha="0.8"
+                        android:background="#a0a0a0"
                         android:orientation="vertical"
                         android:visibility="gone">
 
@@ -338,6 +395,8 @@
                         android:layout_width="256dp"
                         android:layout_height="64dp"
                         android:layout_marginTop="128dp"
+                        android:alpha="0.8"
+                        android:background="#a0a0a0"
                         android:orientation="horizontal"
                         android:visibility="gone">
 
@@ -376,22 +435,25 @@
 
                     <LinearLayout
                         android:id="@+id/the_othersLinearLayout"
-                        android:layout_width="256dp"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:alpha="0.8"
+                        android:background="#a0a0a0"
                         android:orientation="vertical"
                         android:visibility="gone">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:layout_weight="5"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="11"
                             android:orientation="horizontal">
 
                             <ImageButton
                                 android:id="@+id/the_others1"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="5"
+                                android:layout_weight="11"
                                 android:background="@drawable/the_others1"
                                 android:onClick="the_others1" />
 
@@ -399,7 +461,7 @@
                                 android:id="@+id/the_others2"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="5"
+                                android:layout_weight="10"
                                 android:background="@drawable/the_others2"
                                 android:onClick="the_others2" />
 
@@ -407,7 +469,7 @@
                                 android:id="@+id/the_others3"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="6"
+                                android:layout_weight="12"
                                 android:background="@drawable/the_others3"
                                 android:onClick="the_others3" />
 
@@ -415,7 +477,7 @@
                                 android:id="@+id/the_others4"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="4"
+                                android:layout_weight="8"
                                 android:background="@drawable/the_others4"
                                 android:onClick="the_others4" />
                         </LinearLayout>
@@ -423,13 +485,14 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:layout_weight="5"
+                            android:layout_weight="10"
                             android:orientation="horizontal">
 
                             <ImageButton
                                 android:id="@+id/the_others5"
                                 android:layout_width="0dp"
-                                android:layout_height="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="5dp"
                                 android:layout_weight="10"
                                 android:background="@drawable/the_others5"
                                 android:onClick="the_others5" />
@@ -437,8 +500,9 @@
                             <ImageButton
                                 android:id="@+id/the_others6"
                                 android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="5"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_weight="4"
                                 android:background="@drawable/the_others6"
                                 android:onClick="the_others6" />
 
@@ -446,7 +510,9 @@
                                 android:id="@+id/the_others7"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="20"
+                                android:layout_marginLeft="14dp"
+                                android:layout_marginRight="14dp"
+                                android:layout_weight="19"
                                 android:background="@drawable/the_others7"
                                 android:onClick="the_others7" />
 
@@ -454,7 +520,7 @@
                                 android:id="@+id/the_others8"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="44"
+                                android:layout_weight="47"
                                 android:background="@drawable/the_others8"
                                 android:onClick="the_others8" />
                         </LinearLayout>
@@ -462,7 +528,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:layout_weight="4"
+                            android:layout_weight="5"
                             android:orientation="vertical">
 
                             <LinearLayout
@@ -475,6 +541,8 @@
                                     android:id="@+id/the_others9"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
+                                    android:layout_marginLeft="6dp"
+                                    android:layout_marginRight="14dp"
                                     android:layout_weight="1"
                                     android:background="@drawable/the_others9"
                                     android:onClick="the_others9" />
@@ -483,6 +551,8 @@
                                     android:id="@+id/the_others10"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
+                                    android:layout_marginLeft="14dp"
+                                    android:layout_marginRight="6dp"
                                     android:layout_weight="1"
                                     android:background="@drawable/the_others10"
                                     android:onClick="the_others10" />
@@ -498,6 +568,8 @@
                                     android:id="@+id/the_others11"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
+                                    android:layout_marginLeft="6dp"
+                                    android:layout_marginRight="14dp"
                                     android:layout_weight="1"
                                     android:background="@drawable/the_others11"
                                     android:onClick="the_others11" />
@@ -506,6 +578,8 @@
                                     android:id="@+id/the_others12"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
+                                    android:layout_marginLeft="14dp"
+                                    android:layout_marginRight="6dp"
                                     android:layout_weight="1"
                                     android:background="@drawable/the_others12"
                                     android:onClick="the_others12" />
@@ -515,7 +589,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:layout_weight="6"
+                            android:layout_weight="14"
                             android:orientation="horizontal">
 
                             <ImageButton
@@ -537,7 +611,8 @@
                             <ImageButton
                                 android:id="@+id/the_others15"
                                 android:layout_width="0dp"
-                                android:layout_height="match_parent"
+                                android:layout_height="80dp"
+                                android:layout_marginTop="10dp"
                                 android:layout_weight="1"
                                 android:background="@drawable/the_others15"
                                 android:onClick="the_others15" />
@@ -545,7 +620,8 @@
                             <ImageButton
                                 android:id="@+id/the_others16"
                                 android:layout_width="0dp"
-                                android:layout_height="match_parent"
+                                android:layout_height="80dp"
+                                android:layout_marginTop="10dp"
                                 android:layout_weight="1"
                                 android:background="@drawable/the_others16"
                                 android:onClick="the_others16" />
@@ -555,9 +631,11 @@
 
                 <LinearLayout
                     android:id="@+id/choiceOrnamentsLinearLayout"
-                    android:layout_width="0dp"
+                    android:layout_width="64dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_marginLeft="256dp"
+                    android:alpha="0.64"
+                    android:background="#a0a0a0"
                     android:orientation="vertical"
                     android:visibility="gone">
 
@@ -565,37 +643,51 @@
                         android:id="@+id/pinTextView"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:layout_marginBottom="2dp"
                         android:layout_weight="1"
+                        android:background="#ffffff"
                         android:gravity="center"
+                        android:onClick="pin"
                         android:text="pin"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/ribbonTextView"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginTop="2dp"
                         android:layout_weight="1"
+                        android:background="#ffffff"
                         android:gravity="center"
+                        android:onClick="ribbon"
                         android:text="ribbon"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/buttonTextView"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginTop="2dp"
                         android:layout_weight="1"
+                        android:background="#ffffff"
                         android:gravity="center"
+                        android:onClick="button"
                         android:text="button"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/the_othersTextView"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:layout_marginTop="2dp"
                         android:layout_weight="1"
+                        android:background="#ffffff"
                         android:gravity="center"
+                        android:onClick="the_others"
                         android:text="the others"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -795,7 +887,9 @@
                         android:id="@+id/imageButton40"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginRight="1dp"
                         android:layout_weight="1"
+                        android:background="#a0a0a0"
                         android:onClick="tape1"
                         android:src="@drawable/tape1" />
 
@@ -803,7 +897,10 @@
                         android:id="@+id/imageButton41"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:layout_weight="1"
+                        android:background="#a0a0a0"
                         android:onClick="tape2"
                         android:src="@drawable/tape2" />
 
@@ -811,7 +908,10 @@
                         android:id="@+id/imageButton42"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:layout_weight="1"
+                        android:background="#a0a0a0"
                         android:onClick="tape3"
                         android:src="@drawable/tape3" />
 
@@ -819,7 +919,9 @@
                         android:id="@+id/imageButton43"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
                         android:layout_weight="1"
+                        android:background="#a0a0a0"
                         android:onClick="tape4"
                         android:src="@drawable/tape4" />
 
@@ -835,7 +937,9 @@
                         android:id="@+id/imageButton44"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginRight="1dp"
                         android:layout_weight="1"
+                        android:background="#a0a0a0"
                         android:onClick="tape5"
                         android:src="@drawable/tape5" />
 
@@ -843,7 +947,10 @@
                         android:id="@+id/imageButton45"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:layout_weight="1"
+                        android:background="#a0a0a0"
                         android:onClick="tape6"
                         android:src="@drawable/tape6" />
 
@@ -851,7 +958,10 @@
                         android:id="@+id/imageButton46"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:layout_weight="1"
+                        android:background="#a0a0a0"
                         android:onClick="tape7"
                         android:src="@drawable/tape7" />
 
@@ -859,8 +969,10 @@
                         android:id="@+id/imageButton47"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
+                        android:background="#a0a0a0"
                         android:onClick="tape8"
                         android:src="@drawable/tape8" />
                 </LinearLayout>
@@ -875,7 +987,9 @@
                         android:id="@+id/imageButton48"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginRight="1dp"
                         android:layout_weight="1"
+                        android:background="#a0a0a0"
                         android:onClick="tape9"
                         android:src="@drawable/tape9" />
 
@@ -883,7 +997,10 @@
                         android:id="@+id/imageButton49"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:layout_weight="1"
+                        android:background="#a0a0a0"
                         android:onClick="tape10"
                         android:src="@drawable/tape10" />
 
@@ -891,7 +1008,10 @@
                         android:id="@+id/imageButton50"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:layout_weight="1"
+                        android:background="#a0a0a0"
                         android:onClick="tape11"
                         android:src="@drawable/tape11" />
 
@@ -899,8 +1019,10 @@
                         android:id="@+id/imageButton51"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
+                        android:background="#a0a0a0"
                         android:onClick="tape12"
                         android:src="@drawable/tape12" />
                 </LinearLayout>
@@ -915,7 +1037,9 @@
                         android:id="@+id/imageButton52"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginRight="1dp"
                         android:layout_weight="1"
+                        android:background="#a0a0a0"
                         android:onClick="tape13"
                         android:src="@drawable/tape13" />
 
@@ -923,7 +1047,10 @@
                         android:id="@+id/imageButton53"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:layout_weight="1"
+                        android:background="#a0a0a0"
                         android:onClick="tape14"
                         android:src="@drawable/tape14" />
 
@@ -931,7 +1058,10 @@
                         android:id="@+id/imageButton54"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:layout_weight="1"
+                        android:background="#a0a0a0"
                         android:onClick="tape15"
                         android:src="@drawable/tape15" />
 
@@ -939,8 +1069,10 @@
                         android:id="@+id/imageButton55"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
+                        android:background="#a0a0a0"
                         android:onClick="tape16"
                         android:src="@drawable/tape16" />
                 </LinearLayout>
@@ -955,7 +1087,9 @@
                         android:id="@+id/imageButton56"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginRight="1dp"
                         android:layout_weight="1"
+                        android:background="#a0a0a0"
                         android:onClick="tape17"
                         android:src="@drawable/tape17" />
 
@@ -963,7 +1097,10 @@
                         android:id="@+id/imageButton57"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:layout_weight="1"
+                        android:background="#a0a0a0"
                         android:onClick="tape18"
                         android:src="@drawable/tape18" />
 
@@ -971,8 +1108,11 @@
                         android:id="@+id/imageButton58"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
+                        android:background="#a0a0a0"
                         android:onClick="tape19"
                         android:src="@drawable/tape19" />
 
@@ -980,7 +1120,10 @@
                         android:id="@+id/imageButton59"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
                         android:layout_weight="1"
+                        android:background="#a0a0a0"
+                        android:onClick="tape20"
                         android:src="@drawable/tape20" />
                 </LinearLayout>
             </LinearLayout>

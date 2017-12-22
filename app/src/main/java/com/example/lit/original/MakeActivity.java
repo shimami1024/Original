@@ -99,16 +99,35 @@ public class MakeActivity extends AppCompatActivity {
     SharedPreferences preferencesBackground;
 
     LinearLayout tapesLinearLayout;
-
-    DragViewListener listener;
-
     int tapeNumber;
-
+    ImageButton tapeButton;
+    boolean tapeFlag;
     ImageView dragTapeView1;
     ImageView dragTapeView2;
     ImageView dragTapeView3;
     ImageView dragTapeView4;
     ImageView dragTapeView5;
+
+    LinearLayout ornamentsLinearLayout;
+    LinearLayout choiceOrnamentLinearLayout;
+    LinearLayout eachOrnamentsLinearLayout;
+    LinearLayout pinLinearLayout;
+    LinearLayout ribbonLinearLayout;
+    LinearLayout buttonLinearLayout;
+    LinearLayout the_othersLinearLayout;
+    int ornamentNumber;
+    ImageButton ornamentButton;
+    boolean ornamentFlag;
+    ImageView dragOrnamentView1;
+    ImageView dragOrnamentView2;
+    ImageView dragOrnamentView3;
+    ImageView dragOrnamentView4;
+    ImageView dragOrnamentView5;
+    ImageView dragOrnamentView6;
+    ImageView dragOrnamentView7;
+    ImageView dragOrnamentView8;
+
+    DragViewListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,19 +209,19 @@ public class MakeActivity extends AppCompatActivity {
         preferencesPhoto = getSharedPreferences("pref_img", Context.MODE_PRIVATE);
         preferencesBackground = getSharedPreferences("pref_bg", Context.MODE_PRIVATE);
 
-        //lp = getWindow().getAttributes();
-
         tapesLinearLayout = (LinearLayout)findViewById(R.id.tapesLinearLayout);
-
-        //tape1 = (ImageView)findViewById(R.id.imageView10);
-        //tape1.setVisibility(View.GONE);
-
-        /* layoutファイルからTextViewを取得 */
-        //mDraggedView = findViewById(R.id.imageView10);
-        /* OnLongClickListenerをTextViewにセット */
-        //mDraggedView.setOnLongClickListener(this);
-
+        tapeButton = (ImageButton)findViewById(R.id.tapeButton);
         tapeNumber = 0;
+
+        ornamentsLinearLayout = (LinearLayout)findViewById(R.id.ornamentsLinearLayout);
+        ornamentButton = (ImageButton)findViewById(R.id.ornamentButton);
+        choiceOrnamentLinearLayout = (LinearLayout)findViewById(R.id.choiceOrnamentsLinearLayout);
+        eachOrnamentsLinearLayout = (LinearLayout)findViewById(R.id.eachOrnamentsLinearLayout);
+        pinLinearLayout = (LinearLayout)findViewById(R.id.pinLinearLayout);
+        ribbonLinearLayout = (LinearLayout)findViewById(R.id.ribbonLinearLayout);
+        buttonLinearLayout = (LinearLayout)findViewById(R.id.buttonLinearLayout);
+        the_othersLinearLayout = (LinearLayout)findViewById(R.id.the_othersLinearLayout);
+        ornamentNumber = 0;
 
         String sIV = preferencesPhoto.getString("img","");
         if(sIV == ""){
@@ -223,9 +242,6 @@ public class MakeActivity extends AppCompatActivity {
             Drawable drawBG = new BitmapDrawable(bmpBG);
             //layout.setBackgroundDrawable(drawBG);
         }
-
-        //imageView.setRotation(preferencesRotation.getFloat("Rotation", 0));
-        //editText.setText(preferencesMemo.getString("memo",""));
 
         choiceBackgroundOrAngleLinearLayout.setVisibility(View.GONE);
         imageViewBackgroundLinearLayout.setVisibility(View.GONE);
@@ -599,11 +615,15 @@ public class MakeActivity extends AppCompatActivity {
         }
     }
 
+    // ドラッグ対象Viewとイベント処理クラスを紐付ける
+
     public void tape(View v){
         tapesLinearLayout.setVisibility(View.VISIBLE);
-    }
+        tapeFlag = true;
+        ornamentFlag = false;
 
-    // ドラッグ対象Viewとイベント処理クラスを紐付ける
+        //tapeButton.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {tapesLinearLayout.setVisibility(View.GONE);tapeFlag = false;}});
+    }
 
     public void tape1(View v){
         tapesLinearLayout.setVisibility(View.GONE);
@@ -1381,7 +1401,1864 @@ public class MakeActivity extends AppCompatActivity {
             listener = new DragViewListener(dragTapeView5);
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "can't use more than 5 tapes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    public void ornament(View v){
+        choiceOrnamentLinearLayout.setVisibility(View.VISIBLE);
+        ornamentFlag = true;
+        tapeFlag = false;
+
+        //ornamentButton.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {choiceOrnamentLinearLayout.setVisibility(View.GONE);ornamentFlag = false;}});
+    }
+
+    public void pin(View v){
+        choiceOrnamentLinearLayout.setVisibility(View.GONE);
+        eachOrnamentsLinearLayout.setVisibility(View.VISIBLE);
+        pinLinearLayout.setVisibility(View.VISIBLE);
+    }
+
+    public void pin1(View v){
+        pinLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.pin1);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.pin1);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.pin1);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.pin1);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.pin1);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.pin1);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.pin1);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.pin1);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8){
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void pin2(View v){
+        pinLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.pin2);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.pin2);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.pin2);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.pin2);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.pin2);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.pin2);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.pin2);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.pin2);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8){
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void pin3(View v){
+        pinLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.pin3);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.pin3);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.pin3);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.pin3);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.pin3);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.pin3);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.pin3);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.pin3);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8){
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void pin4(View v){
+        pinLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.pin4);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.pin4);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.pin4);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.pin4);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.pin4);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.pin4);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.pin4);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.pin4);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8){
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void ribbon(View v){
+        choiceOrnamentLinearLayout.setVisibility(View.GONE);
+        eachOrnamentsLinearLayout.setVisibility(View.VISIBLE);
+        ribbonLinearLayout.setVisibility(View.VISIBLE);
+    }
+
+    public void ribbon1(View v){
+        ribbonLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.ribbon1);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.ribbon1);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.ribbon1);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.ribbon1);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.ribbon1);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.ribbon1);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.ribbon1);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.ribbon1);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8){
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void ribbon2(View v){
+        ribbonLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.ribbon2);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.ribbon2);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.ribbon2);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.ribbon2);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.ribbon2);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.ribbon2);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.ribbon2);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.ribbon2);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8){
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void ribbon3(View v){
+        ribbonLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.ribbon3);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.ribbon3);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.ribbon3);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.ribbon3);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.ribbon3);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.ribbon3);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.ribbon3);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.ribbon3);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8){
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void ribbon4(View v){
+        ribbonLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.ribbon4);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.ribbon4);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.ribbon4);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.ribbon4);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.ribbon4);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.ribbon4);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.ribbon4);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.ribbon4);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8){
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void ribbon5(View v){
+        ribbonLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.ribbon5);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.ribbon5);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.ribbon5);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.ribbon5);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.ribbon5);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.ribbon5);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.ribbon5);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.ribbon5);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8){
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void ribbon6(View v){
+        ribbonLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.ribbon6);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.ribbon6);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.ribbon6);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.ribbon6);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.ribbon6);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.ribbon6);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.ribbon6);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.ribbon6);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8){
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void ribbon7(View v){
+        ribbonLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.ribbon7);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.ribbon7);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.ribbon7);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.ribbon7);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.ribbon7);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.ribbon7);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.ribbon7);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.ribbon7);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8){
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void ribbon8(View v){
+        ribbonLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.ribbon8);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.ribbon8);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.ribbon8);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.ribbon8);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.ribbon8);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.ribbon8);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.ribbon8);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.ribbon8);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8){
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void button(View v){
+        choiceOrnamentLinearLayout.setVisibility(View.GONE);
+        eachOrnamentsLinearLayout.setVisibility(View.VISIBLE);
+        buttonLinearLayout.setVisibility(View.VISIBLE);
+    }
+
+    public void button1(View v){
+        buttonLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.button1);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.button1);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.button1);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.button1);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.button1);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.button1);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.button1);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.button1);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8){
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void button2(View v){
+        buttonLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.button2);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.button2);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.button2);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.button2);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.button2);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.button2);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.button2);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.button2);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8){
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void button3(View v){
+        buttonLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.button3);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.button3);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.button3);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.button3);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.button3);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.button3);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.button3);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.button3);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8){
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void button4(View v){
+        buttonLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.button4);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.button4);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.button4);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.button4);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.button4);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.button4);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.button4);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.button4);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8){
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void the_others(View v){
+        choiceOrnamentLinearLayout.setVisibility(View.GONE);
+        eachOrnamentsLinearLayout.setVisibility(View.VISIBLE);
+        the_othersLinearLayout.setVisibility(View.VISIBLE);
+    }
+
+    public void the_others1(View v) {
+        the_othersLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.the_others1);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.the_others1);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.the_others1);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.the_others1);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.the_others1);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.the_others1);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.the_others1);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others1);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8) {
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void the_others2(View v) {
+        the_othersLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.the_others2);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.the_others2);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.the_others2);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.the_others2);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.the_others2);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.the_others2);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.the_others2);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others2);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8) {
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void the_others3(View v) {
+        the_othersLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.the_others3);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.the_others3);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.the_others3);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.the_others3);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.the_others3);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.the_others3);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.the_others3);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others3);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8) {
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void the_others4(View v) {
+        the_othersLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.the_others4);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.the_others4);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.the_others4);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.the_others4);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.the_others4);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.the_others4);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.the_others4);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others4);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8) {
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void the_others5(View v) {
+        the_othersLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.the_others5);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.the_others5);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.the_others5);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.the_others5);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.the_others5);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.the_others5);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.the_others5);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others5);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8) {
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void the_others6(View v) {
+        the_othersLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.the_others6);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.the_others6);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.the_others6);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.the_others6);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.the_others6);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.the_others6);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.the_others6);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others6);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8) {
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void the_others7(View v) {
+        the_othersLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.the_others7);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.the_others7);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.the_others7);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.the_others7);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.the_others7);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.the_others7);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.the_others7);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others7);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8) {
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void the_others8(View v) {
+        the_othersLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.the_others8);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.the_others8);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.the_others8);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.the_others8);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.the_others8);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.the_others8);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.the_others8);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others8);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8) {
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void the_others9(View v) {
+        the_othersLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.the_others9);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.the_others9);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.the_others9);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.the_others9);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.the_others9);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.the_others9);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.the_others9);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others9);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8) {
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void the_others10(View v) {
+        the_othersLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.the_others10);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.the_others10);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.the_others10);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.the_others10);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.the_others10);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.the_others10);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.the_others10);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others10);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8) {
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void the_others11(View v) {
+        the_othersLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.the_others11);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.the_others11);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.the_others11);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.the_others11);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.the_others11);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.the_others11);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.the_others11);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others11);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8) {
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void the_others12(View v) {
+        the_othersLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.the_others12);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.the_others12);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.the_others12);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.the_others12);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.the_others12);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.the_others12);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.the_others12);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others12);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8) {
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void the_others13(View v) {
+        the_othersLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.the_others13);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.the_others13);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.the_others13);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.the_others13);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.the_others13);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.the_others13);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.the_others13);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others13);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8) {
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void the_others14(View v) {
+        the_othersLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.the_others14);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.the_others14);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.the_others14);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.the_others14);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.the_others14);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.the_others14);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.the_others14);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others14);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8) {
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void the_others15(View v) {
+        the_othersLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.the_others15);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.the_others15);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.the_others15);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.the_others15);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.the_others15);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.the_others15);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.the_others15);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others15);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8) {
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void the_others16(View v) {
+        the_othersLinearLayout.setVisibility(View.GONE);
+        ornamentNumber++;
+
+        if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
+            dragOrnamentView1.setImageResource(R.drawable.the_others16);
+            dragOrnamentView1.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView1);
+            dragOrnamentView1.setOnTouchListener(listener);
+        } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
+            dragOrnamentView2.setImageResource(R.drawable.the_others16);
+            dragOrnamentView2.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView2);
+            dragOrnamentView2.setOnTouchListener(listener);
+        } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
+            dragOrnamentView3.setImageResource(R.drawable.the_others16);
+            dragOrnamentView3.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView3);
+            dragOrnamentView3.setOnTouchListener(listener);
+        } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
+            dragOrnamentView4.setImageResource(R.drawable.the_others16);
+            dragOrnamentView4.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView4);
+            dragOrnamentView4.setOnTouchListener(listener);
+        } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
+            dragOrnamentView5.setImageResource(R.drawable.the_others16);
+            dragOrnamentView5.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView5);
+            dragOrnamentView5.setOnTouchListener(listener);
+        } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
+            dragOrnamentView6.setImageResource(R.drawable.the_others16);
+            dragOrnamentView6.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView6);
+            dragOrnamentView6.setOnTouchListener(listener);
+        } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
+            dragOrnamentView7.setImageResource(R.drawable.the_others16);
+            dragOrnamentView7.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView7);
+            dragOrnamentView7.setOnTouchListener(listener);
+        } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others16);
+            dragOrnamentView8.setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnamentView8);
+            dragOrnamentView8.setOnTouchListener(listener);
+        } else if (ornamentNumber > 8) {
+            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -1393,16 +3270,36 @@ public class MakeActivity extends AppCompatActivity {
         private int oldY;
 
         public DragViewListener(ImageView dragView) {
-            if (tapeNumber == 1){
-                this.dragView = dragTapeView1;
-            } else if (tapeNumber == 2){
-                this.dragView = dragTapeView2;
-            } else if (tapeNumber == 3){
-                this.dragView = dragTapeView3;
-            } else if (tapeNumber == 4){
-                this.dragView = dragTapeView4;
-            } else if (tapeNumber == 5){
-                this.dragView = dragTapeView5;
+            if (tapeFlag == true){
+                if (tapeNumber == 1){
+                    this.dragView = dragTapeView1;
+                } else if (tapeNumber == 2){
+                    this.dragView = dragTapeView2;
+                } else if (tapeNumber == 3){
+                    this.dragView = dragTapeView3;
+                } else if (tapeNumber == 4){
+                    this.dragView = dragTapeView4;
+                } else if (tapeNumber == 5){
+                    this.dragView = dragTapeView5;
+                }
+            } else if (ornamentFlag == true) {
+                if (ornamentNumber == 1){
+                    this.dragView = dragOrnamentView1;
+                } else if (ornamentNumber == 2){
+                    this.dragView = dragOrnamentView2;
+                } else if (ornamentNumber == 3){
+                    this.dragView = dragOrnamentView3;
+                } else if (ornamentNumber == 4){
+                    this.dragView = dragOrnamentView4;
+                } else if (ornamentNumber == 5){
+                    this.dragView = dragOrnamentView5;
+                } else if (ornamentNumber == 6){
+                    this.dragView = dragOrnamentView6;
+                } else if (ornamentNumber == 7){
+                    this.dragView = dragOrnamentView7;
+                } else if (ornamentNumber == 8){
+                    this.dragView = dragOrnamentView8;
+                }
             }
         }
 
@@ -1419,32 +3316,52 @@ public class MakeActivity extends AppCompatActivity {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_MOVE:
                     // 今回イベントでのView移動先の位置
-                    //if (tapeNumber == 1){}
-                    //int left = dragView.getLeft() + (x - oldX);
                     param.leftMargin = dragView.getLeft() + (x - oldX);
-                    //int top = dragView.getTop() + (y - oldY);
                     param.topMargin = dragView.getTop() + (y - oldY);
                     // Viewを移動する
-                    if (tapeNumber == 1){
-                        //dragTapeView1.layout(left, top, left + dragView.getWidth(), top + dragView.getHeight());
-                        dragTapeView1.layout(param.leftMargin, param.topMargin,
-                                param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                    } else if (tapeNumber == 2){
-                        //dragTapeView2.layout(left, top, left + dragView.getWidth(), top + dragView.getHeight());
-                        dragTapeView2.layout(param.leftMargin, param.topMargin,
-                                param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                    } else if (tapeNumber == 3){
-                        //dragTapeView2.layout(left, top, left + dragView.getWidth(), top + dragView.getHeight());
-                        dragTapeView3.layout(param.leftMargin, param.topMargin,
-                                param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                    } else if (tapeNumber == 4){
-                        //dragTapeView2.layout(left, top, left + dragView.getWidth(), top + dragView.getHeight());
-                        dragTapeView4.layout(param.leftMargin, param.topMargin,
-                                param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                    } else if (tapeNumber == 5){
-                        //dragTapeView2.layout(left, top, left + dragView.getWidth(), top + dragView.getHeight());
-                        dragTapeView5.layout(param.leftMargin, param.topMargin,
-                                param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                    if (tapeFlag == true){
+                        if (tapeNumber == 1){
+                            dragTapeView1.layout(param.leftMargin, param.topMargin,
+                                    param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                        } else if (tapeNumber == 2){
+                            dragTapeView2.layout(param.leftMargin, param.topMargin,
+                                    param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                        } else if (tapeNumber == 3){
+                            dragTapeView3.layout(param.leftMargin, param.topMargin,
+                                    param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                        } else if (tapeNumber == 4){
+                            dragTapeView4.layout(param.leftMargin, param.topMargin,
+                                    param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                        } else if (tapeNumber == 5){
+                            dragTapeView5.layout(param.leftMargin, param.topMargin,
+                                    param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                        }
+                    } else if (ornamentFlag == true){
+                        if (ornamentNumber == 1){
+                            dragOrnamentView1.layout(param.leftMargin, param.topMargin,
+                                    param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                        } else if (ornamentNumber == 2){
+                            dragOrnamentView2.layout(param.leftMargin, param.topMargin,
+                                    param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                        } else if (ornamentNumber == 3){
+                            dragOrnamentView3.layout(param.leftMargin, param.topMargin,
+                                    param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                        } else if (ornamentNumber == 4){
+                            dragOrnamentView4.layout(param.leftMargin, param.topMargin,
+                                    param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                        } else if (ornamentNumber == 5){
+                            dragOrnamentView5.layout(param.leftMargin, param.topMargin,
+                                    param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                        } else if (ornamentNumber == 6){
+                            dragOrnamentView6.layout(param.leftMargin, param.topMargin,
+                                    param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                        } else if (ornamentNumber == 7){
+                            dragOrnamentView7.layout(param.leftMargin, param.topMargin,
+                                    param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                        } else if (ornamentNumber == 8){
+                            dragOrnamentView8.layout(param.leftMargin, param.topMargin,
+                                    param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
+                        }
                     }
 
                     break;
