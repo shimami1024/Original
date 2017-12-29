@@ -70,15 +70,15 @@
             android:layout_marginTop="6dp">
 
             <Button
+                android:id="@+id/backButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/backButton"
-                android:layout_weight="1"
-                android:textSize="25dp"
-                android:onClick="back"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
-                android:background="@drawable/arrow007" />
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:onClick="back"
+                android:textSize="25dp" />
 
             <Button
                 android:layout_width="match_parent"

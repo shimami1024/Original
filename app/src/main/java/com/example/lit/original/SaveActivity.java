@@ -51,11 +51,13 @@ public class SaveActivity extends AppCompatActivity {
         preferencesPhoto = getSharedPreferences("pref_img", MODE_PRIVATE);
         preferencesBackground = getSharedPreferences("pref_bg", Context.MODE_PRIVATE);
 
+        //background
         String sBG = preferencesBackground.getString("bg", "");
         byte[] bBG = Base64.decode(sBG, Base64.DEFAULT);
         Bitmap bmpBG = BitmapFactory.decodeByteArray(bBG, 0, bBG.length).copy(Bitmap.Config.ARGB_8888, true);
         Drawable drawBG = new BitmapDrawable(bmpBG);
 
+        //imageViewのphoto
         String s = preferencesPhoto.getString("img","");
         byte[] b = Base64.decode(s, Base64.DEFAULT);
         Bitmap bmp = BitmapFactory.decodeByteArray(b, 0, b.length).copy(Bitmap.Config.ARGB_8888, true);

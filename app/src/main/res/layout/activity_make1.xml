@@ -1,63 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:animateLayoutChanges="false"
+    android:background="#565656"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MakeActivity"
-    android:id="@+id/RelativeLayout"
-    android:animateLayoutChanges="false"
-    android:background="#565656">
+    tools:context=".MakeActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:alpha="0.8"
             android:background="#ffffff"
-            android:alpha="0.8">
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:orientation="vertical">
 
                 <ImageButton
+                    android:id="@+id/imageButton1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/imageButton1"
-                    android:background="@drawable/icon1"
-                    android:layout_marginTop="1dp"
                     android:layout_marginBottom="1dp"
                     android:layout_marginLeft="4dp"
-                    android:layout_marginRight="4dp" />
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/icon1"
+                    android:onClick="test" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/backgroundButton"
@@ -72,15 +73,15 @@
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/tapeButton"
@@ -93,15 +94,15 @@
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/ornamentButton"
@@ -114,22 +115,12 @@
                     android:onClick="ornament" />
             </LinearLayout>
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:text="save"
-                android:id="@+id/button1"
-                android:onClick="save"
-                android:layout_weight="1"
-                android:layout_margin="0dp"
-                android:visibility="gone" />
-
         </LinearLayout>
 
         <FrameLayout
+            android:id="@+id/frameLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:id="@+id/frameLayout"
             android:layout_weight="9">
 
             <ImageView
@@ -163,83 +154,185 @@
                 android:background="#ffffff"
                 android:gravity="top|left" />
 
+            <Button
+                android:id="@+id/button12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button"
+                android:visibility="gone" />
+
             <ImageView
                 android:id="@+id/tapeView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/tapeView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/tapeView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/tapeView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/tapeView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/ornamentView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/ornamentView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/ornamentView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/ornamentView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/ornamentView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/ornamentView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/ornamentView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/ornamentView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:visibility="invisible" />
+
+            <LinearLayout
+                android:id="@+id/dragViewChoiceLinearLayout"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginLeft="200dp"
+                android:alpha="0.8"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="What else?"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/button17"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:onClick="rotate"
+                    android:text="rotate"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/button15"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:onClick="delete"
+                    android:text="delete"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/button14"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:onClick="not"
+                    android:text="no thank you"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dragViewCheckLinearLayout"
+                android:layout_width="160dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="200dp"
+                android:alpha="0.8"
+                android:background="@drawable/rectangleblackallradius10"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:text="Is this here, OK?"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/button11"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:onClick="yes"
+                        android:text="YES"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/button"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:onClick="no"
+                        android:text="NO"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/ornamentsLinearLayout"
@@ -254,7 +347,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
                     <LinearLayout
                         android:id="@+id/pinLinearLayout"
@@ -700,6 +793,7 @@
                 android:layout_gravity="right|top"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="80dp"
+                android:alpha="0.8"
                 android:background="@drawable/rectangleblackallradius5"
                 android:orientation="vertical"
                 android:visibility="gone">
@@ -770,12 +864,13 @@
                 android:layout_width="250dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal|bottom"
-                android:layout_marginBottom="50dp"
+                android:layout_marginBottom="250dp"
+                android:alpha="0.8"
                 android:background="@drawable/rectangleblackallradius10"
                 android:baselineAligned="false"
                 android:contextClickable="false"
                 android:orientation="horizontal"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <LinearLayout
                     android:id="@+id/angleLinearLayoutIn"
@@ -836,6 +931,7 @@
                             android:layout_margin="0dp"
                             android:layout_weight="1"
                             android:gravity="center"
+                            android:onClick="right"
                             android:text="右" />
 
                         <Button
@@ -845,6 +941,7 @@
                             android:layout_margin="0dp"
                             android:layout_weight="1"
                             android:gravity="center"
+                            android:onClick="left"
                             android:text="左" />
                     </LinearLayout>
 
@@ -872,7 +969,7 @@
                 android:layout_height="320dp"
                 android:layout_gravity="center_horizontal|top"
                 android:layout_marginRight="40dp"
-                android:alpha="0.64"
+                android:alpha="0.8"
                 android:background="#a0a0a0"
                 android:orientation="vertical"
                 android:visibility="gone">
@@ -1134,6 +1231,7 @@
                 android:layout_height="128dp"
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_marginBottom="80dp"
+                android:alpha="0.8"
                 android:background="@drawable/rectangleblackallradius5"
                 android:orientation="vertical"
                 android:visibility="gone">
@@ -1204,6 +1302,7 @@
                 android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
+                android:alpha="0.8"
                 android:background="@drawable/rectangleblackallradius5"
                 android:orientation="vertical"
                 android:visibility="gone">
@@ -1231,6 +1330,7 @@
                     android:layout_marginTop="1dp"
                     android:layout_weight="1"
                     android:background="@drawable/rectanglewhiteblbrradius10"
+                    android:onClick="viewAngle"
                     android:text="角度"
                     android:textSize="20dp" />
 

@@ -28,8 +28,8 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
+public class EditActivity extends AppCompatActivity {
 
-public class MakeActivity extends AppCompatActivity {
     //private static final int REQUEST_GALLERY = 0;
     boolean flag;
 
@@ -100,7 +100,7 @@ public class MakeActivity extends AppCompatActivity {
     LinearLayout tapesLinearLayout;
     int tapeNumber;
     ImageButton tapeButton;
-    boolean tapeFlag = false;
+    boolean tapeFlag;
     ImageView dragTapeView1;
     ImageView dragTapeView2;
     ImageView dragTapeView3;
@@ -116,7 +116,7 @@ public class MakeActivity extends AppCompatActivity {
     LinearLayout the_othersLinearLayout;
     int ornamentNumber;
     ImageButton ornamentButton;
-    boolean ornamentFlag = false;
+    boolean ornamentFlag;
     ImageView dragOrnamentView1;
     ImageView dragOrnamentView2;
     ImageView dragOrnamentView3;
@@ -126,57 +126,12 @@ public class MakeActivity extends AppCompatActivity {
     ImageView dragOrnamentView7;
     ImageView dragOrnamentView8;
 
-    LinearLayout dragViewCheckLinearLayout;
-    LinearLayout dragViewChoiceLinearLayout;
-
     DragViewListener listener;
-
-    boolean tapeChoiceFlag1;
-    boolean tapeChoiceFlag2;
-    boolean tapeChoiceFlag3;
-    boolean tapeChoiceFlag4;
-    boolean tapeChoiceFlag5;
-
-    boolean ornamentChoiceFlag1;
-    boolean ornamentChoiceFlag2;
-    boolean ornamentChoiceFlag3;
-    boolean ornamentChoiceFlag4;
-    boolean ornamentChoiceFlag5;
-    boolean ornamentChoiceFlag6;
-    boolean ornamentChoiceFlag7;
-    boolean ornamentChoiceFlag8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_make1);
-
-        //Intent intent = getIntent();
-        //layoutNumber = intent.getIntExtra("L", 0);
-        //if (layoutNumber == 0){
-          //  setContentView(R.layout.activity_make1);
-        //}else if (layoutNumber == 1){
-          //  setContentView(R.layout.activity_make1);
-        //} else if (layoutNumber == 2){
-          //  setContentView(R.layout.activity_make2);
-        //} else if (layoutNumber == 3){
-          //  setContentView(R.layout.activity_make3);
-        //} else if (layoutNumber == 4){
-          //  setContentView(R.layout.activity_make4);
-        //} else if (layoutNumber == 5){
-          //  setContentView(R.layout.activity_make5);
-        //} else if (layoutNumber == 6){
-          //  setContentView(R.layout.activity_make6);
-        //} else if (layoutNumber == 7){
-          //  setContentView(R.layout.activity_make7);
-        //} else if (layoutNumber == 8){
-          //  setContentView(R.layout.activity_make8);
-        //} else if (layoutNumber == 9){
-          //  setContentView(R.layout.activity_make9);
-        //} else if (layoutNumber == 10){
-          //  setContentView(R.layout.activity_make10);
-        //}
 
         imageView = (ImageView)findViewById(R.id.imageView);
         imageView1 = (ImageView)findViewById(R.id.imageView1);
@@ -244,9 +199,6 @@ public class MakeActivity extends AppCompatActivity {
         the_othersLinearLayout = (LinearLayout)findViewById(R.id.the_othersLinearLayout);
         ornamentNumber = 0;
 
-        dragViewCheckLinearLayout = (LinearLayout)findViewById(R.id.dragViewCheckLinearLayout);
-        dragViewChoiceLinearLayout = (LinearLayout)findViewById(R.id.dragViewChoiceLinearLayout);
-
         String sIV = preferencesPhoto.getString("img","");
         if(sIV == ""){
 
@@ -285,7 +237,9 @@ public class MakeActivity extends AppCompatActivity {
         int backgroundNumber = intentBG.getIntExtra("BG", 0);
 
         if (backgroundNumber == 0) {
-
+            //imageView.setOnClickListener(imageViewOnClick);
+            //imageView.setOnLongClickListener(imageViewOnLongClick);
+            //editText.setOnLongClickListener(editTextOnLongClick);
         } else if (backgroundNumber == 1){
             relativeLayout.setBackgroundResource(R.drawable.background1);
         } else if (backgroundNumber == 2){
@@ -403,7 +357,7 @@ public class MakeActivity extends AppCompatActivity {
     }
 
     private View.OnClickListener imageViewOnClick = new View.OnClickListener() {
-        @Override
+        //@Override
         public void onClick(View v) {
             if (flag != true) {
                 //flagがtrueでなかったら(flagは常に３つの可能性(true, null, false))
@@ -419,7 +373,7 @@ public class MakeActivity extends AppCompatActivity {
     };
 
     private View.OnLongClickListener imageViewOnLongClick = new View.OnLongClickListener() {
-        @Override
+        //@Override
         public boolean onLongClick(View v) {
             choiceBackgroundOrAngleLinearLayout.setVisibility(View.VISIBLE);
 
@@ -475,6 +429,28 @@ public class MakeActivity extends AppCompatActivity {
                     choiceBackgroundOrAngleLinearLayout.setVisibility(View.GONE);
                     angleLinearLayout.setVisibility(View.VISIBLE);
                     rotationEditText.setText("");
+
+                    directionRightButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ssb = (SpannableStringBuilder)rotationEditText.getText();
+                            Degree = ssb.toString();
+                            angle = Integer.parseInt(Degree);
+                            imageView.setRotation(angle);
+                            angleLinearLayout.setVisibility(View.GONE);
+                        }
+                    });
+
+                    directionLeftButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ssb = (SpannableStringBuilder)rotationEditText.getText();
+                            Degree = ssb.toString();
+                            angle = Integer.parseInt(Degree);
+                            imageView.setRotation(-angle);
+                            angleLinearLayout.setVisibility(View.GONE);
+                        }
+                    });
                 }
             });
 
@@ -489,7 +465,7 @@ public class MakeActivity extends AppCompatActivity {
     };
 
     private View.OnLongClickListener editTextOnLongClick = new View.OnLongClickListener() {
-        @Override
+        //@Override
         public boolean onLongClick(View v) {
             choiceBackgroundOrAngleLinearLayout.setVisibility(View.VISIBLE);
 
@@ -497,7 +473,6 @@ public class MakeActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     eTbGFlag = true;
-
                     choiceBackgroundOrAngleLinearLayout.setVisibility(View.GONE);
                     editTextBackgroundLinearLayout.setVisibility(View.VISIBLE);
 
@@ -540,6 +515,28 @@ public class MakeActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     angleLinearLayout.setVisibility(View.VISIBLE);
                     rotationEditText.setText("");
+
+                    directionRightButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ssb = (SpannableStringBuilder)rotationEditText.getText();
+                            Degree = ssb.toString();
+                            angle = Integer.parseInt(Degree);
+                            editText.setRotation(angle);
+                            angleLinearLayout.setVisibility(View.GONE);
+                        }
+                    });
+
+                    directionLeftButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ssb = (SpannableStringBuilder)rotationEditText.getText();
+                            Degree = ssb.toString();
+                            angle = Integer.parseInt(Degree);
+                            editText.setRotation(-angle);
+                            angleLinearLayout.setVisibility(View.GONE);
+                        }
+                    });
                 }
             });
 
@@ -553,146 +550,51 @@ public class MakeActivity extends AppCompatActivity {
         }
     };
 
-    public void right(View v){
-        ssb = (SpannableStringBuilder)rotationEditText.getText();
-        Degree = ssb.toString();
-        angle = Integer.parseInt(Degree);
-
-        //editText.setRotation(angle);
-        if (tapeChoiceFlag1 == true){
-            dragTapeView1.setRotation(angle);
-            tapeChoiceFlag1 = false;
-        } else if (tapeChoiceFlag2 == true){
-            dragTapeView2.setRotation(angle);
-            tapeChoiceFlag2 = false;
-        } else if (tapeChoiceFlag3 == true){
-            dragTapeView3.setRotation(angle);
-            tapeChoiceFlag3 = false;
-        } else if (tapeChoiceFlag4 == true){
-            dragTapeView4.setRotation(angle);
-            tapeChoiceFlag4 = false;
-        } else if (tapeChoiceFlag5 == true){
-            dragTapeView5.setRotation(angle);
-            tapeChoiceFlag5 = false;
-        } else if (ornamentChoiceFlag1 == true){
-            dragOrnamentView1.setRotation(angle);
-            ornamentChoiceFlag1 = false;
-        } else if (ornamentChoiceFlag2 == true){
-            dragOrnamentView2.setRotation(angle);
-            ornamentChoiceFlag2 = false;
-        } else if (ornamentChoiceFlag3 == true){
-            dragOrnamentView3.setRotation(angle);
-            ornamentChoiceFlag3 = false;
-        } else if (ornamentChoiceFlag4 == true){
-            dragOrnamentView4.setRotation(angle);
-            ornamentChoiceFlag4 = false;
-        } else if (ornamentChoiceFlag5 == true){
-            dragOrnamentView5.setRotation(angle);
-            ornamentChoiceFlag5 = false;
-        } else if (ornamentChoiceFlag6 == true){
-            dragOrnamentView6.setRotation(angle);
-            ornamentChoiceFlag6 = false;
-        } else if (ornamentChoiceFlag7 == true){
-            dragOrnamentView7.setRotation(angle);
-            ornamentChoiceFlag7 = false;
-        } else if (ornamentChoiceFlag8 == true){
-            dragOrnamentView8.setRotation(angle);
-            ornamentChoiceFlag8 = false;
-        }
-
-        angleLinearLayout.setVisibility(View.GONE);
-    }
-
-    public void left(View v){
-        ssb = (SpannableStringBuilder)rotationEditText.getText();
-        Degree = ssb.toString();
-        angle = Integer.parseInt(Degree);
-
-        //editText.setRotation(-angle);
-        if (tapeChoiceFlag1 == true){
-            dragTapeView1.setRotation(-angle);
-            tapeChoiceFlag1 = false;
-        } else if (tapeChoiceFlag2 == true){
-            dragTapeView2.setRotation(-angle);
-            tapeChoiceFlag2 = false;
-        } else if (tapeChoiceFlag3 == true){
-            dragTapeView3.setRotation(-angle);
-            tapeChoiceFlag3 = false;
-        } else if (tapeChoiceFlag4 == true){
-            dragTapeView4.setRotation(-angle);
-            tapeChoiceFlag4 = false;
-        } else if (tapeChoiceFlag5 == true){
-            dragTapeView5.setRotation(-angle);
-            tapeChoiceFlag5 = false;
-        } else if (ornamentChoiceFlag1 == true){
-            dragOrnamentView1.setRotation(-angle);
-            ornamentChoiceFlag1 = false;
-        } else if (ornamentChoiceFlag2 == true){
-            dragOrnamentView2.setRotation(-angle);
-            ornamentChoiceFlag2 = false;
-        } else if (ornamentChoiceFlag3 == true){
-            dragOrnamentView3.setRotation(-angle);
-            ornamentChoiceFlag3 = false;
-        } else if (ornamentChoiceFlag4 == true){
-            dragOrnamentView4.setRotation(-angle);
-            ornamentChoiceFlag4 = false;
-        } else if (ornamentChoiceFlag5 == true){
-            dragOrnamentView5.setRotation(-angle);
-            ornamentChoiceFlag5 = false;
-        } else if (ornamentChoiceFlag6 == true){
-            dragOrnamentView6.setRotation(-angle);
-            ornamentChoiceFlag6 = false;
-        } else if (ornamentChoiceFlag7 == true){
-            dragOrnamentView7.setRotation(-angle);
-            ornamentChoiceFlag7 = false;
-        } else if (ornamentChoiceFlag8 == true){
-            dragOrnamentView8.setRotation(-angle);
-            ornamentChoiceFlag8 = false;
-        }
-
-        angleLinearLayout.setVisibility(View.GONE);
-    }
-
     public void background(View v) {
+        if (layoutNumber == 0){
+            Intent intentM1 = new Intent(this, BackGroundActivity.class);
+            intentM1.putExtra("M1", 1);
+            startActivity(intentM1);
+        }
         if (layoutNumber == 1){
             Intent intentM1 = new Intent(this, BackGroundActivity.class);
-            intentM1.putExtra("M", 1);
+            intentM1.putExtra("M1", 1);
             startActivity(intentM1);
         } else if (layoutNumber == 2){
             Intent intentM2 = new Intent(this, BackGroundActivity.class);
-            intentM2.putExtra("M", 2);
+            intentM2.putExtra("M2", 2);
             startActivity(intentM2);
         } else if (layoutNumber == 3){
             Intent intentM3 = new Intent(this, BackGroundActivity.class);
-            intentM3.putExtra("M", 3);
+            intentM3.putExtra("M3", 3);
             startActivity(intentM3);
         } else if (layoutNumber == 4){
             Intent intentM4 = new Intent(this, BackGroundActivity.class);
-            intentM4.putExtra("M", 4);
+            intentM4.putExtra("M4", 4);
             startActivity(intentM4);
         } else if (layoutNumber == 5){
             Intent intentM5 = new Intent(this, BackGroundActivity.class);
-            intentM5.putExtra("M", 5);
+            intentM5.putExtra("M5", 5);
             startActivity(intentM5);
         } else if (layoutNumber == 6){
             Intent intentM6 = new Intent(this, BackGroundActivity.class);
-            intentM6.putExtra("M", 6);
+            intentM6.putExtra("M6", 6);
             startActivity(intentM6);
         } else if (layoutNumber == 7){
             Intent intentM7 = new Intent(this, BackGroundActivity.class);
-            intentM7.putExtra("M", 7);
+            intentM7.putExtra("M7", 7);
             startActivity(intentM7);
         } else if (layoutNumber == 8){
             Intent intentM8 = new Intent(this, BackGroundActivity.class);
-            intentM8.putExtra("M", 8);
+            intentM8.putExtra("M8", 8);
             startActivity(intentM8);
         } else if (layoutNumber == 9){
             Intent intentM9 = new Intent(this, BackGroundActivity.class);
-            intentM9.putExtra("M", 9);
+            intentM9.putExtra("M9", 9);
             startActivity(intentM9);
         } else if (layoutNumber == 10){
             Intent intentM10 = new Intent(this, BackGroundActivity.class);
-            intentM10.putExtra("M", 10);
+            intentM10.putExtra("M10", 10);
             startActivity(intentM10);
         }
     }
@@ -700,33 +602,9 @@ public class MakeActivity extends AppCompatActivity {
     // ドラッグ対象Viewとイベント処理クラスを紐付ける
 
     public void tape(View v){
-        if (tapeFlag == false){
-            tapeFlag = true;
-            tapesLinearLayout.setVisibility(View.VISIBLE);
-        } else if (tapeFlag == true){
-            tapeFlag = false;
-            tapesLinearLayout.setVisibility(View.GONE);
-        }
-
+        tapesLinearLayout.setVisibility(View.VISIBLE);
+        tapeFlag = true;
         ornamentFlag = false;
-
-        dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
-        dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
-        dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
-        dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
-        dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
-
-        if (dragTapeView1.getVisibility() == View.GONE){
-            tapeNumber = 0;
-        } else if (dragTapeView2.getVisibility() == View.GONE){
-            tapeNumber = 1;
-        } else if (dragTapeView3.getVisibility() == View.GONE){
-            tapeNumber = 2;
-        } else if (dragTapeView4.getVisibility() == View.GONE){
-            tapeNumber = 3;
-        } else if (dragTapeView5.getVisibility() == View.GONE){
-            tapeNumber = 4;
-        }
     }
 
     public void tape1(View v){
@@ -734,26 +612,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape1);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape1);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape1);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape1);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape1);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -768,26 +651,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape2);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape2);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape2);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape2);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape2);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -802,26 +690,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape3);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape3);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape3);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape3);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape3);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -836,26 +729,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape4);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape4);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape4);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape4);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape4);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -870,26 +768,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape5);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape5);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape5);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape5);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape5);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -904,26 +807,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape6);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape6);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape6);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape6);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape6);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -938,26 +846,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape7);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape7);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape7);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape7);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape7);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -972,26 +885,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape8);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape8);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape8);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape8);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape8);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -1006,26 +924,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape9);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape9);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape9);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape9);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape9);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -1040,26 +963,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape10);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape10);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape10);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape10);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape10);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -1074,26 +1002,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape11);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape11);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape11);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape11);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape11);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -1108,26 +1041,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape12);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape12);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape12);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape12);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape12);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -1142,26 +1080,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape13);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape13);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape13);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape13);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape13);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -1176,26 +1119,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape14);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape14);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape14);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape14);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape14);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -1210,26 +1158,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape15);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape15);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape15);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape15);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape15);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -1244,26 +1197,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape16);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape16);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape16);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape16);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape16);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -1278,26 +1236,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape17);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape17);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape17);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape17);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape17);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -1312,26 +1275,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape18);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape18);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape18);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape18);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape18);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -1346,26 +1314,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape19);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape19);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape19);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape19);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape19);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -1380,26 +1353,31 @@ public class MakeActivity extends AppCompatActivity {
         tapeNumber++;
 
         if (tapeNumber == 1){
+            dragTapeView1 = (ImageView) findViewById(R.id.tapeView1);
             dragTapeView1.setImageResource(R.drawable.tape20);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
+            dragTapeView2 = (ImageView) findViewById(R.id.tapeView2);
             dragTapeView2.setImageResource(R.drawable.tape20);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
+            dragTapeView3 = (ImageView) findViewById(R.id.tapeView3);
             dragTapeView3.setImageResource(R.drawable.tape20);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
+            dragTapeView4 = (ImageView) findViewById(R.id.tapeView4);
             dragTapeView4.setImageResource(R.drawable.tape20);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
+            dragTapeView5 = (ImageView) findViewById(R.id.tapeView5);
             dragTapeView5.setImageResource(R.drawable.tape20);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
@@ -1411,42 +1389,9 @@ public class MakeActivity extends AppCompatActivity {
 
 
     public void ornament(View v){
-        if (ornamentFlag == false){
-            ornamentFlag = true;
-            choiceOrnamentLinearLayout.setVisibility(View.VISIBLE);
-        } else if (ornamentFlag == true){
-            ornamentFlag = false;
-            choiceOrnamentLinearLayout.setVisibility(View.GONE);
-        }
-
+        choiceOrnamentLinearLayout.setVisibility(View.VISIBLE);
+        ornamentFlag = true;
         tapeFlag = false;
-
-        dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
-        dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
-        dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
-        dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
-        dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
-        dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
-        dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
-        dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
-
-        if (dragOrnamentView1.getVisibility() == View.GONE){
-            ornamentNumber = 0;
-        } else if (dragOrnamentView2.getVisibility() == View.GONE){
-            ornamentNumber = 1;
-        } else if (dragOrnamentView3.getVisibility() == View.GONE){
-            ornamentNumber = 2;
-        } else if (dragOrnamentView4.getVisibility() == View.GONE){
-            ornamentNumber = 3;
-        } else if (dragOrnamentView5.getVisibility() == View.GONE){
-            ornamentNumber = 4;
-        } else if (dragOrnamentView6.getVisibility() == View.GONE){
-            ornamentNumber = 5;
-        } else if (dragOrnamentView7.getVisibility() == View.GONE){
-            ornamentNumber = 6;
-        } else if (dragOrnamentView8.getVisibility() == View.GONE) {
-            ornamentNumber = 7;
-        }
     }
 
     public void pin(View v){
@@ -1460,41 +1405,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.pin1);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.pin1);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.pin1);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.pin1);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.pin1);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.pin1);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.pin1);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.pin1);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -1509,41 +1462,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.pin2);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.pin2);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.pin2);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.pin2);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.pin2);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.pin2);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.pin2);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.pin2);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -1558,41 +1519,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.pin3);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.pin3);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.pin3);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.pin3);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.pin3);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.pin3);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.pin3);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.pin3);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -1607,41 +1576,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.pin4);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.pin4);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.pin4);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.pin4);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.pin4);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.pin4);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.pin4);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.pin4);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -1662,41 +1639,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.ribbon1);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.ribbon1);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.ribbon1);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.ribbon1);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.ribbon1);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.ribbon1);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.ribbon1);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.ribbon1);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -1711,41 +1696,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.ribbon2);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.ribbon2);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.ribbon2);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.ribbon2);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.ribbon2);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.ribbon2);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.ribbon2);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.ribbon2);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -1760,41 +1753,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.ribbon3);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.ribbon3);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.ribbon3);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.ribbon3);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.ribbon3);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.ribbon3);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.ribbon3);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.ribbon3);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -1809,41 +1810,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.ribbon4);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.ribbon4);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.ribbon4);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.ribbon4);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.ribbon4);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.ribbon4);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.ribbon4);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.ribbon4);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -1858,41 +1867,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.ribbon5);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.ribbon5);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.ribbon5);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.ribbon5);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.ribbon5);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.ribbon5);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.ribbon5);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.ribbon5);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -1907,41 +1924,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.ribbon6);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.ribbon6);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.ribbon6);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.ribbon6);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.ribbon6);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.ribbon6);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.ribbon6);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.ribbon6);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -1956,41 +1981,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.ribbon7);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.ribbon7);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.ribbon7);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.ribbon7);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.ribbon7);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.ribbon7);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.ribbon7);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.ribbon7);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2005,41 +2038,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.ribbon8);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.ribbon8);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.ribbon8);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.ribbon8);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.ribbon8);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.ribbon8);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.ribbon8);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.ribbon8);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2060,41 +2101,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.button1);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.button1);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.button1);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.button1);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.button1);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.button1);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.button1);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.button1);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2109,41 +2158,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.button2);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.button2);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.button2);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.button2);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.button2);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.button2);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.button2);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.button2);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2158,41 +2215,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.button3);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.button3);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.button3);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.button3);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.button3);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.button3);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.button3);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.button3);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2207,41 +2272,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if(ornamentNumber == 1){
+            dragOrnamentView1 = (ImageView)findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.button4);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2){
+            dragOrnamentView2 = (ImageView)findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.button4);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3){
+            dragOrnamentView3 = (ImageView)findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.button4);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4){
+            dragOrnamentView4 = (ImageView)findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.button4);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5){
+            dragOrnamentView5 = (ImageView)findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.button4);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6){
+            dragOrnamentView6 = (ImageView)findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.button4);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7){
+            dragOrnamentView7 = (ImageView)findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.button4);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8){
+            dragOrnamentView8 = (ImageView)findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.button4);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2262,41 +2335,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.the_others1);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.the_others1);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.the_others1);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.the_others1);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.the_others1);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.the_others1);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.the_others1);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.the_others1);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2311,41 +2392,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.the_others2);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.the_others2);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.the_others2);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.the_others2);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.the_others2);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.the_others2);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.the_others2);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.the_others2);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2360,41 +2449,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.the_others3);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.the_others3);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.the_others3);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.the_others3);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.the_others3);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.the_others3);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.the_others3);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.the_others3);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2409,41 +2506,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.the_others4);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.the_others4);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.the_others4);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.the_others4);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.the_others4);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.the_others4);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.the_others4);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.the_others4);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2458,41 +2563,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.the_others5);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.the_others5);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.the_others5);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.the_others5);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.the_others5);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.the_others5);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.the_others5);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.the_others5);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2507,41 +2620,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.the_others6);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.the_others6);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.the_others6);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.the_others6);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.the_others6);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.the_others6);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.the_others6);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.the_others6);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2556,41 +2677,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.the_others7);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.the_others7);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.the_others7);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.the_others7);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.the_others7);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.the_others7);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.the_others7);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.the_others7);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2605,41 +2734,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.the_others8);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.the_others8);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.the_others8);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.the_others8);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.the_others8);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.the_others8);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.the_others8);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.the_others8);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2654,41 +2791,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.the_others9);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.the_others9);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.the_others9);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.the_others9);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.the_others9);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.the_others9);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.the_others9);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.the_others9);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2703,41 +2848,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.the_others10);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.the_others10);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.the_others10);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.the_others10);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.the_others10);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.the_others10);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.the_others10);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.the_others10);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2752,41 +2905,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.the_others11);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.the_others11);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.the_others11);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.the_others11);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.the_others11);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.the_others11);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.the_others11);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.the_others11);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2801,41 +2962,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.the_others12);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.the_others12);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.the_others12);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.the_others12);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.the_others12);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.the_others12);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.the_others12);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.the_others12);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2850,41 +3019,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.the_others13);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.the_others13);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.the_others13);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.the_others13);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.the_others13);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.the_others13);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.the_others13);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.the_others13);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2899,41 +3076,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.the_others14);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.the_others14);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.the_others14);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.the_others14);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.the_others14);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.the_others14);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.the_others14);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.the_others14);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2948,41 +3133,49 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.the_others15);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.the_others15);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.the_others15);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.the_others15);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.the_others15);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.the_others15);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.the_others15);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
             dragOrnamentView8.setImageResource(R.drawable.the_others15);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
@@ -2997,41 +3190,50 @@ public class MakeActivity extends AppCompatActivity {
         ornamentNumber++;
 
         if (ornamentNumber == 1) {
+            dragOrnamentView1 = (ImageView) findViewById(R.id.ornamentView1);
             dragOrnamentView1.setImageResource(R.drawable.the_others16);
             dragOrnamentView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView1);
             dragOrnamentView1.setOnTouchListener(listener);
         } else if (ornamentNumber == 2) {
+            dragOrnamentView2 = (ImageView) findViewById(R.id.ornamentView2);
             dragOrnamentView2.setImageResource(R.drawable.the_others16);
             dragOrnamentView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView2);
             dragOrnamentView2.setOnTouchListener(listener);
         } else if (ornamentNumber == 3) {
+            dragOrnamentView3 = (ImageView) findViewById(R.id.ornamentView3);
             dragOrnamentView3.setImageResource(R.drawable.the_others16);
             dragOrnamentView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView3);
             dragOrnamentView3.setOnTouchListener(listener);
         } else if (ornamentNumber == 4) {
+            dragOrnamentView4 = (ImageView) findViewById(R.id.ornamentView4);
             dragOrnamentView4.setImageResource(R.drawable.the_others16);
             dragOrnamentView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView4);
             dragOrnamentView4.setOnTouchListener(listener);
         } else if (ornamentNumber == 5) {
+            dragOrnamentView5 = (ImageView) findViewById(R.id.ornamentView5);
             dragOrnamentView5.setImageResource(R.drawable.the_others16);
             dragOrnamentView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView5);
             dragOrnamentView5.setOnTouchListener(listener);
         } else if (ornamentNumber == 6) {
+            dragOrnamentView6 = (ImageView) findViewById(R.id.ornamentView6);
             dragOrnamentView6.setImageResource(R.drawable.the_others16);
             dragOrnamentView6.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView6);
             dragOrnamentView6.setOnTouchListener(listener);
         } else if (ornamentNumber == 7) {
+            dragOrnamentView7 = (ImageView) findViewById(R.id.ornamentView7);
             dragOrnamentView7.setImageResource(R.drawable.the_others16);
             dragOrnamentView7.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView7);
             dragOrnamentView7.setOnTouchListener(listener);
         } else if (ornamentNumber == 8) {
+            dragOrnamentView8 = (ImageView) findViewById(R.id.ornamentView8);
+            dragOrnamentView8.setImageResource(R.drawable.the_others16);
             dragOrnamentView8.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragOrnamentView8);
             dragOrnamentView8.setOnTouchListener(listener);
@@ -3039,7 +3241,6 @@ public class MakeActivity extends AppCompatActivity {
             Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
         }
     }
-
 
     public class DragViewListener implements View.OnTouchListener {
         // ドラッグ対象のView
@@ -3102,183 +3303,76 @@ public class MakeActivity extends AppCompatActivity {
                         if (tapeNumber == 1){
                             dragTapeView1.layout(param.leftMargin, param.topMargin,
                                     param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                            tapeChoiceFlag1 = true;
+                            //dragTapeView1.setOnClickListener(dragTapeViewOnClick);
                         } else if (tapeNumber == 2){
                             dragTapeView2.layout(param.leftMargin, param.topMargin,
                                     param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                            tapeChoiceFlag2 = true;
                         } else if (tapeNumber == 3){
                             dragTapeView3.layout(param.leftMargin, param.topMargin,
                                     param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                            tapeChoiceFlag3 = true;
                         } else if (tapeNumber == 4){
                             dragTapeView4.layout(param.leftMargin, param.topMargin,
                                     param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                            tapeChoiceFlag4 = true;
                         } else if (tapeNumber == 5){
                             dragTapeView5.layout(param.leftMargin, param.topMargin,
                                     param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                            tapeChoiceFlag5 = true;
                         }
                     } else if (ornamentFlag == true){
                         if (ornamentNumber == 1){
                             dragOrnamentView1.layout(param.leftMargin, param.topMargin,
                                     param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                            ornamentChoiceFlag1 = true;
                         } else if (ornamentNumber == 2){
                             dragOrnamentView2.layout(param.leftMargin, param.topMargin,
                                     param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                            ornamentChoiceFlag2 = true;
                         } else if (ornamentNumber == 3){
                             dragOrnamentView3.layout(param.leftMargin, param.topMargin,
                                     param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                            ornamentChoiceFlag3 = true;
                         } else if (ornamentNumber == 4){
                             dragOrnamentView4.layout(param.leftMargin, param.topMargin,
                                     param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                            ornamentChoiceFlag4 = true;
                         } else if (ornamentNumber == 5){
                             dragOrnamentView5.layout(param.leftMargin, param.topMargin,
                                     param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                            ornamentChoiceFlag5 = true;
                         } else if (ornamentNumber == 6){
                             dragOrnamentView6.layout(param.leftMargin, param.topMargin,
                                     param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                            ornamentChoiceFlag6 = true;
                         } else if (ornamentNumber == 7){
                             dragOrnamentView7.layout(param.leftMargin, param.topMargin,
                                     param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                            ornamentChoiceFlag7 = true;
                         } else if (ornamentNumber == 8){
                             dragOrnamentView8.layout(param.leftMargin, param.topMargin,
                                     param.leftMargin + dragView.getWidth(), param.topMargin + dragView.getHeight());
-                            ornamentChoiceFlag8 = true;
                         }
                     }
 
                     break;
             }
 
-            dragViewCheckLinearLayout.setVisibility(View.VISIBLE);
-
             // 今回のタッチ位置を保持
             oldX = x;
             oldY = y;
             // イベント処理完了
+            Log.d("rewyu", "vcbxnz");
             return true;
+            //Log.d("rewyu", "vcbxnz");
+
         }
     }
 
     public void test(View v){
-
-    }
-
-    public void yes(View v){
-        dragViewCheckLinearLayout.setVisibility(View.GONE);
-        dragViewChoiceLinearLayout.setVisibility(View.VISIBLE);
-
-        if(tapeNumber == 1){
-            dragTapeView1.setOnTouchListener(dragTapeTouch1);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setOnTouchListener(dragTapeTouch2);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setOnTouchListener(dragTapeTouch3);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setOnTouchListener(dragTapeTouch4);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setOnTouchListener(dragTapeTouch5);
-        } else if (ornamentNumber == 1){
-            Log.d("ornament", "call");
-            dragOrnamentView1.setOnTouchListener(dragOrnamentTouch1);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setOnTouchListener(dragOrnamentTouch2);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setOnTouchListener(dragOrnamentTouch3);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setOnTouchListener(dragOrnamentTouch4);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setOnTouchListener(dragOrnamentTouch5);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setOnTouchListener(dragOrnamentTouch6);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setOnTouchListener(dragOrnamentTouch7);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setOnTouchListener(dragOrnamentTouch8);
-        }
-
+        Log.d("hfdjks", "hfjdkaweq");
         tapeFlag = false;
-        ornamentFlag = false;
+        dragTapeView1.setOnClickListener(dragTapeViewOnClick);
+
     }
 
-    public void no(View v){
-        dragViewCheckLinearLayout.setVisibility(View.GONE);
-    }
-
-    public void rotate(View v){
-        dragViewChoiceLinearLayout.setVisibility(View.GONE);
-        angleLinearLayout.setVisibility(View.VISIBLE);
-    }
-
-    public void delete(View v){
-        dragViewChoiceLinearLayout.setVisibility(View.GONE);
-        if(tapeChoiceFlag1 == true){
+    private View.OnClickListener dragTapeViewOnClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Log.d("","fds");
             dragTapeView1.setVisibility(View.GONE);
-            tapeChoiceFlag1 = false;
-        } else if (tapeChoiceFlag2 == true){
-            dragTapeView2.setVisibility(View.GONE);
-            tapeChoiceFlag2 = false;
-        } else if (tapeChoiceFlag3 == true){
-            dragTapeView3.setVisibility(View.GONE);
-            tapeChoiceFlag3 = false;
-        } else if (tapeChoiceFlag4 == true){
-            dragTapeView4.setVisibility(View.GONE);
-            tapeChoiceFlag4 = false;
-        } else if (tapeChoiceFlag5 == true){
-            dragTapeView5.setVisibility(View.GONE);
-            tapeChoiceFlag5 = false;
-        } else if (ornamentChoiceFlag1 == true){
-            dragOrnamentView1.setVisibility(View.GONE);
-            ornamentChoiceFlag1 = false;
-        } else if (ornamentChoiceFlag2 == true){
-            dragOrnamentView2.setVisibility(View.GONE);
-            ornamentChoiceFlag2 = false;
-        } else if (ornamentChoiceFlag3 == true){
-            dragOrnamentView3.setVisibility(View.GONE);
-            ornamentChoiceFlag3 = false;
-        } else if (ornamentChoiceFlag4 == true){
-            dragOrnamentView4.setVisibility(View.GONE);
-            ornamentChoiceFlag4 = false;
-        } else if (ornamentChoiceFlag5 == true){
-            dragOrnamentView5.setVisibility(View.GONE);
-            ornamentChoiceFlag5 = false;
-        } else if (ornamentChoiceFlag6 == true){
-            dragOrnamentView6.setVisibility(View.GONE);
-            ornamentChoiceFlag6 = false;
-        } else if (ornamentChoiceFlag7 == true){
-            dragOrnamentView7.setVisibility(View.GONE);
-            ornamentChoiceFlag7 = false;
-        } else if (ornamentChoiceFlag8 == true){
-            dragOrnamentView8.setVisibility(View.GONE);
-            ornamentChoiceFlag8 = false;
         }
-    }
-
-    public void not(View v){
-        dragViewChoiceLinearLayout.setVisibility(View.GONE);
-        tapeChoiceFlag1 = false;
-        tapeChoiceFlag2 = false;
-        tapeChoiceFlag3 = false;
-        tapeChoiceFlag4 = false;
-        tapeChoiceFlag5 = false;
-        ornamentChoiceFlag1 = false;
-        ornamentChoiceFlag2 = false;
-        ornamentChoiceFlag3 = false;
-        ornamentChoiceFlag4 = false;
-        ornamentChoiceFlag5 = false;
-        ornamentChoiceFlag6 = false;
-        ornamentChoiceFlag7 = false;
-        ornamentChoiceFlag8 = false;
-    }
+    };
 
     public void save(View v) {
         //background
@@ -3316,359 +3410,15 @@ public class MakeActivity extends AppCompatActivity {
         //editorPhoto.putString("img", bitmapStrIV);
         editorBackGround.putString("bg", bitmapStrBG);
 
-        editorMemo.apply();
-        editorRotation.apply();
+        editorMemo.commit();
+        editorRotation.commit();
         //editorPhoto.apply();
         editorBackGround.apply();
 
         finish();
 
-        Intent intentEdit = new Intent(this, EditActivity.class);
-        startActivity(intentEdit);
-        //Intent intentSave = new Intent(this, SaveActivity.class);
-        //startActivity(intentSave);
+        Intent intentSave = new Intent(this, SaveActivity.class);
+        startActivity(intentSave);
     }
 
-    private View.OnTouchListener dragTapeTouch1 = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            int x = (int) event.getRawX();
-            int y = (int) event.getRawY();
-
-            x = x - 140;
-            y = y - 230;
-
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_MOVE:
-                    Log.d("dragTape1", "true");
-                    dragTapeView1.setX(x);
-                    dragTapeView1.setY(y);
-                    break;
-            }
-
-            dragViewCheckLinearLayout.setVisibility(View.VISIBLE);
-            tapeChoiceFlag1 = true;
-
-            return true;
-        }
-    };
-
-    private View.OnTouchListener dragTapeTouch2 = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            int x = (int) event.getRawX();
-            int y = (int) event.getRawY();
-
-            x = x - 140;
-            y = y - 230;
-
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_MOVE:
-                    dragTapeView2.setX(x);
-                    dragTapeView2.setY(y);
-                    break;
-            }
-
-            dragViewCheckLinearLayout.setVisibility(View.VISIBLE);
-            tapeChoiceFlag2 = true;
-
-            return true;
-        }
-    };
-
-    private View.OnTouchListener dragTapeTouch3 = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            int x = (int) event.getRawX();
-            int y = (int) event.getRawY();
-
-            x = x - 140;
-            y = y - 230;
-
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_MOVE:
-                    dragTapeView3.setX(x);
-                    dragTapeView3.setY(y);
-                    break;
-            }
-
-            dragViewCheckLinearLayout.setVisibility(View.VISIBLE);
-            tapeChoiceFlag3 = true;
-
-            return true;
-        }
-    };
-
-    private View.OnTouchListener dragTapeTouch4 = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            int x = (int) event.getRawX();
-            int y = (int) event.getRawY();
-
-            x = x - 140;
-            y = y - 230;
-
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_MOVE:
-                    dragTapeView4.setX(x);
-                    dragTapeView4.setY(y);
-                    break;
-            }
-
-            dragViewCheckLinearLayout.setVisibility(View.VISIBLE);
-            tapeChoiceFlag4 = true;
-
-            return true;
-        }
-    };
-
-    private View.OnTouchListener dragTapeTouch5 = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            int x = (int) event.getRawX();
-            int y = (int) event.getRawY();
-
-            x = x - 140;
-            y = y - 230;
-
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_MOVE:
-                    dragTapeView5.setX(x);
-                    dragTapeView5.setY(y);
-                    break;
-            }
-
-            dragViewCheckLinearLayout.setVisibility(View.VISIBLE);
-            tapeChoiceFlag5 = true;
-
-            return true;
-        }
-    };
-
-    private View.OnTouchListener dragOrnamentTouch1 = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            Log.d("ornament1", "true");
-
-            int x = (int) event.getRawX();
-            int y = (int) event.getRawY();
-            //int x = (int) event.getX();
-            //int y = (int) event.getY();
-
-            x = x - 100;
-            y = y - 280;
-
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_MOVE:
-                    Log.d("ornament1", "true");
-
-                    dragOrnamentView1.setX(x);
-                    dragOrnamentView1.setY(y);
-                    break;
-            }
-
-            dragViewCheckLinearLayout.setVisibility(View.VISIBLE);
-            ornamentChoiceFlag1 = true;
-
-            return true;
-        }
-    };
-
-    private View.OnTouchListener dragOrnamentTouch2 = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            int x = (int) event.getRawX();
-            int y = (int) event.getRawY();
-
-            x = x - 100;
-            y = y - 280;
-
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_MOVE:
-                    dragOrnamentView2.setX(x);
-                    dragOrnamentView2.setY(y);
-                    break;
-            }
-
-            dragViewCheckLinearLayout.setVisibility(View.VISIBLE);
-            ornamentChoiceFlag2 = true;
-
-            return true;
-        }
-    };
-
-    private View.OnTouchListener dragOrnamentTouch3 = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            int x = (int) event.getRawX();
-            int y = (int) event.getRawY();
-
-            x = x - 100;
-            y = y - 280;
-
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_MOVE:
-                    dragOrnamentView3.setX(x);
-                    dragOrnamentView3.setY(y);
-                    break;
-            }
-
-            dragViewCheckLinearLayout.setVisibility(View.VISIBLE);
-            ornamentChoiceFlag3 = true;
-
-            return true;
-        }
-    };
-
-    private View.OnTouchListener dragOrnamentTouch4 = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            int x = (int) event.getRawX();
-            int y = (int) event.getRawY();
-
-            x = x - 100;
-            y = y - 280;
-
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_MOVE:
-                    dragOrnamentView4.setX(x);
-                    dragOrnamentView4.setY(y);
-                    break;
-            }
-
-            dragViewCheckLinearLayout.setVisibility(View.VISIBLE);
-            ornamentChoiceFlag4 = true;
-
-            return true;
-        }
-    };
-
-    private View.OnTouchListener dragOrnamentTouch5 = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            int x = (int) event.getRawX();
-            int y = (int) event.getRawY();
-
-            x = x - 100;
-            y = y - 280;
-
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_MOVE:
-                    dragOrnamentView5.setX(x);
-                    dragOrnamentView5.setY(y);
-                    break;
-            }
-
-            dragViewCheckLinearLayout.setVisibility(View.VISIBLE);
-            ornamentChoiceFlag5 = true;
-
-            return true;
-        }
-    };
-
-    private View.OnTouchListener dragOrnamentTouch6 = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            int x = (int) event.getRawX();
-            int y = (int) event.getRawY();
-
-            x = x - 100;
-            y = y - 280;
-
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_MOVE:
-                    dragOrnamentView6.setX(x);
-                    dragOrnamentView6.setY(y);
-                    break;
-            }
-
-            dragViewCheckLinearLayout.setVisibility(View.VISIBLE);
-            ornamentChoiceFlag6 = true;
-
-            return true;
-        }
-    };
-
-    private View.OnTouchListener dragOrnamentTouch7 = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            int x = (int) event.getRawX();
-            int y = (int) event.getRawY();
-
-            x = x - 100;
-            y = y - 280;
-
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_MOVE:
-                    dragOrnamentView7.setX(x);
-                    dragOrnamentView7.setY(y);
-                    break;
-            }
-
-            dragViewCheckLinearLayout.setVisibility(View.VISIBLE);
-            ornamentChoiceFlag7 = true;
-
-            return true;
-        }
-    };
-
-    private View.OnTouchListener dragOrnamentTouch8 = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            int x = (int) event.getRawX();
-            int y = (int) event.getRawY();
-
-            x = x - 100;
-            y = y - 280;
-
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_MOVE:
-                    dragOrnamentView8.setX(x);
-                    dragOrnamentView8.setY(y);
-                    break;
-            }
-
-            dragViewCheckLinearLayout.setVisibility(View.VISIBLE);
-            ornamentChoiceFlag8 = true;
-
-            return true;
-        }
-    };
-
-    //ByteArrayOutputStream:String型のデータを保存できるbyte配列の変数
-    //output:出力（入力を受けた機械が仕事として外部に送るデータ（エネルギーや信号、情報）
-    //input:入力（外部から機械にデータ（エネルギーや信号、情報など）を供給すること（例:ボタンを押す））
-    //inputStream,outputStreamは大まかに言うと入出力の可能範囲を広げたもの
-    //（→どんなデータ（エネルギーでも信号でも情報でも）でも入出力可能にしている）
-    //※streamは「流れ」という意味（様々なデータを同じものになるまで分解して流してそして再構築していく感じ）
-    //                                    ↑人や物も原子単位まで分解したら同じですよ～　ってやつ
-    //byte型:bitmapを配列にできる変数の一つ
-    //           .compress(Bitmap.compressFormat.ほにゃらら, 　int quality　, ByteArrayOutputStream型の変数)
-    //pngなのかjpegなのかみたいな…（ようは画像の型）↑       　　　↑
-    // 圧縮率:画像のデータ容量 (ファイルサイズともいう) を小さくすること
-    //Base64:64進数（ここでは、すべてのデータをアルファベット(a~z, A~Z)と数字(0~9)、一部の記号(+,/)の64文字で表す
-    // 　　　　　　　エンコード方式のことを指す）　
-    //encode:（暗号などに）書き直すこと　→ここではString型に書き直す
-    //Base64.DEFAULT:初期値からBase64にされていることを表すもの（flagに近い）
-
-    //gitHub
-    //VCSのCommitChangesでコメントを書いてCommit, Commitしたら再びVCSのGitHubのPush
-
-    //valuesのdimens.xml見てみて
-
-    //フレーム機能設定
-    //画鋲をおけるようにする
-    //背景の画像(その他とか…　ちょっと再検討して)
-    //影がつけられるようにする
-    //editTextに背景つけられるように
-    //画鋲やボタンの画像集め
-    //画鋲やボタンおくときのパレットつくらんと
-    //Dailyに写真をのせて、そのあとギャラリーから移した写真を消してもきちんとDailyでは保存できてるようにする
-    //（→アルバム整理みたいなのに役に立てるように！！）
-    //（→追記　bitmapにしてるので後で消しても大丈夫っぽい）
-    //レイアウト選ぶところからmakeに飛ぶときに、背景選択画面みたいに配列つくってmakeは1つにしてhtmlだけ変えればいい！　アイデアbyゴディバ
-    //エミュレータのDeveloper Optionsのshow layout boundsでレイアウトの細かいのみれるよ‼
-    //スマホだと画像の比は3:4か1:1
 }
-
-

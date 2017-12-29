@@ -60,6 +60,9 @@ public class BackGroundActivity extends AppCompatActivity {
     Button BACK;
     Button NEXT;
 
+    Intent intent;
+    int makeNumber;
+
     Intent intentBackMake;
 
     @Override
@@ -83,13 +86,16 @@ public class BackGroundActivity extends AppCompatActivity {
         NEXT = (Button)findViewById(R.id.nextButton);
 
         intentBackMake = new Intent(this, MakeActivity.class);
+
+        makeNumber = intent.getIntExtra("M", 0);
+
     }
 
     public void back(View v){
         page--;
 
         if (page < 1){
-            startActivity(intentBackMake);
+            BACK.setVisibility(View.GONE);
         } else if (page == 1){
             topLeft.setBackgroundResource(images[(page*4)-4]);
             topRight.setBackgroundResource(images[(page*4)-3]);
@@ -113,7 +119,7 @@ public class BackGroundActivity extends AppCompatActivity {
 
             NEXT.setBackgroundResource(R.drawable.arrow006);
         } else if (page > 10){
-            startActivity(intentBackMake);
+            NEXT.setVisibility(View.GONE);
         }
     }
 
@@ -121,7 +127,7 @@ public class BackGroundActivity extends AppCompatActivity {
         page++;
 
         if (page < 1){
-            startActivity(intentBackMake);
+            BACK.setVisibility(View.GONE);
         } else if (page == 1){
             topLeft.setBackgroundResource(images[(page*4)-4]);
             topRight.setBackgroundResource(images[(page*4)-3]);
@@ -145,42 +151,78 @@ public class BackGroundActivity extends AppCompatActivity {
 
             NEXT.setBackgroundResource(R.drawable.arrow006);
         } else if (page > 10){
-            startActivity(intentBackMake);
+            NEXT.setVisibility(View.GONE);
         }
     }
 
     public void tl(View v){
+        if (makeNumber == 1){
+            if (page == 1){
+                intentBackMake.putExtra("BG", 1);
+            } else if (page == 2){
+                intentBackMake.putExtra("BG", 5);
+            } else if (page == 3){
+                intentBackMake.putExtra("BG", 9);
+            } else if (page == 4){
+                intentBackMake.putExtra("BG", 13);
+            } else if (page == 5){
+                intentBackMake.putExtra("BG", 17);
+            } else if (page == 6){
+                intentBackMake.putExtra("BG", 21);
+            } else if (page == 7){
+                intentBackMake.putExtra("BG", 25);
+            } else if (page == 8){
+                intentBackMake.putExtra("BG", 29);
+            } else if (page == 9){
+                intentBackMake.putExtra("BG", 33);
+            } else if (page == 10){
+                intentBackMake.putExtra("BG", 37);
+            }
+        } else if (makeNumber == 2){
+            if (page == 1){
+                intentBackMake.putExtra("BG", 1);
+            } else if (page == 2){
+                intentBackMake.putExtra("BG", 5);
+            } else if (page == 3){
+                intentBackMake.putExtra("BG", 9);
+            } else if (page == 4){
+                intentBackMake.putExtra("BG", 13);
+            } else if (page == 5){
+                intentBackMake.putExtra("BG", 17);
+            } else if (page == 6){
+                intentBackMake.putExtra("BG", 21);
+            } else if (page == 7){
+                intentBackMake.putExtra("BG", 25);
+            } else if (page == 8){
+                intentBackMake.putExtra("BG", 29);
+            } else if (page == 9){
+                intentBackMake.putExtra("BG", 33);
+            } else if (page == 10){
+                intentBackMake.putExtra("BG", 37);
+            }
+        }
         if (page == 1){
             intentBackMake.putExtra("BG", 1);
-            startActivity(intentBackMake);
         } else if (page == 2){
             intentBackMake.putExtra("BG", 5);
-            startActivity(intentBackMake);
         } else if (page == 3){
             intentBackMake.putExtra("BG", 9);
-            startActivity(intentBackMake);
         } else if (page == 4){
             intentBackMake.putExtra("BG", 13);
-            startActivity(intentBackMake);
         } else if (page == 5){
             intentBackMake.putExtra("BG", 17);
-            startActivity(intentBackMake);
         } else if (page == 6){
             intentBackMake.putExtra("BG", 21);
-            startActivity(intentBackMake);
         } else if (page == 7){
             intentBackMake.putExtra("BG", 25);
-            startActivity(intentBackMake);
         } else if (page == 8){
             intentBackMake.putExtra("BG", 29);
-            startActivity(intentBackMake);
         } else if (page == 9){
             intentBackMake.putExtra("BG", 33);
-            startActivity(intentBackMake);
         } else if (page == 10){
             intentBackMake.putExtra("BG", 37);
-            startActivity(intentBackMake);
         }
+        startActivity(intentBackMake);
     }
 
     public void tr(View v){
