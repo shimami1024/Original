@@ -165,79 +165,79 @@
                 android:id="@+id/tapeView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/tapeView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/tapeView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/tapeView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/tapeView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/ornamentView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/ornamentView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/ornamentView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/ornamentView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/ornamentView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/ornamentView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/ornamentView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/ornamentView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <LinearLayout
                 android:id="@+id/dragViewChoiceLinearLayout"
@@ -870,7 +870,7 @@
                 android:baselineAligned="false"
                 android:contextClickable="false"
                 android:orientation="horizontal"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <LinearLayout
                     android:id="@+id/angleLinearLayoutIn"
@@ -879,6 +879,21 @@
                     android:layout_margin="5dp"
                     android:background="@drawable/rectanglewhiteallradius10"
                     android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/rotateTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="0dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1.5"
+                        android:background="@drawable/rectanglewhiteallradius10"
+                        android:gravity="center"
+                        android:text="rotate"
+                        android:textSize="20dp" />
 
                     <EditText
                         android:id="@+id/rotationEditText"
@@ -904,11 +919,11 @@
                         android:layout_marginLeft="0dp"
                         android:layout_marginRight="0dp"
                         android:layout_marginTop="5dp"
-                        android:layout_weight="1"
+                        android:layout_weight="0.5"
                         android:background="#ffffff"
                         android:gravity="center"
                         android:inputType="number"
-                        android:text="度"
+                        android:text="°"
                         android:textSize="20dp" />
 
                     <LinearLayout
@@ -920,7 +935,7 @@
                         android:layout_marginLeft="0dp"
                         android:layout_marginRight="0dp"
                         android:layout_marginTop="5dp"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:background="#ffffff"
                         android:orientation="vertical">
 
@@ -932,7 +947,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:onClick="right"
-                            android:text="右" />
+                            android:text="right" />
 
                         <Button
                             android:id="@+id/directionLeftButton"
@@ -942,23 +957,9 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:onClick="left"
-                            android:text="左" />
+                            android:text="left" />
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/rotateTextView"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_margin="0dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="0dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="2"
-                        android:background="@drawable/rectanglewhiteallradius10"
-                        android:gravity="center"
-                        android:text="に傾ける"
-                        android:textSize="20dp" />
                 </LinearLayout>
 
             </LinearLayout>

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class BackGroundActivity extends AppCompatActivity {
     int images[] ={
@@ -60,8 +61,9 @@ public class BackGroundActivity extends AppCompatActivity {
     Button BACK;
     Button NEXT;
 
-    Intent intent;
+    Intent intentFromCreate;
     int makeNumber;
+    boolean imageFlag;
 
     Intent intentBackMake;
 
@@ -85,10 +87,38 @@ public class BackGroundActivity extends AppCompatActivity {
         BACK = (Button)findViewById(R.id.backButton);
         NEXT = (Button)findViewById(R.id.nextButton);
 
+
+        intentFromCreate = getIntent();
+        makeNumber = intentFromCreate.getIntExtra("M", 0);
+        imageFlag = intentFromCreate.getBooleanExtra("iF", false);
+
         intentBackMake = new Intent(this, MakeActivity.class);
+        intentBackMake.putExtra("imageFlag", imageFlag);
+        intentBackMake.putExtra("backgroundFlag", true);
 
-        makeNumber = intent.getIntExtra("M", 0);
-
+        if (makeNumber == 0){
+            Toast.makeText(this, "Error occurs, please access again", Toast.LENGTH_LONG).show();
+        } else if (makeNumber == 1){
+            intentBackMake.putExtra("L", 1);
+        } else if (makeNumber == 2){
+            intentBackMake.putExtra("L", 2);
+        } else if (makeNumber == 3){
+            intentBackMake.putExtra("L", 3);
+        } else if (makeNumber == 4){
+            intentBackMake.putExtra("L", 4);
+        } else if (makeNumber == 5){
+            intentBackMake.putExtra("L", 5);
+        } else if (makeNumber == 6){
+            intentBackMake.putExtra("L", 6);
+        } else if (makeNumber == 7){
+            intentBackMake.putExtra("L", 7);
+        } else if (makeNumber == 8){
+            intentBackMake.putExtra("L", 8);
+        } else if (makeNumber == 9){
+            intentBackMake.putExtra("L", 9);
+        } else if (makeNumber == 10){
+            intentBackMake.putExtra("L", 10);
+        }
     }
 
     public void back(View v){
@@ -156,51 +186,6 @@ public class BackGroundActivity extends AppCompatActivity {
     }
 
     public void tl(View v){
-        if (makeNumber == 1){
-            if (page == 1){
-                intentBackMake.putExtra("BG", 1);
-            } else if (page == 2){
-                intentBackMake.putExtra("BG", 5);
-            } else if (page == 3){
-                intentBackMake.putExtra("BG", 9);
-            } else if (page == 4){
-                intentBackMake.putExtra("BG", 13);
-            } else if (page == 5){
-                intentBackMake.putExtra("BG", 17);
-            } else if (page == 6){
-                intentBackMake.putExtra("BG", 21);
-            } else if (page == 7){
-                intentBackMake.putExtra("BG", 25);
-            } else if (page == 8){
-                intentBackMake.putExtra("BG", 29);
-            } else if (page == 9){
-                intentBackMake.putExtra("BG", 33);
-            } else if (page == 10){
-                intentBackMake.putExtra("BG", 37);
-            }
-        } else if (makeNumber == 2){
-            if (page == 1){
-                intentBackMake.putExtra("BG", 1);
-            } else if (page == 2){
-                intentBackMake.putExtra("BG", 5);
-            } else if (page == 3){
-                intentBackMake.putExtra("BG", 9);
-            } else if (page == 4){
-                intentBackMake.putExtra("BG", 13);
-            } else if (page == 5){
-                intentBackMake.putExtra("BG", 17);
-            } else if (page == 6){
-                intentBackMake.putExtra("BG", 21);
-            } else if (page == 7){
-                intentBackMake.putExtra("BG", 25);
-            } else if (page == 8){
-                intentBackMake.putExtra("BG", 29);
-            } else if (page == 9){
-                intentBackMake.putExtra("BG", 33);
-            } else if (page == 10){
-                intentBackMake.putExtra("BG", 37);
-            }
-        }
         if (page == 1){
             intentBackMake.putExtra("BG", 1);
         } else if (page == 2){
