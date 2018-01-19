@@ -4917,7 +4917,7 @@ public class MakeActivity extends AppCompatActivity {
         ornamentChoiceFlag8 = false;
     }
 
-    public void test(View v) {
+    public void save(View v) {
 
         String memoText = editText.getText().toString();
         SharedPreferences.Editor editorMemo = preferencesMemo.edit();
