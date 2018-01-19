@@ -1337,6 +1337,54 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/choiceManageLayout"
+                android:layout_width="80dp"
+                android:layout_height="200dp"
+                android:layout_marginLeft="10dp"
+                android:alpha="0.64"
+                android:background="#a0a0a0"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/choiceSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="1"
+                    android:background="#ECEBEB"
+                    android:text="save" />
+
+                <Button
+                    android:id="@+id/choiceAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="#ECEBEB"
+                    android:text="add" />
+
+                <Button
+                    android:id="@+id/choiceExpalain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="#ECEBEB"
+                    android:text="explain" />
+
+                <Button
+                    android:id="@+id/button22"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="#ECEBEB"
+                    android:text="Button" />
+            </LinearLayout>
+
         </FrameLayout>
     </LinearLayout>
 </RelativeLayout>

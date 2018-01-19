@@ -98,6 +98,7 @@ public class MakeActivity extends AppCompatActivity {
     SharedPreferences preferencesPhoto;
     SharedPreferences preferencesImageViewRotation;
     SharedPreferences preferencesMemo;
+    SharedPreferences preferencesEditTextRotation;
 
     LinearLayout tapesLinearLayout;
     int tapeNumber;
@@ -1855,9 +1856,13 @@ public class MakeActivity extends AppCompatActivity {
         if (imageViewRotateFlag == true){
             imageView.setRotation(angle);
             imageViewRotateFlag = false;
+            SharedPreferences.Editor editorImageViewRotation = preferencesImageViewRotation.edit();
+            editorImageViewRotation.putFloat("iRotation", angle); editorImageViewRotation.apply();
         } else if (editTextRotateFlag == true){
             editText.setRotation(angle);
             editTextRotateFlag = false;
+            SharedPreferences.Editor editorEditTextRotation = preferencesEditTextRotation.edit();
+            editorEditTextRotation.putFloat("eRotation", angle); editorEditTextRotation.apply();
         } else if (tapeChoiceFlag1 == true){
             dragTapeView1.setRotation(angle);
             SharedPreferences.Editor tape1r = prefDragTapeView1rotation.edit();
@@ -1936,9 +1941,13 @@ public class MakeActivity extends AppCompatActivity {
         if (imageViewRotateFlag == true){
             imageView.setRotation(-angle);
             imageViewRotateFlag = false;
+            SharedPreferences.Editor editorImageViewRotation = preferencesImageViewRotation.edit();
+            editorImageViewRotation.putFloat("iRotation", -angle); editorImageViewRotation.apply();
         } else if (editTextRotateFlag == true){
             editText.setRotation(-angle);
             editTextRotateFlag = false;
+            SharedPreferences.Editor editorEditTextRotation = preferencesEditTextRotation.edit();
+            editorEditTextRotation.putFloat("eRotation", -angle); editorEditTextRotation.apply();
         } else if (tapeChoiceFlag1 == true){
             dragTapeView1.setRotation(-angle);
             SharedPreferences.Editor tape1r = prefDragTapeView1rotation.edit();
@@ -4908,26 +4917,13 @@ public class MakeActivity extends AppCompatActivity {
         ornamentChoiceFlag8 = false;
     }
 
-    public void save(View v){
-
-    }
-
     public void test(View v) {
-        //imageViewのrotation
-        float imageViewRotation = imageView.getRotation();
-        SharedPreferences.Editor editorImageViewRotation = preferencesImageViewRotation.edit();
-        editorImageViewRotation.putFloat("Rotation", imageViewRotation);
-        editorImageViewRotation.apply();
 
-        //imageViewのframe
-
-        //editTextのmemo
         String memoText = editText.getText().toString();
         SharedPreferences.Editor editorMemo = preferencesMemo.edit();
         editorMemo.putString("memo", memoText);
         editorMemo.apply();
 
-        //editTextのrotation
 
         //editTextの背景
 

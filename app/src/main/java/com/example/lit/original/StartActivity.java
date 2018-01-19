@@ -39,6 +39,10 @@ public class StartActivity extends AppCompatActivity {
 
     }
 
+    public void daily(View v){
+
+    }
+
     //スタート画面を素敵に！！(Animation)
 
     //animation はなし、フォント取得
