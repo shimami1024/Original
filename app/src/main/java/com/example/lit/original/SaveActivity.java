@@ -1,20 +1,16 @@
 package com.example.lit.original;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,71 +18,102 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 public class SaveActivity extends AppCompatActivity {
-    ImageView imageViewS;
-    EditText editTextS;
     TextView textViewS;
     FrameLayout frameLayoutS;
     RelativeLayout relativeLayoutS;
-    Button buttonS;
 
-    SharedPreferences preferencesMemo;
-    SharedPreferences preferencesRotate;
-    SharedPreferences preferencesPhoto;
+    SharedPreferences preferencesFileNumber;
+    int fileNumber;
+
     SharedPreferences preferencesBackground;
+
+    SharedPreferences preferencesFile;
+
+    int pageNumber;
+    Button backButton;
+    Button nextButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save);
 
-        imageViewS = (ImageView)findViewById(R.id.imageViewS);
-        editTextS = (EditText)findViewById(R.id.editTextS);
         textViewS = (TextView)findViewById(R.id.textViewS);
         frameLayoutS = (FrameLayout)findViewById(R.id.frameLayoutS);
         relativeLayoutS = (RelativeLayout)findViewById(R.id.relativeLayoutS);
-        buttonS = (Button)findViewById(R.id.buttonS);
 
-        preferencesMemo = getSharedPreferences("pref_memo", MODE_PRIVATE);
-        preferencesRotate = getSharedPreferences("pref_rotate", MODE_PRIVATE);
-        preferencesPhoto = getSharedPreferences("pref_img", MODE_PRIVATE);
-        preferencesBackground = getSharedPreferences("pref_bg", Context.MODE_PRIVATE);
+        preferencesFileNumber = getSharedPreferences("preferences_file_number", MODE_PRIVATE);
+        fileNumber = preferencesFileNumber.getInt("fN", 0);
+        Log.d("number", String.valueOf(fileNumber));
 
-        //background
-        String sBG = preferencesBackground.getString("bg", "");
-        byte[] bBG = Base64.decode(sBG, Base64.DEFAULT);
-        Bitmap bmpBG = BitmapFactory.decodeByteArray(bBG, 0, bBG.length).copy(Bitmap.Config.ARGB_8888, true);
-        Drawable drawBG = new BitmapDrawable(bmpBG);
+        preferencesBackground = getSharedPreferences("pref_bg", MODE_PRIVATE);
 
-        //imageViewのphoto
-        String s = preferencesPhoto.getString("img","");
-        byte[] b = Base64.decode(s, Base64.DEFAULT);
-        Bitmap bmp = BitmapFactory.decodeByteArray(b, 0, b.length).copy(Bitmap.Config.ARGB_8888, true);
+        preferencesFile = getSharedPreferences("preferences_file" + String.valueOf(fileNumber), MODE_PRIVATE);
+        String sFile = preferencesFile.getString("file" + String.valueOf(fileNumber),"");
+        byte[] bFile = Base64.decode(sFile, Base64.DEFAULT);
+        Bitmap bmpIV = BitmapFactory.decodeByteArray(bFile, 0, bFile.length).copy(Bitmap.Config.ARGB_8888, true);
+        BitmapDrawable bitmapFile = new BitmapDrawable(getResources(), bmpIV);
+        frameLayoutS.setBackgroundDrawable(bitmapFile);
 
-        relativeLayoutS.setBackgroundDrawable(drawBG);
-        imageViewS.setImageBitmap(bmp);
-        imageViewS.setRotation(preferencesRotate.getFloat("Rotation", 0));
-        editTextS.setText(preferencesMemo.getString("memo",""));
+        pageNumber = fileNumber;
+        backButton = (Button)findViewById(R.id.backButton);
+        nextButton = (Button)findViewById(R.id.nextButton);
+
+        nextButton.setVisibility(View.INVISIBLE);
 
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);
         int day = cal.get(Calendar.DAY_OF_MONTH);
 
-        String date = year + "年" + (month+1) + "月" + day + "日　" ;
+        String date = year + "/" + (month+1) + "/" + day ;
         textViewS.setTextSize(25);
         textViewS.setText(date);
 
-        Intent intentSS = getIntent();
-        int ss = intentSS.getIntExtra("SS", 0);
-        if(ss == 0){
-            Toast.makeText(this, "保存しました", Toast.LENGTH_LONG).show();
-        } else if(ss == 1){
-            buttonS.setVisibility(View.GONE);
-        }
+        Toast.makeText(this, "保存しました", Toast.LENGTH_LONG).show();
+
     }
 
     public void back(View v){
-        Intent intentStart = new Intent(this, StartActivity.class);
-        startActivity(intentStart);
+
+        pageNumber--;
+        Log.d("number", String.valueOf(pageNumber));
+
+        if (pageNumber == 1){
+            backButton.setVisibility(View.INVISIBLE);
+            nextButton.setVisibility(View.VISIBLE);
+        } else {
+            backButton.setVisibility(View.VISIBLE);
+            nextButton.setVisibility(View.VISIBLE);
+        }
+
+        preferencesFile = getSharedPreferences("preferences_file" + String.valueOf(pageNumber), MODE_PRIVATE);
+        String sFile = preferencesFile.getString("file" + String.valueOf(pageNumber),"");
+        byte[] bFile = Base64.decode(sFile, Base64.DEFAULT);
+        Bitmap bmpIV = BitmapFactory.decodeByteArray(bFile, 0, bFile.length).copy(Bitmap.Config.ARGB_8888, true);
+        BitmapDrawable bitmapFile = new BitmapDrawable(getResources(), bmpIV);
+        frameLayoutS.setBackgroundDrawable(bitmapFile);
+
+    }
+
+    public void next(View v){
+
+        pageNumber++;
+
+        if (pageNumber == fileNumber){
+            backButton.setVisibility(View.VISIBLE);
+            nextButton.setVisibility(View.INVISIBLE);
+        } else {
+            nextButton.setVisibility(View.VISIBLE);
+            backButton.setVisibility(View.VISIBLE);
+        }
+
+        preferencesFile = getSharedPreferences("preferences_file" + String.valueOf(pageNumber), MODE_PRIVATE);
+        String sFile = preferencesFile.getString("file" + String.valueOf(pageNumber),"");
+        byte[] bFile = Base64.decode(sFile, Base64.DEFAULT);
+        Bitmap bmpIV = BitmapFactory.decodeByteArray(bFile, 0, bFile.length).copy(Bitmap.Config.ARGB_8888, true);
+        BitmapDrawable bitmapFile = new BitmapDrawable(getResources(), bmpIV);
+        frameLayoutS.setBackgroundDrawable(bitmapFile);
+
     }
 }

@@ -32,7 +32,8 @@ public class StartActivity extends AppCompatActivity {
     }
 
     public void see(View v){
-
+        Intent intentSee = new Intent(this, SaveActivity.class);
+        startActivity(intentSee);
     }
 
     public void setting(View v){

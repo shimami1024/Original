@@ -1,6 +1,5 @@
 package com.example.lit.original;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -21,11 +20,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.Calendar;
 
 
 public class MakeActivity extends AppCompatActivity {
@@ -56,7 +56,7 @@ public class MakeActivity extends AppCompatActivity {
 
     FrameLayout frameLayout;
 
-    RelativeLayout relativeLayout;
+    FrameLayout relativeLayout;
 
     //imageViewとeditTextで角度設定か背景設定かを選ぶための変数の宣言
     LinearLayout choiceBackgroundOrAngleLinearLayout;
@@ -244,6 +244,8 @@ public class MakeActivity extends AppCompatActivity {
 
     int backgroundNumber;
 
+    LinearLayout choiceManageLinearLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -287,7 +289,7 @@ public class MakeActivity extends AppCompatActivity {
         //editText2 = (EditText)findViewById(R.id.editText2);
         //editText3 = (EditText)findViewById(R.id.editText3);
 
-        relativeLayout = (RelativeLayout)findViewById(R.id.RelativeLayout);
+        relativeLayout = (FrameLayout)findViewById(R.id.relativeLayout);
 
         dragTapeView1 = (ImageView)findViewById(R.id.tapeView1);
         dragTapeView2 = (ImageView)findViewById(R.id.tapeView2);
@@ -307,8 +309,8 @@ public class MakeActivity extends AppCompatActivity {
         //倉庫名変えればいくつかeditつくっても多分大丈夫
         //それぞれのpreferenceの倉庫を設定、MODE_PRIVATEはこのアプリのみでデータをいじることができるようにする設定
           //
-        preferencesBackground = getSharedPreferences("pref_bg", Context.MODE_PRIVATE);
-        preferencesPhoto = getSharedPreferences("pref_img", Context.MODE_PRIVATE);
+        preferencesBackground = getSharedPreferences("pref_bg", MODE_PRIVATE);
+        preferencesPhoto = getSharedPreferences("pref_img", MODE_PRIVATE);
         preferencesImageViewRotation = getSharedPreferences("pref_rotate", MODE_PRIVATE);
         preferencesMemo = getSharedPreferences("pref_memo", MODE_PRIVATE);
 
@@ -380,6 +382,9 @@ public class MakeActivity extends AppCompatActivity {
         prefDragOrnamentView8y = getSharedPreferences("pref_ornament8_y", MODE_PRIVATE);
         prefDragOrnamentView8rotation = getSharedPreferences("pref_ornament8_rotation", MODE_PRIVATE);
         prefDOV8Number = getSharedPreferences("pref_ornament8Drawable", MODE_PRIVATE);
+
+
+        choiceManageLinearLayout = (LinearLayout)findViewById(R.id.choiceManageLayout);
 
 
         Intent intentMake = getIntent();
@@ -4917,6 +4922,10 @@ public class MakeActivity extends AppCompatActivity {
         ornamentChoiceFlag8 = false;
     }
 
+    public void manage(View v){
+        choiceManageLinearLayout.setVisibility(View.VISIBLE);
+    }
+
     public void save(View v) {
 
         String memoText = editText.getText().toString();
@@ -4924,6 +4933,7 @@ public class MakeActivity extends AppCompatActivity {
         editorMemo.putString("memo", memoText);
         editorMemo.apply();
 
+        //imageViewのframe
 
         //editTextの背景
 
@@ -4934,6 +4944,71 @@ public class MakeActivity extends AppCompatActivity {
         //startActivity(intentSave);
 
 
+    }
+
+    public void add(View v){
+        choiceManageLinearLayout.setVisibility(View.GONE);
+
+        TextView dateView = (TextView)findViewById(R.id.dateView);
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        String date = year + "/" + (month+1) + "/" + day ;
+        dateView.setTextSize(25);
+        dateView.setText(date);
+
+        LinearLayout taskLinearLayout = (LinearLayout)findViewById(R.id.taskLinearLayout);
+        taskLinearLayout.setVisibility(View.GONE);
+
+        dateView.setVisibility(View.VISIBLE);
+
+
+        relativeLayout.setDrawingCacheEnabled(true);
+
+        Bitmap save_bmp = Bitmap.createBitmap(relativeLayout.getDrawingCache());
+
+        try {
+
+            SharedPreferences preferencesFileNumber = getSharedPreferences("preferences_file_number", MODE_PRIVATE);
+
+            int fileNumber = preferencesFileNumber.getInt("fN", 0);
+            fileNumber = fileNumber + 1;
+            Log.d("fileNumber", String.valueOf(fileNumber));
+
+            //fileごと保存
+            SharedPreferences preferencesFile = getSharedPreferences("preferences_file" + String.valueOf(fileNumber), MODE_PRIVATE);
+            ByteArrayOutputStream BaOsFile = new ByteArrayOutputStream();
+            save_bmp.compress(Bitmap.CompressFormat.JPEG, 100, BaOsFile);
+            String bitmapStrFile = Base64.encodeToString(BaOsFile.toByteArray(), Base64.DEFAULT);
+
+            SharedPreferences.Editor editorFile = preferencesFile.edit();
+            editorFile.putString("file" + String.valueOf(fileNumber), bitmapStrFile);
+            editorFile.apply();
+
+            SharedPreferences.Editor prefFN = preferencesFileNumber.edit();
+            prefFN.putInt("fN", fileNumber);
+            prefFN.apply();
+
+
+            Toast.makeText(this, "保存されました。", Toast.LENGTH_SHORT).show();
+
+            relativeLayout.setDrawingCacheEnabled(false);
+
+        } catch (Exception e) {
+
+            Toast.makeText(this, "エラー", Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
+
+    public void explain(View v){
+        SharedPreferences.Editor prefDTV3NDefault = prefDTV3Number.edit(); prefDTV3NDefault.clear(); prefDTV3NDefault.commit();
+        SharedPreferences.Editor prefDTV3xDefault = prefDragTapeView3x.edit(); prefDTV3xDefault.clear(); prefDTV3xDefault.commit();
+        SharedPreferences.Editor prefDTV3yDefault = prefDragTapeView3y.edit(); prefDTV3yDefault.clear(); prefDTV3yDefault.commit();
+        SharedPreferences.Editor prefDTV3rDefault = prefDragTapeView3rotation.edit(); prefDTV3rDefault.clear(); prefDTV3rDefault.commit();
     }
 
 
