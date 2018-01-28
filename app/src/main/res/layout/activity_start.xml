@@ -5,14 +5,14 @@
     android:id="@+id/relative"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="#ffffff"
     android:hapticFeedbackEnabled="false"
     tools:context="com.example.lit.original.StartActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/moto">
+        android:background="@drawable/motoview">
 
         <ImageView
             android:id="@+id/makeMoto"
@@ -103,7 +103,7 @@
             android:background="@android:color/transparent"
             android:onClick="setting"
             android:text="setting"
-            android:textColor="?attr/colorButtonNormal"
+            android:textColor="@color/common_action_bar_splitter"
             android:textSize="50sp"
             android:textStyle="normal" />
 

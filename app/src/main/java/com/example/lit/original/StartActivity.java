@@ -21,12 +21,13 @@ public class StartActivity extends AppCompatActivity {
     }
 
     public void make(View v){
-        Intent intentMake = new Intent(this, MainActivity.class);
+        Intent intentMake = new Intent(this, CreateActivity.class);
+        intentMake.putExtra("MAKE", true);
         startActivity(intentMake);
     }
 
     public void edit(View v){
-        Intent intentMake = new Intent(this, MakeActivity.class);
+        Intent intentMake = new Intent(this, CreateActivity.class);
         intentMake.putExtra("EDIT", true);
         startActivity(intentMake);
     }

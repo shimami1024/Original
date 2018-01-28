@@ -28,8 +28,8 @@ import java.io.InputStream;
 import java.util.Calendar;
 
 
-public class MakeActivity extends AppCompatActivity {
-    //private static final int REQUEST_GALLERY = 0;
+public class CreateActivity extends AppCompatActivity {
+
     boolean flag;
 
     int layoutNumber;
@@ -57,30 +57,6 @@ public class MakeActivity extends AppCompatActivity {
     FrameLayout frameLayout;
 
     FrameLayout relativeLayout;
-
-    //imageViewとeditTextで角度設定か背景設定かを選ぶための変数の宣言
-    LinearLayout choiceBackgroundOrAngleLinearLayout;
-    Button choiceBackgroundButton;
-    Button choiceAngleButton;
-
-    //imageViewの背景設定のための変数の宣言
-    LinearLayout imageViewBackgroundLinearLayout;
-    ImageButton imageViewBackgroundImageButton1;
-    ImageButton imageViewBackgroundImageButton2;
-    ImageButton imageViewBackgroundImageButton3;
-    ImageButton imageViewBackgroundImageButton4;
-
-    //imageViewのframe
-    boolean frameFlag;
-    ImageView frameImageView;
-
-    //editTextの背景設定のための変数の宣言
-    LinearLayout editTextBackgroundLinearLayout;
-    boolean eTbGFlag;
-    ImageButton editTextBackgroundImageButton1;
-    ImageButton editTextBackgroundImageButton2;
-    ImageButton editTextBackgroundImageButton3;
-    ImageButton editTextBackgroundImageButton4;
 
     //角度設定のための変数の宣言
     LinearLayout angleLinearLayout;
@@ -244,40 +220,18 @@ public class MakeActivity extends AppCompatActivity {
 
     int backgroundNumber;
 
+    SharedPreferences tapeN;
+
+    SharedPreferences ornamentN;
+
     LinearLayout choiceManageLinearLayout;
+    Boolean manageFlag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //setContentView(R.layout.activity_make1);
-
-        Intent intent = getIntent();
-        layoutNumber = intent.getIntExtra("L", 0);
-
-        if (layoutNumber == 0){
-            setContentView(R.layout.activity_make1);
-        }else if (layoutNumber == 1){
-            setContentView(R.layout.activity_make1);
-        } else if (layoutNumber == 2){
-            setContentView(R.layout.activity_make2);
-        } else if (layoutNumber == 3){
-            setContentView(R.layout.activity_make3);
-        } else if (layoutNumber == 4){
-            setContentView(R.layout.activity_make4);
-        } else if (layoutNumber == 5){
-            setContentView(R.layout.activity_make5);
-        } else if (layoutNumber == 6){
-            setContentView(R.layout.activity_make6);
-        } else if (layoutNumber == 7){
-            setContentView(R.layout.activity_make7);
-        } else if (layoutNumber == 8){
-            setContentView(R.layout.activity_make8);
-        } else if (layoutNumber == 9){
-            setContentView(R.layout.activity_make9);
-        } else if (layoutNumber == 10){
-            setContentView(R.layout.activity_make10);
-        }
+        setContentView(R.layout.activity_make);
 
         imageView = (ImageView)findViewById(R.id.imageView);
         //imageView1 = (ImageView)findViewById(R.id.imageView1);
@@ -383,9 +337,13 @@ public class MakeActivity extends AppCompatActivity {
         prefDragOrnamentView8rotation = getSharedPreferences("pref_ornament8_rotation", MODE_PRIVATE);
         prefDOV8Number = getSharedPreferences("pref_ornament8Drawable", MODE_PRIVATE);
 
+        tapeN = getSharedPreferences("pref_tape_number", MODE_PRIVATE);
+
+        ornamentN = getSharedPreferences("pref_ornament_number", MODE_PRIVATE);
+
 
         choiceManageLinearLayout = (LinearLayout)findViewById(R.id.choiceManageLayout);
-
+        manageFlag = false;
 
         Intent intentMake = getIntent();
         boolean makeFlag = intentMake.getBooleanExtra("MAKE", false);
@@ -395,6 +353,9 @@ public class MakeActivity extends AppCompatActivity {
             //backgroundは灰色、imageViewは白に
             relativeLayout.setBackgroundColor(Color.parseColor("#565656"));
             imageView.setBackgroundColor(Color.parseColor("#ffffff"));
+
+            tapeNumber = 0;
+            ornamentNumber = 0;
 
             //保存するための変数の初期化
             SharedPreferences.Editor prefBackgroundDefault = preferencesBackground.edit(); prefBackgroundDefault.clear(); prefBackgroundDefault.commit();
@@ -493,6 +454,8 @@ public class MakeActivity extends AppCompatActivity {
 
                 imageFlag = true;
             }
+
+            tapeNumber = tapeN.getInt("prefTapeN", 0);
 
             //dragTapeView1をセット
             dragTapeDNumber = prefDTV1Number.getInt("tp1DN", 0);
@@ -774,6 +737,8 @@ public class MakeActivity extends AppCompatActivity {
 
                 dragTapeView5.setOnTouchListener(dragTapeTouch5);
             }
+
+            ornamentNumber = ornamentN.getInt("prefOrnamentN", 0);
 
             //dragOrnamentView1をセット
             dragOrnamentDNumber = prefDOV1Number.getInt("om1DN", 0);
@@ -1515,27 +1480,6 @@ public class MakeActivity extends AppCompatActivity {
 
         frameLayout = (FrameLayout)findViewById(R.id.frameLayout);
 
-        //imageViewとeditTextで角度設定か背景設定かを選ぶための変数の関連付け
-        choiceBackgroundOrAngleLinearLayout = (LinearLayout)findViewById(R.id.choiceBackgroundOrAngleLinearLayout);
-        choiceBackgroundButton = (Button)findViewById(R.id.choiceBackgrondButton);
-        choiceAngleButton = (Button)findViewById(R.id.choiceAngleButton);
-
-        //imageViewの背景設定のための変数の関連付け
-        imageViewBackgroundLinearLayout = (LinearLayout)findViewById(R.id.imageViewBackgroundLinearLayout);
-        imageViewBackgroundImageButton1 = (ImageButton)findViewById(R.id.imageViewBackgroundImageButton1);
-        imageViewBackgroundImageButton2 = (ImageButton)findViewById(R.id.imageViewBackgroundImageButton2);
-        imageViewBackgroundImageButton3 = (ImageButton)findViewById(R.id.imageViewBackgroundImageButton3);
-        imageViewBackgroundImageButton4 = (ImageButton)findViewById(R.id.imageViewBackgroundImageButton4);
-
-        frameImageView = (ImageView)findViewById(R.id.frameImageView);
-
-        //editTextの背景設定のための変数の関連付け
-        editTextBackgroundLinearLayout = (LinearLayout)findViewById(R.id.editTextBackgroundLinearLayout);
-        editTextBackgroundImageButton1 = (ImageButton)findViewById(R.id.editTextBackgroundImageButton1);
-        editTextBackgroundImageButton2 = (ImageButton)findViewById(R.id.editTextBackgroundImageButton2);
-        editTextBackgroundImageButton3 = (ImageButton)findViewById(R.id.editTextBackgroundImageButton3);
-        editTextBackgroundImageButton4 = (ImageButton)findViewById(R.id.editTextBackgroundImageButton4);
-
         //角度設定に用いる部品と変数の関連付け
         angleLinearLayout = (LinearLayout)findViewById(R.id.angleLinearLayout);
         rotationEditText = (EditText)findViewById(R.id.rotationEditText);
@@ -1545,7 +1489,6 @@ public class MakeActivity extends AppCompatActivity {
 
         tapesLinearLayout = (LinearLayout)findViewById(R.id.tapesLinearLayout);
         tapeButton = (ImageButton)findViewById(R.id.tapeButton);
-        tapeNumber = 0;
 
         ornamentsLinearLayout = (LinearLayout)findViewById(R.id.ornamentsLinearLayout);
         ornamentButton = (ImageButton)findViewById(R.id.ornamentButton);
@@ -1555,7 +1498,6 @@ public class MakeActivity extends AppCompatActivity {
         ribbonLinearLayout = (LinearLayout)findViewById(R.id.ribbonLinearLayout);
         buttonLinearLayout = (LinearLayout)findViewById(R.id.buttonLinearLayout);
         the_othersLinearLayout = (LinearLayout)findViewById(R.id.the_othersLinearLayout);
-        ornamentNumber = 0;
 
         dragViewCheckLinearLayout = (LinearLayout)findViewById(R.id.dragViewCheckLinearLayout);
         dragViewChoiceLinearLayout = (LinearLayout)findViewById(R.id.dragViewChoiceLinearLayout);
@@ -1716,64 +1658,12 @@ public class MakeActivity extends AppCompatActivity {
     private View.OnLongClickListener imageViewOnLongClick = new View.OnLongClickListener() {
         @Override
         public boolean onLongClick(View v) {
-            choiceBackgroundOrAngleLinearLayout.setVisibility(View.VISIBLE);
 
-            choiceBackgroundButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    choiceBackgroundOrAngleLinearLayout.setVisibility(View.GONE);
-                    imageViewBackgroundLinearLayout.setVisibility(View.VISIBLE);
+            angleLinearLayout.setVisibility(View.VISIBLE);
+            rotationEditText.setText("");
 
-                    frameFlag = true;
+            imageViewRotateFlag = true;
 
-                    imageViewBackgroundImageButton1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            frameImageView.setVisibility(View.VISIBLE);
-                            frameImageView.setBackgroundResource(R.drawable.frame1);
-                            imageViewBackgroundLinearLayout.setVisibility(View.GONE);
-                        }
-                    });
-
-                    imageViewBackgroundImageButton2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            frameImageView.setVisibility(View.VISIBLE);
-                            frameImageView.setBackgroundResource(R.drawable.frame2);
-                            imageViewBackgroundLinearLayout.setVisibility(View.GONE);
-                        }
-                    });
-
-                    imageViewBackgroundImageButton3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            frameImageView.setVisibility(View.VISIBLE);
-                            frameImageView.setBackgroundResource(R.drawable.frame3);
-                            imageViewBackgroundLinearLayout.setVisibility(View.GONE);
-                        }
-                    });
-
-                    imageViewBackgroundImageButton4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            frameImageView.setVisibility(View.VISIBLE);
-                            frameImageView.setBackgroundResource(R.drawable.frame4);
-                            imageViewBackgroundLinearLayout.setVisibility(View.GONE);
-                        }
-                    });
-                }
-            });
-
-            choiceAngleButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    choiceBackgroundOrAngleLinearLayout.setVisibility(View.GONE);
-                    angleLinearLayout.setVisibility(View.VISIBLE);
-                    rotationEditText.setText("");
-
-                    imageViewRotateFlag = true;
-                }
-            });
 
             //このままだとonLongClickも反応してしまうのでonClickが反応しないようにflag = trueにしておく
             flag = true;
@@ -1788,60 +1678,12 @@ public class MakeActivity extends AppCompatActivity {
     private View.OnLongClickListener editTextOnLongClick = new View.OnLongClickListener() {
         @Override
         public boolean onLongClick(View v) {
-            choiceBackgroundOrAngleLinearLayout.setVisibility(View.VISIBLE);
 
-            choiceBackgroundButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    eTbGFlag = true;
+            angleLinearLayout.setVisibility(View.VISIBLE);
+            rotationEditText.setText("");
 
-                    choiceBackgroundOrAngleLinearLayout.setVisibility(View.GONE);
-                    editTextBackgroundLinearLayout.setVisibility(View.VISIBLE);
+            editTextRotateFlag = true;
 
-                    editTextBackgroundImageButton1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            editText.setBackgroundResource(R.drawable.memo1);
-                            editTextBackgroundLinearLayout.setVisibility(View.GONE);
-                        }
-                    });
-
-                    editTextBackgroundImageButton2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            editText.setBackgroundResource(R.drawable.memo2);
-                            editTextBackgroundLinearLayout.setVisibility(View.GONE);
-                        }
-                    });
-
-                    editTextBackgroundImageButton3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            editText.setBackgroundResource(R.drawable.memo3);
-                            editTextBackgroundLinearLayout.setVisibility(View.GONE);
-                        }
-                    });
-
-                    editTextBackgroundImageButton4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            editText.setBackgroundResource(R.drawable.memo4);
-                            editTextBackgroundLinearLayout.setVisibility(View.GONE);
-                        }
-                    });
-                }
-            });
-
-            choiceAngleButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    choiceBackgroundOrAngleLinearLayout.setVisibility(View.GONE);
-                    angleLinearLayout.setVisibility(View.VISIBLE);
-                    rotationEditText.setText("");
-
-                    editTextRotateFlag = true;
-                }
-            });
 
             //このままだとonLongClickも反応してしまうのでonClickが反応しないようにflag = trueにしておく
             flag = true;
@@ -2069,6 +1911,9 @@ public class MakeActivity extends AppCompatActivity {
 
         ornamentFlag = false;
 
+        Log.d("number", String.valueOf(tapeNumber));
+
+
         if (dragTapeView1.getVisibility() == View.GONE){
             tapeNumber = 0;
         } else if (dragTapeView2.getVisibility() == View.GONE){
@@ -2091,26 +1936,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape1);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape1);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape1);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape1);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape1);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2126,26 +2001,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape2);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape2);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape2);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape2);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape2);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2161,26 +2066,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape3);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape3);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape3);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape3);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape3);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2196,26 +2131,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape4);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape4);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape4);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape4);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape4);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2231,26 +2196,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape5);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape5);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape5);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape5);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape5);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2266,26 +2261,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape6);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape6);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape6);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape6);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape6);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2301,26 +2326,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape7);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape7);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape7);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape7);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape7);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2336,26 +2391,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape8);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape8);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape8);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape8);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape8);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2371,26 +2456,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape9);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape9);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape9);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape9);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape9);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2406,26 +2521,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape10);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape10);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape10);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape10);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape10);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2441,26 +2586,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape11);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape11);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape11);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape11);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape11);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2476,26 +2651,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape12);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape12);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape12);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape12);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape12);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2511,26 +2716,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape13);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape13);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape13);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape13);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape13);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2546,26 +2781,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape14);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape14);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape14);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape14);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape14);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2581,26 +2846,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape15);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape15);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape15);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape15);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape15);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2616,26 +2911,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape16);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape16);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape16);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape16);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape16);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2651,26 +2976,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape17);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape17);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape17);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape17);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape17);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2686,26 +3041,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape18);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape18);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape18);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape18);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape18);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2721,26 +3106,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape19);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape19);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape19);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape19);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape19);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2756,26 +3171,56 @@ public class MakeActivity extends AppCompatActivity {
             dragTapeView1.setImageResource(R.drawable.tape20);
             dragTapeView1.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView1);
+
+            //dragTapeView1の画像を保存
+            editorDTV1DNumber = prefDTV1Number.edit();
+            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
+            editorDTV1DNumber.apply();
+
             dragTapeView1.setOnTouchListener(listener);
         } else if (tapeNumber == 2){
             dragTapeView2.setImageResource(R.drawable.tape20);
             dragTapeView2.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView2);
+
+            //dragTapeView2の画像を保存
+            editorDTV2DNumber = prefDTV2Number.edit();
+            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
+            editorDTV2DNumber.apply();
+
             dragTapeView2.setOnTouchListener(listener);
         } else if (tapeNumber == 3){
             dragTapeView3.setImageResource(R.drawable.tape20);
             dragTapeView3.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView3);
+
+            //dragTapeView3の画像を保存
+            editorDTV3DNumber = prefDTV3Number.edit();
+            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
+            editorDTV3DNumber.apply();
+
             dragTapeView3.setOnTouchListener(listener);
         } else if (tapeNumber == 4){
             dragTapeView4.setImageResource(R.drawable.tape20);
             dragTapeView4.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView4);
+
+            //dragTapeView4の画像を保存
+            editorDTV4DNumber = prefDTV4Number.edit();
+            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
+            editorDTV4DNumber.apply();
+
             dragTapeView4.setOnTouchListener(listener);
         } else if (tapeNumber == 5){
             dragTapeView5.setImageResource(R.drawable.tape20);
             dragTapeView5.setVisibility(View.VISIBLE);
             listener = new DragViewListener(dragTapeView5);
+
+            //dragTapeView5の画像を保存
+            editorDTV5DNumber = prefDTV5Number.edit();
+            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
+            editorDTV5DNumber.apply();
+
             dragTapeView5.setOnTouchListener(listener);
         } else if (tapeNumber > 5){
             Toast.makeText(this, "can't use more than 5 tapes", Toast.LENGTH_SHORT).show();
@@ -2794,6 +3239,7 @@ public class MakeActivity extends AppCompatActivity {
 
         tapeFlag = false;
 
+
         if (dragOrnamentView1.getVisibility() == View.GONE){
             ornamentNumber = 0;
         } else if (dragOrnamentView2.getVisibility() == View.GONE){
@@ -2811,6 +3257,11 @@ public class MakeActivity extends AppCompatActivity {
         } else if (dragOrnamentView8.getVisibility() == View.GONE) {
             ornamentNumber = 7;
         }
+
+        SharedPreferences.Editor editorOrnamentN = ornamentN.edit();
+        editorOrnamentN.putInt("prefOrnamentN", ornamentNumber);
+        editorOrnamentN.apply();
+
     }
 
     public void pin(View v){
@@ -4581,11 +5032,6 @@ public class MakeActivity extends AppCompatActivity {
             tape1x.putFloat("tp1x", dragTapeView1x); tape1x.apply();
             tape1y.putFloat("tp1y", dragTapeView1y); tape1y.apply();
 
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
             //dragTapeView1の角度を保存
             float dragTapeView1rotation = dragTapeView1.getRotation();
             SharedPreferences.Editor tape1r = prefDragTapeView1rotation.edit();
@@ -4601,11 +5047,6 @@ public class MakeActivity extends AppCompatActivity {
             SharedPreferences.Editor tape2y = prefDragTapeView2y.edit();
             tape2x.putFloat("tp2x", dragTapeView2x); tape2x.apply();
             tape2y.putFloat("tp2y", dragTapeView2y); tape2y.apply();
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
 
             //dragTapeView2の角度を保存
             float dragTapeView2rotation = dragTapeView2.getRotation();
@@ -4623,11 +5064,6 @@ public class MakeActivity extends AppCompatActivity {
             tape3x.putFloat("tp3x", dragTapeView3x); tape3x.apply();
             tape3y.putFloat("tp3y", dragTapeView3y); tape3y.apply();
 
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
             //dragTapeView3の角度を保存
             float dragTapeView3rotation = dragTapeView3.getRotation();
             SharedPreferences.Editor tape3r = prefDragTapeView3rotation.edit();
@@ -4644,11 +5080,6 @@ public class MakeActivity extends AppCompatActivity {
             tape4x.putFloat("tp4x", dragTapeView4x); tape4x.apply();
             tape4y.putFloat("tp4y", dragTapeView4y); tape4y.apply();
 
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
             //dragTapeView4の角度を保存
             float dragTapeView4rotation = dragTapeView4.getRotation();
             SharedPreferences.Editor tape4r = prefDragTapeView4rotation.edit();
@@ -4664,11 +5095,6 @@ public class MakeActivity extends AppCompatActivity {
             SharedPreferences.Editor tape5y = prefDragTapeView5y.edit();
             tape5x.putFloat("tp5x", dragTapeView5x); tape5x.apply();
             tape5y.putFloat("tp5y", dragTapeView5y); tape5y.apply();
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
 
             //dragTapeView5の角度を保存
             float dragTapeView5rotation = dragTapeView5.getRotation();
@@ -4847,6 +5273,11 @@ public class MakeActivity extends AppCompatActivity {
 
         }
 
+        SharedPreferences.Editor editorTapeN = tapeN.edit();
+        editorTapeN.putInt("prefTapeN", tapeNumber);
+        Log.d("tN", String.valueOf(tapeNumber));
+        editorTapeN.apply();
+
         tapeFlag = false;
         ornamentFlag = false;
     }
@@ -4865,18 +5296,23 @@ public class MakeActivity extends AppCompatActivity {
         dragViewChoiceLinearLayout.setVisibility(View.GONE);
         if(tapeChoiceFlag1 == true){
             dragTapeView1.setVisibility(View.GONE);
+            tapeNumber = 0;
             tapeChoiceFlag1 = false;
         } else if (tapeChoiceFlag2 == true){
             dragTapeView2.setVisibility(View.GONE);
+            tapeNumber = 1;
             tapeChoiceFlag2 = false;
         } else if (tapeChoiceFlag3 == true){
             dragTapeView3.setVisibility(View.GONE);
+            tapeNumber = 2;
             tapeChoiceFlag3 = false;
         } else if (tapeChoiceFlag4 == true){
             dragTapeView4.setVisibility(View.GONE);
+            tapeNumber = 3;
             tapeChoiceFlag4 = false;
         } else if (tapeChoiceFlag5 == true){
             dragTapeView5.setVisibility(View.GONE);
+            tapeNumber = 4;
             tapeChoiceFlag5 = false;
         } else if (ornamentChoiceFlag1 == true){
             dragOrnamentView1.setVisibility(View.GONE);
@@ -4903,6 +5339,14 @@ public class MakeActivity extends AppCompatActivity {
             dragOrnamentView8.setVisibility(View.GONE);
             ornamentChoiceFlag8 = false;
         }
+
+        SharedPreferences.Editor editorTapeN = tapeN.edit();
+        editorTapeN.putInt("prefTapeN", tapeNumber);
+        editorTapeN.apply();
+
+        SharedPreferences.Editor editorOrnamentN = ornamentN.edit();
+        editorOrnamentN.putInt("prefOrnamentN", ornamentNumber);
+        editorOrnamentN.apply();
     }
 
     public void not(View v){
@@ -4923,7 +5367,14 @@ public class MakeActivity extends AppCompatActivity {
     }
 
     public void manage(View v){
-        choiceManageLinearLayout.setVisibility(View.VISIBLE);
+        if (manageFlag == false){
+            manageFlag = true;
+            choiceManageLinearLayout.setVisibility(View.VISIBLE);
+        } else if (manageFlag == true){
+            manageFlag = false;
+            choiceManageLinearLayout.setVisibility(View.GONE);
+        }
+
     }
 
     public void save(View v) {
@@ -4932,6 +5383,8 @@ public class MakeActivity extends AppCompatActivity {
         SharedPreferences.Editor editorMemo = preferencesMemo.edit();
         editorMemo.putString("memo", memoText);
         editorMemo.apply();
+
+        //tapeNumberの保存
 
         //imageViewのframe
 
@@ -5018,8 +5471,18 @@ public class MakeActivity extends AppCompatActivity {
             int x = (int) event.getRawX();
             int y = (int) event.getRawY();
 
-            x = x - 140;
-            y = y - 230;
+            dragTapeDNumber = prefDTV1Number.getInt("tp1DN", 0);
+
+            if (41 <= dragTapeDNumber&dragTapeDNumber <= 48|dragTapeDNumber == 53) {
+                x = x - 250;
+                y = y - 250;
+            } else if (49 <= dragTapeDNumber&dragTapeDNumber <= 52|57 <= dragTapeDNumber&dragTapeDNumber <= 60) {
+                x = x - 500;
+                y = y - 320;
+            } else if (54 <= dragTapeDNumber&dragTapeDNumber <= 56) {
+                x = x - 320;
+                y = y - 320;
+            }
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_MOVE:
@@ -5042,8 +5505,18 @@ public class MakeActivity extends AppCompatActivity {
             int x = (int) event.getRawX();
             int y = (int) event.getRawY();
 
-            x = x - 140;
-            y = y - 230;
+            dragTapeDNumber = prefDTV2Number.getInt("tp2DN", 0);
+
+            if (41 <= dragTapeDNumber&dragTapeDNumber <= 48|dragTapeDNumber == 53) {
+                x = x - 250;
+                y = y - 250;
+            } else if (49 <= dragTapeDNumber&dragTapeDNumber <= 52|57 <= dragTapeDNumber&dragTapeDNumber <= 60) {
+                x = x - 500;
+                y = y - 320;
+            } else if (54 <= dragTapeDNumber&dragTapeDNumber <= 56) {
+                x = x - 320;
+                y = y - 320;
+            }
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_MOVE:
@@ -5065,8 +5538,18 @@ public class MakeActivity extends AppCompatActivity {
             int x = (int) event.getRawX();
             int y = (int) event.getRawY();
 
-            x = x - 140;
-            y = y - 230;
+            dragTapeDNumber = prefDTV3Number.getInt("tp3DN", 0);
+
+            if (41 <= dragTapeDNumber&dragTapeDNumber <= 48|dragTapeDNumber == 53) {
+                x = x - 250;
+                y = y - 250;
+            } else if (49 <= dragTapeDNumber&dragTapeDNumber <= 52|57 <= dragTapeDNumber&dragTapeDNumber <= 60) {
+                x = x - 500;
+                y = y - 320;
+            } else if (54 <= dragTapeDNumber&dragTapeDNumber <= 56) {
+                x = x - 320;
+                y = y - 320;
+            }
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_MOVE:
@@ -5088,8 +5571,18 @@ public class MakeActivity extends AppCompatActivity {
             int x = (int) event.getRawX();
             int y = (int) event.getRawY();
 
-            x = x - 140;
-            y = y - 230;
+            dragTapeDNumber = prefDTV4Number.getInt("tp4DN", 0);
+
+            if (41 <= dragTapeDNumber&dragTapeDNumber <= 48|dragTapeDNumber == 53) {
+                x = x - 250;
+                y = y - 250;
+            } else if (49 <= dragTapeDNumber&dragTapeDNumber <= 52|57 <= dragTapeDNumber&dragTapeDNumber <= 60) {
+                x = x - 500;
+                y = y - 320;
+            } else if (54 <= dragTapeDNumber&dragTapeDNumber <= 56) {
+                x = x - 320;
+                y = y - 320;
+            }
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_MOVE:
@@ -5111,8 +5604,18 @@ public class MakeActivity extends AppCompatActivity {
             int x = (int) event.getRawX();
             int y = (int) event.getRawY();
 
-            x = x - 140;
-            y = y - 230;
+            dragTapeDNumber = prefDTV5Number.getInt("tp5DN", 0);
+
+            if (41 <= dragTapeDNumber&dragTapeDNumber <= 48|dragTapeDNumber == 53) {
+                x = x - 250;
+                y = y - 250;
+            } else if (49 <= dragTapeDNumber&dragTapeDNumber <= 52|57 <= dragTapeDNumber&dragTapeDNumber <= 60) {
+                x = x - 500;
+                y = y - 320;
+            } else if (54 <= dragTapeDNumber&dragTapeDNumber <= 56) {
+                x = x - 320;
+                y = y - 320;
+            }
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_MOVE:
@@ -5137,7 +5640,7 @@ public class MakeActivity extends AppCompatActivity {
             Log.d("OnTouchのところ", "完了");
 
             x = x - 100;
-            y = y - 280;
+            y = y - 250;
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_MOVE:

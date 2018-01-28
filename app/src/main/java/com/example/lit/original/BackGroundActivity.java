@@ -92,7 +92,7 @@ public class BackGroundActivity extends AppCompatActivity {
         makeNumber = intentFromCreate.getIntExtra("M", 0);
         imageFlag = intentFromCreate.getBooleanExtra("iF", false);
 
-        intentBackMake = new Intent(this, MakeActivity.class);
+        intentBackMake = new Intent(this, CreateActivity.class);
         intentBackMake.putExtra("imageFlag", imageFlag);
         intentBackMake.putExtra("backgroundFlag", true);
 
