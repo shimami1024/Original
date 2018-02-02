@@ -1,4 +1,4 @@
-package com.example.lit.original;
+package com.nldsk.mjknp.daily;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

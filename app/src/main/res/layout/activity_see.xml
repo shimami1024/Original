@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayoutS"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/common_action_bar_splitter"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.lit.original.SaveActivity"
-    android:background="#e3e3e3"
-    android:id="@+id/relativeLayoutS">
+    tools:context="com.nldsk.mjknp.daily.SeeActivity">
 
     <FrameLayout
-        android:id="@+id/menuLayout"
+        android:id="@+id/frameLayoutS"
         android:layout_width="match_parent"
-        android:layout_height="64dp">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textViewS"
-            android:layout_width="250dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="80dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="New Text" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/dateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:alpha="0.8">
 
         <LinearLayout
             android:id="@+id/taskLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alpha="0.8"
             android:background="#ffffff"
             android:orientation="horizontal">
 
@@ -41,22 +40,55 @@
                 android:onClick="back"
                 android:text="Button" />
 
+            <LinearLayout
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:visibility="invisible">
+
+                <ImageButton
+                    android:id="@+id/manageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="44dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/icon1"
+                    android:onClick="manage" />
+
+                <ImageButton
+                    android:id="@+id/trustButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="44dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/icon5"
+                    android:onClick="trust" />
+            </LinearLayout>
+
             <Button
                 android:id="@+id/nextButton"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="250dp"
                 android:layout_weight="1"
                 android:background="@drawable/arrow001"
                 android:onClick="next"
                 android:text="Button" />
         </LinearLayout>
-    </FrameLayout>
 
-    <FrameLayout
-        android:id="@+id/frameLayoutS"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textViewS"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="80dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="New Text"
+            android:textColor="#000000" />
 
     </FrameLayout>
 

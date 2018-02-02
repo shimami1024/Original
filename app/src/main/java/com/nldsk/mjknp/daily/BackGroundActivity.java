@@ -1,4 +1,4 @@
-package com.example.lit.original;
+package com.nldsk.mjknp.daily;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 public class BackGroundActivity extends AppCompatActivity {
     int images[] ={
@@ -95,30 +94,6 @@ public class BackGroundActivity extends AppCompatActivity {
         intentBackMake = new Intent(this, CreateActivity.class);
         intentBackMake.putExtra("imageFlag", imageFlag);
         intentBackMake.putExtra("backgroundFlag", true);
-
-        if (makeNumber == 0){
-            Toast.makeText(this, "Error occurs, please access again", Toast.LENGTH_LONG).show();
-        } else if (makeNumber == 1){
-            intentBackMake.putExtra("L", 1);
-        } else if (makeNumber == 2){
-            intentBackMake.putExtra("L", 2);
-        } else if (makeNumber == 3){
-            intentBackMake.putExtra("L", 3);
-        } else if (makeNumber == 4){
-            intentBackMake.putExtra("L", 4);
-        } else if (makeNumber == 5){
-            intentBackMake.putExtra("L", 5);
-        } else if (makeNumber == 6){
-            intentBackMake.putExtra("L", 6);
-        } else if (makeNumber == 7){
-            intentBackMake.putExtra("L", 7);
-        } else if (makeNumber == 8){
-            intentBackMake.putExtra("L", 8);
-        } else if (makeNumber == 9){
-            intentBackMake.putExtra("L", 9);
-        } else if (makeNumber == 10){
-            intentBackMake.putExtra("L", 10);
-        }
     }
 
     public void back(View v){

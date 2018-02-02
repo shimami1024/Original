@@ -1,4 +1,4 @@
-package com.example.lit.original;
+package com.nldsk.mjknp.daily;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

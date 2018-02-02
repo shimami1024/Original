@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:hapticFeedbackEnabled="false"
-    tools:context="com.example.lit.original.StartActivity">
+    tools:context="com.nldsk.mjknp.daily.StartActivity">
 
     <FrameLayout
         android:layout_width="match_parent"

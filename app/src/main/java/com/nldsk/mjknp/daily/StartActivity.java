@@ -1,4 +1,4 @@
-package com.example.lit.original;
+package com.nldsk.mjknp.daily;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,7 +33,7 @@ public class StartActivity extends AppCompatActivity {
     }
 
     public void see(View v){
-        Intent intentSee = new Intent(this, SaveActivity.class);
+        Intent intentSee = new Intent(this, SeeActivity.class);
         startActivity(intentSee);
     }
 

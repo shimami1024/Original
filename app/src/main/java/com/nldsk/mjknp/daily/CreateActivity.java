@@ -1,4 +1,4 @@
-package com.example.lit.original;
+package com.nldsk.mjknp.daily;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -5393,10 +5393,6 @@ public class CreateActivity extends AppCompatActivity {
         Toast.makeText(this, "finish save", Toast.LENGTH_LONG).show();
 
         finish();
-        //Intent intentSave = new Intent(this, SaveActivity.class);
-        //startActivity(intentSave);
-
-
     }
 
     public void add(View v){
@@ -5445,7 +5441,7 @@ public class CreateActivity extends AppCompatActivity {
             prefFN.apply();
 
 
-            Toast.makeText(this, "保存されました。", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "finish save", Toast.LENGTH_SHORT).show();
 
             relativeLayout.setDrawingCacheEnabled(false);
 
@@ -5486,7 +5482,6 @@ public class CreateActivity extends AppCompatActivity {
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_MOVE:
-                    Log.d("dragTape1", "true");
                     dragTapeView1.setX(x);
                     dragTapeView1.setY(y);
                     break;
