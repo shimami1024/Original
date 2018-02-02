@@ -349,6 +349,17 @@ public class CreateActivity extends AppCompatActivity {
         boolean makeFlag = intentMake.getBooleanExtra("MAKE", false);
         imageFlag = intentMake.getBooleanExtra("imageFlag", false);
 
+        int backgrounds[] ={
+                R.drawable.background1,  R.drawable.background2,  R.drawable.background3,  R.drawable.background4,  R.drawable.background5,
+                R.drawable.background6,  R.drawable.background7,  R.drawable.background8,  R.drawable.background9,  R.drawable.background10,
+                R.drawable.background11, R.drawable.background12, R.drawable.background13, R.drawable.background14, R.drawable.background15,
+                R.drawable.background16, R.drawable.background17, R.drawable.background18, R.drawable.background19, R.drawable.background20,
+                R.drawable.background21, R.drawable.background22, R.drawable.background23, R.drawable.background24, R.drawable.background25,
+                R.drawable.background26, R.drawable.background27, R.drawable.background28, R.drawable.background29, R.drawable.background30,
+                R.drawable.background31, R.drawable.background32, R.drawable.background33, R.drawable.background34, R.drawable.background35,
+                R.drawable.background36, R.drawable.background37, R.drawable.background38, R.drawable.background39, R.drawable.background40,
+        };
+
         if (makeFlag == true){
             //backgroundは灰色、imageViewは白に
             relativeLayout.setBackgroundColor(Color.parseColor("#565656"));
@@ -457,6 +468,15 @@ public class CreateActivity extends AppCompatActivity {
 
             tapeNumber = tapeN.getInt("prefTapeN", 0);
 
+            int tapes[] ={
+                    R.drawable.tape1,  R.drawable.tape2,  R.drawable.tape3,  R.drawable.tape4,
+                    R.drawable.tape5,  R.drawable.tape6,  R.drawable.tape7,  R.drawable.tape8,
+                    R.drawable.tape9,  R.drawable.tape10, R.drawable.tape11, R.drawable.tape12,
+                    R.drawable.tape13, R.drawable.tape14, R.drawable.tape15, R.drawable.tape16,
+                    R.drawable.tape17, R.drawable.tape18, R.drawable.tape19, R.drawable.tape20,
+            };
+
+
             //dragTapeView1をセット
             dragTapeDNumber = prefDTV1Number.getInt("tp1DN", 0);
             if(dragTapeDNumber == 0){
@@ -466,47 +486,7 @@ public class CreateActivity extends AppCompatActivity {
                 dragTapeView1.setX(prefDragTapeView1x.getFloat("tp1x", 0));
                 dragTapeView1.setY(prefDragTapeView1y.getFloat("tp1y", 0));
                 //画像
-                if (dragTapeDNumber == 41){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape1);
-                } else if (dragTapeDNumber == 42){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape2);
-                } else if (dragTapeDNumber == 43){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape3);
-                } else if (dragTapeDNumber == 44){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape4);
-                } else if (dragTapeDNumber == 45){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape5);
-                } else if (dragTapeDNumber == 46){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape6);
-                } else if (dragTapeDNumber == 47){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape7);
-                } else if (dragTapeDNumber == 48){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape8);
-                } else if (dragTapeDNumber == 49){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape9);
-                } else if (dragTapeDNumber == 50){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape10);
-                } else if (dragTapeDNumber == 51){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape11);
-                } else if (dragTapeDNumber == 52){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape12);
-                } else if (dragTapeDNumber == 53){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape13);
-                } else if (dragTapeDNumber == 54){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape14);
-                } else if (dragTapeDNumber == 55){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape15);
-                } else if (dragTapeDNumber == 56){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape16);
-                } else if (dragTapeDNumber == 57){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape17);
-                } else if (dragTapeDNumber == 58){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape18);
-                } else if (dragTapeDNumber == 59){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape19);
-                } else if (dragTapeDNumber == 60){
-                    dragTapeView1.setBackgroundResource(R.drawable.tape20);
-                }
+                dragTapeView1.setBackgroundResource(tapes[dragTapeDNumber-41]);
                 //角度
                 dragTapeView1.setRotation(prefDragTapeView1rotation.getFloat("tp1R", 0));
 
@@ -522,47 +502,7 @@ public class CreateActivity extends AppCompatActivity {
                 dragTapeView2.setX(prefDragTapeView2x.getFloat("tp2x", 0));
                 dragTapeView2.setY(prefDragTapeView2y.getFloat("tp2y", 0));
                 //画像
-                if (dragTapeDNumber == 41){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape1);
-                } else if (dragTapeDNumber == 42){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape2);
-                } else if (dragTapeDNumber == 43){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape3);
-                } else if (dragTapeDNumber == 44){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape4);
-                } else if (dragTapeDNumber == 45){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape5);
-                } else if (dragTapeDNumber == 46){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape6);
-                } else if (dragTapeDNumber == 47){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape7);
-                } else if (dragTapeDNumber == 48){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape8);
-                } else if (dragTapeDNumber == 49){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape9);
-                } else if (dragTapeDNumber == 50){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape10);
-                } else if (dragTapeDNumber == 51){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape11);
-                } else if (dragTapeDNumber == 52){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape12);
-                } else if (dragTapeDNumber == 53){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape13);
-                } else if (dragTapeDNumber == 54){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape14);
-                } else if (dragTapeDNumber == 55){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape15);
-                } else if (dragTapeDNumber == 56){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape16);
-                } else if (dragTapeDNumber == 57){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape17);
-                } else if (dragTapeDNumber == 58){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape18);
-                } else if (dragTapeDNumber == 59){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape19);
-                } else if (dragTapeDNumber == 60){
-                    dragTapeView2.setBackgroundResource(R.drawable.tape20);
-                }
+                dragTapeView2.setBackgroundResource(tapes[dragTapeDNumber-41]);
                 //角度
                 dragTapeView2.setRotation(prefDragTapeView2rotation.getFloat("tp2R", 0));
 
@@ -578,48 +518,7 @@ public class CreateActivity extends AppCompatActivity {
                 dragTapeView3.setX(prefDragTapeView3x.getFloat("tp3x", 0));
                 dragTapeView3.setY(prefDragTapeView3y.getFloat("tp3y", 0));
                 //画像
-                dragTapeDNumber = prefDTV3Number.getInt("tp3DN", 0);
-                if (dragTapeDNumber == 41){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape1);
-                } else if (dragTapeDNumber == 42){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape2);
-                } else if (dragTapeDNumber == 43){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape3);
-                } else if (dragTapeDNumber == 44){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape4);
-                } else if (dragTapeDNumber == 45){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape5);
-                } else if (dragTapeDNumber == 46){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape6);
-                } else if (dragTapeDNumber == 47){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape7);
-                } else if (dragTapeDNumber == 48){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape8);
-                } else if (dragTapeDNumber == 49){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape9);
-                } else if (dragTapeDNumber == 50){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape10);
-                } else if (dragTapeDNumber == 51){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape11);
-                } else if (dragTapeDNumber == 52){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape12);
-                } else if (dragTapeDNumber == 53){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape13);
-                } else if (dragTapeDNumber == 54){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape14);
-                } else if (dragTapeDNumber == 55){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape15);
-                } else if (dragTapeDNumber == 56){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape16);
-                } else if (dragTapeDNumber == 57){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape17);
-                } else if (dragTapeDNumber == 58){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape18);
-                } else if (dragTapeDNumber == 59){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape19);
-                } else if (dragTapeDNumber == 60){
-                    dragTapeView3.setBackgroundResource(R.drawable.tape20);
-                }
+                dragTapeView3.setBackgroundResource(tapes[dragTapeDNumber-41]);
                 //角度
                 dragTapeView3.setRotation(prefDragTapeView3rotation.getFloat("tp3R", 0));
 
@@ -635,47 +534,7 @@ public class CreateActivity extends AppCompatActivity {
                 dragTapeView4.setX(prefDragTapeView4x.getFloat("tp4x", 0));
                 dragTapeView4.setY(prefDragTapeView4y.getFloat("tp4y", 0));
                 //画像
-                if (dragTapeDNumber == 41){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape1);
-                } else if (dragTapeDNumber == 42){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape2);
-                } else if (dragTapeDNumber == 43){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape3);
-                } else if (dragTapeDNumber == 44){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape4);
-                } else if (dragTapeDNumber == 45){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape5);
-                } else if (dragTapeDNumber == 46){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape6);
-                } else if (dragTapeDNumber == 47){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape7);
-                } else if (dragTapeDNumber == 48){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape8);
-                } else if (dragTapeDNumber == 49){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape9);
-                } else if (dragTapeDNumber == 50){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape10);
-                } else if (dragTapeDNumber == 51){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape11);
-                } else if (dragTapeDNumber == 52){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape12);
-                } else if (dragTapeDNumber == 53){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape13);
-                } else if (dragTapeDNumber == 54){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape14);
-                } else if (dragTapeDNumber == 55){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape15);
-                } else if (dragTapeDNumber == 56){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape16);
-                } else if (dragTapeDNumber == 57){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape17);
-                } else if (dragTapeDNumber == 58){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape18);
-                } else if (dragTapeDNumber == 59){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape19);
-                } else if (dragTapeDNumber == 60){
-                    dragTapeView4.setBackgroundResource(R.drawable.tape20);
-                }
+                dragTapeView4.setBackgroundResource(tapes[dragTapeDNumber-41]);
                 //角度
                 dragTapeView4.setRotation(prefDragTapeView4rotation.getFloat("tp4R", 0));
 
@@ -691,47 +550,7 @@ public class CreateActivity extends AppCompatActivity {
                 dragTapeView5.setX(prefDragTapeView5x.getFloat("tp5x", 0));
                 dragTapeView5.setY(prefDragTapeView5y.getFloat("tp5y", 0));
                 //画像
-                if (dragTapeDNumber == 41){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape1);
-                } else if (dragTapeDNumber == 42){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape2);
-                } else if (dragTapeDNumber == 43){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape3);
-                } else if (dragTapeDNumber == 44){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape4);
-                } else if (dragTapeDNumber == 45){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape5);
-                } else if (dragTapeDNumber == 46){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape6);
-                } else if (dragTapeDNumber == 47){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape7);
-                } else if (dragTapeDNumber == 48){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape8);
-                } else if (dragTapeDNumber == 49){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape9);
-                } else if (dragTapeDNumber == 50){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape10);
-                } else if (dragTapeDNumber == 51){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape11);
-                } else if (dragTapeDNumber == 52){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape12);
-                } else if (dragTapeDNumber == 53){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape13);
-                } else if (dragTapeDNumber == 54){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape14);
-                } else if (dragTapeDNumber == 55){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape15);
-                } else if (dragTapeDNumber == 56){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape16);
-                } else if (dragTapeDNumber == 57){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape17);
-                } else if (dragTapeDNumber == 58){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape18);
-                } else if (dragTapeDNumber == 59){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape19);
-                } else if (dragTapeDNumber == 60){
-                    dragTapeView5.setBackgroundResource(R.drawable.tape20);
-                }
+                dragTapeView5.setBackgroundResource(tapes[dragTapeDNumber-41]);
                 //角度
                 dragTapeView5.setRotation(prefDragTapeView5rotation.getFloat("tp5R", 0));
 
@@ -742,81 +561,28 @@ public class CreateActivity extends AppCompatActivity {
 
             //dragOrnamentView1をセット
             dragOrnamentDNumber = prefDOV1Number.getInt("om1DN", 0);
-            Log.d("ornamentDNumber", String.valueOf(dragOrnamentDNumber));
+
+            int ornaments[] ={
+                    R.drawable.pin1,         R.drawable.pin2,         R.drawable.pin3,             R.drawable.pin4,
+                    R.drawable.ribbon1,      R.drawable.ribbon2,      R.drawable.ribbon3,     R.drawable.ribbon4,
+                    R.drawable.ribbon5,      R.drawable.ribbon6,      R.drawable.ribbon7,     R.drawable.ribbon8,
+                    R.drawable.button1,      R.drawable.button2,      R.drawable.button3,     R.drawable.button4,
+                    R.drawable.the_others1,  R.drawable.the_others2, R.drawable.the_others3, R.drawable.the_others4,
+                    R.drawable.the_others5,  R.drawable.the_others6, R.drawable.the_others7, R.drawable.the_others8,
+                    R.drawable.the_others9,  R.drawable.the_others10, R.drawable.the_others11, R.drawable.the_others12,
+                    R.drawable.the_others13, R.drawable.the_others14, R.drawable.the_others15, R.drawable.the_others16,
+            };
+
+            dragOrnamentView1.setBackgroundResource(ornaments[dragOrnamentDNumber-61]);
 
             if(dragOrnamentDNumber == 0){
-                Log.d("01", "0");
+
             } else {
                 //位置
                 dragOrnamentView1.setX(prefDragOrnamentView1x.getFloat("om1x", 0));
                 dragOrnamentView1.setY(prefDragOrnamentView1y.getFloat("om1y", 0));
                 //画像
-                if (dragOrnamentDNumber == 61){
-                    Log.d("画像登録1", "完了");
-                    dragOrnamentView1.setBackgroundResource(R.drawable.pin1);
-                } else if (dragOrnamentDNumber == 62){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.pin2);
-                } else if (dragOrnamentDNumber == 63){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.pin3);
-                } else if (dragOrnamentDNumber == 64){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.pin4);
-                } else if (dragOrnamentDNumber == 65){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.ribbon1);
-                } else if (dragOrnamentDNumber == 66){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.ribbon2);
-                } else if (dragOrnamentDNumber == 67){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.ribbon3);
-                } else if (dragOrnamentDNumber == 68){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.ribbon4);
-                } else if (dragOrnamentDNumber == 69){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.ribbon5);
-                } else if (dragOrnamentDNumber == 70){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.ribbon6);
-                } else if (dragOrnamentDNumber == 71){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.ribbon7);
-                } else if (dragOrnamentDNumber == 72){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.ribbon8);
-                } else if (dragOrnamentDNumber == 73){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.button1);
-                } else if (dragOrnamentDNumber == 74){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.button2);
-                } else if (dragOrnamentDNumber == 75){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.button3);
-                } else if (dragOrnamentDNumber == 76){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.button4);
-                } else if (dragOrnamentDNumber == 77){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.the_others1);
-                } else if (dragOrnamentDNumber == 78){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.the_others2);
-                } else if (dragOrnamentDNumber == 79){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.the_others3);
-                } else if (dragOrnamentDNumber == 80){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.the_others4);
-                } else if (dragOrnamentDNumber == 81){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.the_others5);
-                } else if (dragOrnamentDNumber == 82){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.the_others6);
-                } else if (dragOrnamentDNumber == 83){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.the_others7);
-                } else if (dragOrnamentDNumber == 84){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.the_others8);
-                } else if (dragOrnamentDNumber == 85){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.the_others9);
-                } else if (dragOrnamentDNumber == 86){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.the_others10);
-                } else if (dragOrnamentDNumber == 87){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.the_others11);
-                } else if (dragOrnamentDNumber == 88){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.the_others12);
-                } else if (dragOrnamentDNumber == 89){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.the_others13);
-                } else if (dragOrnamentDNumber == 90){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.the_others14);
-                } else if (dragOrnamentDNumber == 91){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.the_others15);
-                } else if (dragOrnamentDNumber == 92){
-                    dragOrnamentView1.setBackgroundResource(R.drawable.the_others16);
-                }
+                dragOrnamentView1.setBackgroundResource(ornaments[dragOrnamentDNumber-61]);
                 //角度
                 dragOrnamentView1.setRotation(prefDragOrnamentView1rotation.getFloat("om1R", 0));
 
@@ -826,78 +592,13 @@ public class CreateActivity extends AppCompatActivity {
             //dragOrnamentView2をセット
             dragOrnamentDNumber = prefDOV2Number.getInt("om2DN", 0);
             if(dragOrnamentDNumber == 0){
-                Log.d("02", "0");
+
             } else {
                 //位置
                 dragOrnamentView2.setX(prefDragOrnamentView2x.getFloat("om2x", 0));
                 dragOrnamentView2.setY(prefDragOrnamentView2y.getFloat("om2y", 0));
                 //画像
-                if (dragOrnamentDNumber == 61){
-                    Log.d("画像登録2", "完了");
-                    dragOrnamentView2.setBackgroundResource(R.drawable.pin1);
-                } else if (dragOrnamentDNumber == 62){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.pin2);
-                } else if (dragOrnamentDNumber == 63){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.pin3);
-                } else if (dragOrnamentDNumber == 64){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.pin4);
-                } else if (dragOrnamentDNumber == 65){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.ribbon1);
-                } else if (dragOrnamentDNumber == 66){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.ribbon2);
-                } else if (dragOrnamentDNumber == 67){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.ribbon3);
-                } else if (dragOrnamentDNumber == 68){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.ribbon4);
-                } else if (dragOrnamentDNumber == 69){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.ribbon5);
-                } else if (dragOrnamentDNumber == 70){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.ribbon6);
-                } else if (dragOrnamentDNumber == 71){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.ribbon7);
-                } else if (dragOrnamentDNumber == 72){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.ribbon8);
-                } else if (dragOrnamentDNumber == 73){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.button1);
-                } else if (dragOrnamentDNumber == 74){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.button2);
-                } else if (dragOrnamentDNumber == 75){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.button3);
-                } else if (dragOrnamentDNumber == 76){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.button4);
-                } else if (dragOrnamentDNumber == 77){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.the_others1);
-                } else if (dragOrnamentDNumber == 78){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.the_others2);
-                } else if (dragOrnamentDNumber == 79){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.the_others3);
-                } else if (dragOrnamentDNumber == 80){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.the_others4);
-                } else if (dragOrnamentDNumber == 81){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.the_others5);
-                } else if (dragOrnamentDNumber == 82){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.the_others6);
-                } else if (dragOrnamentDNumber == 83){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.the_others7);
-                } else if (dragOrnamentDNumber == 84){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.the_others8);
-                } else if (dragOrnamentDNumber == 85){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.the_others9);
-                } else if (dragOrnamentDNumber == 86){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.the_others10);
-                } else if (dragOrnamentDNumber == 87){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.the_others11);
-                } else if (dragOrnamentDNumber == 88){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.the_others12);
-                } else if (dragOrnamentDNumber == 89){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.the_others13);
-                } else if (dragOrnamentDNumber == 90){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.the_others14);
-                } else if (dragOrnamentDNumber == 91){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.the_others15);
-                } else if (dragOrnamentDNumber == 92){
-                    dragOrnamentView2.setBackgroundResource(R.drawable.the_others16);
-                }
+                dragOrnamentView2.setBackgroundResource(ornaments[dragOrnamentDNumber-61]);
                 //角度
                 dragOrnamentView2.setRotation(prefDragOrnamentView2rotation.getFloat("om2R", 0));
 
@@ -907,78 +608,13 @@ public class CreateActivity extends AppCompatActivity {
             //dragOrnamentView3をセット
             dragOrnamentDNumber = prefDOV3Number.getInt("om3DN", 0);
             if(dragOrnamentDNumber == 0){
-                Log.d("03", "0");
+
             } else {
                 //位置
                 dragOrnamentView3.setX(prefDragOrnamentView3x.getFloat("om3x", 0));
                 dragOrnamentView3.setY(prefDragOrnamentView3y.getFloat("om3y", 0));
                 //画像
-                if (dragOrnamentDNumber == 61){
-                    Log.d("画像登録3", "完了");
-                    dragOrnamentView3.setBackgroundResource(R.drawable.pin1);
-                } else if (dragOrnamentDNumber == 62){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.pin2);
-                } else if (dragOrnamentDNumber == 63){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.pin3);
-                } else if (dragOrnamentDNumber == 64){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.pin4);
-                } else if (dragOrnamentDNumber == 65){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.ribbon1);
-                } else if (dragOrnamentDNumber == 66){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.ribbon2);
-                } else if (dragOrnamentDNumber == 67){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.ribbon3);
-                } else if (dragOrnamentDNumber == 68){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.ribbon4);
-                } else if (dragOrnamentDNumber == 69){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.ribbon5);
-                } else if (dragOrnamentDNumber == 70){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.ribbon6);
-                } else if (dragOrnamentDNumber == 71){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.ribbon7);
-                } else if (dragOrnamentDNumber == 72){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.ribbon8);
-                } else if (dragOrnamentDNumber == 73){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.button1);
-                } else if (dragOrnamentDNumber == 74){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.button2);
-                } else if (dragOrnamentDNumber == 75){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.button3);
-                } else if (dragOrnamentDNumber == 76){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.button4);
-                } else if (dragOrnamentDNumber == 77){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.the_others1);
-                } else if (dragOrnamentDNumber == 78){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.the_others2);
-                } else if (dragOrnamentDNumber == 79){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.the_others3);
-                } else if (dragOrnamentDNumber == 80){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.the_others4);
-                } else if (dragOrnamentDNumber == 81){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.the_others5);
-                } else if (dragOrnamentDNumber == 82){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.the_others6);
-                } else if (dragOrnamentDNumber == 83){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.the_others7);
-                } else if (dragOrnamentDNumber == 84){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.the_others8);
-                } else if (dragOrnamentDNumber == 85){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.the_others9);
-                } else if (dragOrnamentDNumber == 86){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.the_others10);
-                } else if (dragOrnamentDNumber == 87){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.the_others11);
-                } else if (dragOrnamentDNumber == 88){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.the_others12);
-                } else if (dragOrnamentDNumber == 89){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.the_others13);
-                } else if (dragOrnamentDNumber == 90){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.the_others14);
-                } else if (dragOrnamentDNumber == 91){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.the_others15);
-                } else if (dragOrnamentDNumber == 92){
-                    dragOrnamentView3.setBackgroundResource(R.drawable.the_others16);
-                }
+                dragOrnamentView3.setBackgroundResource(ornaments[dragOrnamentDNumber-61]);
                 //角度
                 dragOrnamentView3.setRotation(prefDragOrnamentView3rotation.getFloat("om3R", 0));
 
@@ -988,78 +624,13 @@ public class CreateActivity extends AppCompatActivity {
             //dragOrnamentView4をセット
             dragOrnamentDNumber = prefDOV4Number.getInt("om4DN", 0);
             if(dragOrnamentDNumber == 0){
-                Log.d("04", "0");
+
             } else {
                 //位置
                 dragOrnamentView4.setX(prefDragOrnamentView4x.getFloat("om4x", 0));
                 dragOrnamentView4.setY(prefDragOrnamentView4y.getFloat("om4y", 0));
                 //画像
-                if (dragOrnamentDNumber == 61){
-                    Log.d("画像登録4", "完了");
-                    dragOrnamentView4.setBackgroundResource(R.drawable.pin1);
-                } else if (dragOrnamentDNumber == 62){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.pin2);
-                } else if (dragOrnamentDNumber == 63){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.pin3);
-                } else if (dragOrnamentDNumber == 64){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.pin4);
-                } else if (dragOrnamentDNumber == 65){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.ribbon1);
-                } else if (dragOrnamentDNumber == 66){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.ribbon2);
-                } else if (dragOrnamentDNumber == 67){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.ribbon3);
-                } else if (dragOrnamentDNumber == 68){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.ribbon4);
-                } else if (dragOrnamentDNumber == 69){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.ribbon5);
-                } else if (dragOrnamentDNumber == 70){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.ribbon6);
-                } else if (dragOrnamentDNumber == 71){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.ribbon7);
-                } else if (dragOrnamentDNumber == 72){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.ribbon8);
-                } else if (dragOrnamentDNumber == 73){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.button1);
-                } else if (dragOrnamentDNumber == 74){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.button2);
-                } else if (dragOrnamentDNumber == 75){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.button3);
-                } else if (dragOrnamentDNumber == 76){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.button4);
-                } else if (dragOrnamentDNumber == 77){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.the_others1);
-                } else if (dragOrnamentDNumber == 78){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.the_others2);
-                } else if (dragOrnamentDNumber == 79){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.the_others3);
-                } else if (dragOrnamentDNumber == 80){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.the_others4);
-                } else if (dragOrnamentDNumber == 81){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.the_others5);
-                } else if (dragOrnamentDNumber == 82){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.the_others6);
-                } else if (dragOrnamentDNumber == 83){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.the_others7);
-                } else if (dragOrnamentDNumber == 84){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.the_others8);
-                } else if (dragOrnamentDNumber == 85){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.the_others9);
-                } else if (dragOrnamentDNumber == 86){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.the_others10);
-                } else if (dragOrnamentDNumber == 87){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.the_others11);
-                } else if (dragOrnamentDNumber == 88){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.the_others12);
-                } else if (dragOrnamentDNumber == 89){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.the_others13);
-                } else if (dragOrnamentDNumber == 90){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.the_others14);
-                } else if (dragOrnamentDNumber == 91){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.the_others15);
-                } else if (dragOrnamentDNumber == 92){
-                    dragOrnamentView4.setBackgroundResource(R.drawable.the_others16);
-                }
+                dragOrnamentView4.setBackgroundResource(ornaments[dragOrnamentDNumber-61]);
                 //角度
                 dragOrnamentView4.setRotation(prefDragOrnamentView4rotation.getFloat("om4R", 0));
 
@@ -1069,78 +640,13 @@ public class CreateActivity extends AppCompatActivity {
             //dragOrnamentView5をセット
             dragOrnamentDNumber = prefDOV5Number.getInt("om5DN", 0);
             if(dragOrnamentDNumber == 0){
-                Log.d("05", "0");
+
             } else {
                 //位置
                 dragOrnamentView5.setX(prefDragOrnamentView5x.getFloat("om5x", 0));
                 dragOrnamentView5.setY(prefDragOrnamentView5y.getFloat("om5y", 0));
                 //画像
-                if (dragOrnamentDNumber == 61){
-                    Log.d("画像登録5", "完了");
-                    dragOrnamentView5.setBackgroundResource(R.drawable.pin1);
-                } else if (dragOrnamentDNumber == 62){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.pin2);
-                } else if (dragOrnamentDNumber == 63){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.pin3);
-                } else if (dragOrnamentDNumber == 64){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.pin4);
-                } else if (dragOrnamentDNumber == 65){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.ribbon1);
-                } else if (dragOrnamentDNumber == 66){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.ribbon2);
-                } else if (dragOrnamentDNumber == 67){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.ribbon3);
-                } else if (dragOrnamentDNumber == 68){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.ribbon4);
-                } else if (dragOrnamentDNumber == 69){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.ribbon5);
-                } else if (dragOrnamentDNumber == 70){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.ribbon6);
-                } else if (dragOrnamentDNumber == 71){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.ribbon7);
-                } else if (dragOrnamentDNumber == 72){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.ribbon8);
-                } else if (dragOrnamentDNumber == 73){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.button1);
-                } else if (dragOrnamentDNumber == 74){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.button2);
-                } else if (dragOrnamentDNumber == 75){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.button3);
-                } else if (dragOrnamentDNumber == 76){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.button4);
-                } else if (dragOrnamentDNumber == 77){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.the_others1);
-                } else if (dragOrnamentDNumber == 78){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.the_others2);
-                } else if (dragOrnamentDNumber == 79){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.the_others3);
-                } else if (dragOrnamentDNumber == 80){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.the_others4);
-                } else if (dragOrnamentDNumber == 81){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.the_others5);
-                } else if (dragOrnamentDNumber == 82){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.the_others6);
-                } else if (dragOrnamentDNumber == 83){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.the_others7);
-                } else if (dragOrnamentDNumber == 84){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.the_others8);
-                } else if (dragOrnamentDNumber == 85){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.the_others9);
-                } else if (dragOrnamentDNumber == 86){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.the_others10);
-                } else if (dragOrnamentDNumber == 87){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.the_others11);
-                } else if (dragOrnamentDNumber == 88){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.the_others12);
-                } else if (dragOrnamentDNumber == 89){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.the_others13);
-                } else if (dragOrnamentDNumber == 90){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.the_others14);
-                } else if (dragOrnamentDNumber == 91){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.the_others15);
-                } else if (dragOrnamentDNumber == 92){
-                    dragOrnamentView5.setBackgroundResource(R.drawable.the_others16);
-                }
+                dragOrnamentView5.setBackgroundResource(ornaments[dragOrnamentDNumber-61]);
                 //角度
                 dragOrnamentView5.setRotation(prefDragOrnamentView5rotation.getFloat("om5R", 0));
 
@@ -1150,78 +656,13 @@ public class CreateActivity extends AppCompatActivity {
             //dragOrnamentView6をセット
             dragOrnamentDNumber = prefDOV6Number.getInt("om6DN", 0);
             if(dragOrnamentDNumber == 0){
-                Log.d("06", "0");
+
             } else {
                 //位置
                 dragOrnamentView6.setX(prefDragOrnamentView6x.getFloat("om6x", 0));
                 dragOrnamentView6.setY(prefDragOrnamentView6y.getFloat("om6y", 0));
                 //画像
-                if (dragOrnamentDNumber == 61){
-                    Log.d("画像登録6", "完了");
-                    dragOrnamentView6.setBackgroundResource(R.drawable.pin1);
-                } else if (dragOrnamentDNumber == 62){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.pin2);
-                } else if (dragOrnamentDNumber == 63){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.pin3);
-                } else if (dragOrnamentDNumber == 64){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.pin4);
-                } else if (dragOrnamentDNumber == 65){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.ribbon1);
-                } else if (dragOrnamentDNumber == 66){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.ribbon2);
-                } else if (dragOrnamentDNumber == 67){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.ribbon3);
-                } else if (dragOrnamentDNumber == 68){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.ribbon4);
-                } else if (dragOrnamentDNumber == 69){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.ribbon5);
-                } else if (dragOrnamentDNumber == 70){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.ribbon6);
-                } else if (dragOrnamentDNumber == 71){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.ribbon7);
-                } else if (dragOrnamentDNumber == 72){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.ribbon8);
-                } else if (dragOrnamentDNumber == 73){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.button1);
-                } else if (dragOrnamentDNumber == 74){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.button2);
-                } else if (dragOrnamentDNumber == 75){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.button3);
-                } else if (dragOrnamentDNumber == 76){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.button4);
-                } else if (dragOrnamentDNumber == 77){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.the_others1);
-                } else if (dragOrnamentDNumber == 78){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.the_others2);
-                } else if (dragOrnamentDNumber == 79){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.the_others3);
-                } else if (dragOrnamentDNumber == 80){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.the_others4);
-                } else if (dragOrnamentDNumber == 81){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.the_others5);
-                } else if (dragOrnamentDNumber == 82){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.the_others6);
-                } else if (dragOrnamentDNumber == 83){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.the_others7);
-                } else if (dragOrnamentDNumber == 84){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.the_others8);
-                } else if (dragOrnamentDNumber == 85){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.the_others9);
-                } else if (dragOrnamentDNumber == 86){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.the_others10);
-                } else if (dragOrnamentDNumber == 87){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.the_others11);
-                } else if (dragOrnamentDNumber == 88){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.the_others12);
-                } else if (dragOrnamentDNumber == 89){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.the_others13);
-                } else if (dragOrnamentDNumber == 90){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.the_others14);
-                } else if (dragOrnamentDNumber == 91){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.the_others15);
-                } else if (dragOrnamentDNumber == 92){
-                    dragOrnamentView6.setBackgroundResource(R.drawable.the_others16);
-                }
+                dragOrnamentView6.setBackgroundResource(ornaments[dragOrnamentDNumber-61]);
                 //角度
                 dragOrnamentView6.setRotation(prefDragOrnamentView6rotation.getFloat("om6R", 0));
 
@@ -1231,78 +672,13 @@ public class CreateActivity extends AppCompatActivity {
             //dragOrnamentView7をセット
             dragOrnamentDNumber = prefDOV7Number.getInt("om7DN", 0);
             if(dragOrnamentDNumber == 0){
-                Log.d("07", "0");
+
             } else {
                 //位置
                 dragOrnamentView7.setX(prefDragOrnamentView7x.getFloat("om7x", 0));
                 dragOrnamentView7.setY(prefDragOrnamentView7y.getFloat("om7y", 0));
                 //画像
-                if (dragOrnamentDNumber == 61){
-                    Log.d("画像登録7", "完了");
-                    dragOrnamentView7.setBackgroundResource(R.drawable.pin1);
-                } else if (dragOrnamentDNumber == 62){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.pin2);
-                } else if (dragOrnamentDNumber == 63){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.pin3);
-                } else if (dragOrnamentDNumber == 64){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.pin4);
-                } else if (dragOrnamentDNumber == 65){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.ribbon1);
-                } else if (dragOrnamentDNumber == 66){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.ribbon2);
-                } else if (dragOrnamentDNumber == 67){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.ribbon3);
-                } else if (dragOrnamentDNumber == 68){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.ribbon4);
-                } else if (dragOrnamentDNumber == 69){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.ribbon5);
-                } else if (dragOrnamentDNumber == 70){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.ribbon6);
-                } else if (dragOrnamentDNumber == 71){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.ribbon7);
-                } else if (dragOrnamentDNumber == 72){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.ribbon8);
-                } else if (dragOrnamentDNumber == 73){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.button1);
-                } else if (dragOrnamentDNumber == 74){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.button2);
-                } else if (dragOrnamentDNumber == 75){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.button3);
-                } else if (dragOrnamentDNumber == 76){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.button4);
-                } else if (dragOrnamentDNumber == 77){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.the_others1);
-                } else if (dragOrnamentDNumber == 78){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.the_others2);
-                } else if (dragOrnamentDNumber == 79){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.the_others3);
-                } else if (dragOrnamentDNumber == 80){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.the_others4);
-                } else if (dragOrnamentDNumber == 81){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.the_others5);
-                } else if (dragOrnamentDNumber == 82){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.the_others6);
-                } else if (dragOrnamentDNumber == 83){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.the_others7);
-                } else if (dragOrnamentDNumber == 84){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.the_others8);
-                } else if (dragOrnamentDNumber == 85){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.the_others9);
-                } else if (dragOrnamentDNumber == 86){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.the_others10);
-                } else if (dragOrnamentDNumber == 87){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.the_others11);
-                } else if (dragOrnamentDNumber == 88){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.the_others12);
-                } else if (dragOrnamentDNumber == 89){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.the_others13);
-                } else if (dragOrnamentDNumber == 90){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.the_others14);
-                } else if (dragOrnamentDNumber == 91){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.the_others15);
-                } else if (dragOrnamentDNumber == 92){
-                    dragOrnamentView7.setBackgroundResource(R.drawable.the_others16);
-                }
+                dragOrnamentView7.setBackgroundResource(ornaments[dragOrnamentDNumber-61]);
                 //角度
                 dragOrnamentView7.setRotation(prefDragOrnamentView7rotation.getFloat("om7R", 0));
 
@@ -1312,78 +688,13 @@ public class CreateActivity extends AppCompatActivity {
             //dragOrnamentView8をセット
             dragOrnamentDNumber = prefDOV8Number.getInt("om8DN", 0);
             if(dragOrnamentDNumber == 0){
-                Log.d("08", "0");
+
             } else {
                 //位置
                 dragOrnamentView8.setX(prefDragOrnamentView8x.getFloat("om8x", 0));
                 dragOrnamentView8.setY(prefDragOrnamentView8y.getFloat("om8y", 0));
                 //画像
-                if (dragOrnamentDNumber == 61){
-                    Log.d("画像登録8", "完了");
-                    dragOrnamentView8.setBackgroundResource(R.drawable.pin1);
-                } else if (dragOrnamentDNumber == 62){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.pin2);
-                } else if (dragOrnamentDNumber == 63){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.pin3);
-                } else if (dragOrnamentDNumber == 64){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.pin4);
-                } else if (dragOrnamentDNumber == 65){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.ribbon1);
-                } else if (dragOrnamentDNumber == 66){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.ribbon2);
-                } else if (dragOrnamentDNumber == 67){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.ribbon3);
-                } else if (dragOrnamentDNumber == 68){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.ribbon4);
-                } else if (dragOrnamentDNumber == 69){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.ribbon5);
-                } else if (dragOrnamentDNumber == 70){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.ribbon6);
-                } else if (dragOrnamentDNumber == 71){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.ribbon7);
-                } else if (dragOrnamentDNumber == 72){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.ribbon8);
-                } else if (dragOrnamentDNumber == 73){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.button1);
-                } else if (dragOrnamentDNumber == 74){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.button2);
-                } else if (dragOrnamentDNumber == 75){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.button3);
-                } else if (dragOrnamentDNumber == 76){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.button4);
-                } else if (dragOrnamentDNumber == 77){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.the_others1);
-                } else if (dragOrnamentDNumber == 78){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.the_others2);
-                } else if (dragOrnamentDNumber == 79){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.the_others3);
-                } else if (dragOrnamentDNumber == 80){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.the_others4);
-                } else if (dragOrnamentDNumber == 81){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.the_others5);
-                } else if (dragOrnamentDNumber == 82){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.the_others6);
-                } else if (dragOrnamentDNumber == 83){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.the_others7);
-                } else if (dragOrnamentDNumber == 84){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.the_others8);
-                } else if (dragOrnamentDNumber == 85){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.the_others9);
-                } else if (dragOrnamentDNumber == 86){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.the_others10);
-                } else if (dragOrnamentDNumber == 87){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.the_others11);
-                } else if (dragOrnamentDNumber == 88){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.the_others12);
-                } else if (dragOrnamentDNumber == 89){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.the_others13);
-                } else if (dragOrnamentDNumber == 90){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.the_others14);
-                } else if (dragOrnamentDNumber == 91){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.the_others15);
-                } else if (dragOrnamentDNumber == 92){
-                    dragOrnamentView8.setBackgroundResource(R.drawable.the_others16);
-                }
+                dragOrnamentView8.setBackgroundResource(ornaments[dragOrnamentDNumber-61]);
                 //角度
                 dragOrnamentView8.setRotation(prefDragOrnamentView8rotation.getFloat("om8R", 0));
 
@@ -1392,89 +703,7 @@ public class CreateActivity extends AppCompatActivity {
 
             backgroundNumber = preferencesBackground.getInt("background", 0);
 
-            if (backgroundNumber == 0) {
-
-            } else if (backgroundNumber == 1){
-                relativeLayout.setBackgroundResource(R.drawable.background1);
-            } else if (backgroundNumber == 2){
-                relativeLayout.setBackgroundResource(R.drawable.background2);
-            } else if (backgroundNumber == 3){
-                relativeLayout.setBackgroundResource(R.drawable.background3);
-            } else if (backgroundNumber == 4){
-                relativeLayout.setBackgroundResource(R.drawable.background4);
-            } else if (backgroundNumber == 5){
-                relativeLayout.setBackgroundResource(R.drawable.background5);
-            } else if (backgroundNumber == 6){
-                relativeLayout.setBackgroundResource(R.drawable.background6);
-            } else if (backgroundNumber == 7){
-                relativeLayout.setBackgroundResource(R.drawable.background7);
-            } else if (backgroundNumber == 8){
-                relativeLayout.setBackgroundResource(R.drawable.background8);
-            } else if (backgroundNumber == 9){
-                relativeLayout.setBackgroundResource(R.drawable.background9);
-            } else if (backgroundNumber == 10){
-                relativeLayout.setBackgroundResource(R.drawable.background10);
-            } else if (backgroundNumber == 11){
-                relativeLayout.setBackgroundResource(R.drawable.background11);
-            } else if (backgroundNumber == 12){
-                relativeLayout.setBackgroundResource(R.drawable.background12);
-            } else if (backgroundNumber == 13){
-                relativeLayout.setBackgroundResource(R.drawable.background13);
-            } else if (backgroundNumber == 14){
-                relativeLayout.setBackgroundResource(R.drawable.background14);
-            } else if (backgroundNumber == 15){
-                relativeLayout.setBackgroundResource(R.drawable.background15);
-            } else if (backgroundNumber == 16){
-                relativeLayout.setBackgroundResource(R.drawable.background16);
-            } else if (backgroundNumber == 17){
-                relativeLayout.setBackgroundResource(R.drawable.background17);
-            } else if (backgroundNumber == 18){
-                relativeLayout.setBackgroundResource(R.drawable.background18);
-            } else if (backgroundNumber == 19){
-                relativeLayout.setBackgroundResource(R.drawable.background19);
-            } else if (backgroundNumber == 20){
-                relativeLayout.setBackgroundResource(R.drawable.background20);
-            } else if (backgroundNumber == 21){
-                relativeLayout.setBackgroundResource(R.drawable.background21);
-            } else if (backgroundNumber == 22){
-                relativeLayout.setBackgroundResource(R.drawable.background22);
-            } else if (backgroundNumber == 23){
-                relativeLayout.setBackgroundResource(R.drawable.background23);
-            } else if (backgroundNumber == 24){
-                relativeLayout.setBackgroundResource(R.drawable.background24);
-            } else if (backgroundNumber == 25){
-                relativeLayout.setBackgroundResource(R.drawable.background25);
-            } else if (backgroundNumber == 26){
-                relativeLayout.setBackgroundResource(R.drawable.background26);
-            } else if (backgroundNumber == 27){
-                relativeLayout.setBackgroundResource(R.drawable.background27);
-            } else if (backgroundNumber == 28){
-                relativeLayout.setBackgroundResource(R.drawable.background28);
-            } else if (backgroundNumber == 29){
-                relativeLayout.setBackgroundResource(R.drawable.background29);
-            } else if (backgroundNumber == 30){
-                relativeLayout.setBackgroundResource(R.drawable.background30);
-            } else if (backgroundNumber == 31){
-                relativeLayout.setBackgroundResource(R.drawable.background31);
-            } else if (backgroundNumber == 32){
-                relativeLayout.setBackgroundResource(R.drawable.background32);
-            } else if (backgroundNumber == 33){
-                relativeLayout.setBackgroundResource(R.drawable.background33);
-            } else if (backgroundNumber == 34){
-                relativeLayout.setBackgroundResource(R.drawable.background34);
-            } else if (backgroundNumber == 35){
-                relativeLayout.setBackgroundResource(R.drawable.background35);
-            } else if (backgroundNumber == 36){
-                relativeLayout.setBackgroundResource(R.drawable.background36);
-            } else if (backgroundNumber == 37){
-                relativeLayout.setBackgroundResource(R.drawable.background37);
-            } else if (backgroundNumber == 38){
-                relativeLayout.setBackgroundResource(R.drawable.background38);
-            } else if (backgroundNumber == 39){
-                relativeLayout.setBackgroundResource(R.drawable.background39);
-            } else if (backgroundNumber == 40){
-                relativeLayout.setBackgroundResource(R.drawable.background40);
-            }
+            relativeLayout.setBackgroundResource(backgrounds[backgroundNumber-1]);
         }
 
 
@@ -1512,89 +741,7 @@ public class CreateActivity extends AppCompatActivity {
         boolean backgroundFlag = intentBG.getBooleanExtra("backgroundFlag", false);
 
         if (backgroundFlag == true){
-            if (backgroundNumber == 0) {
-
-            } else if (backgroundNumber == 1){
-                relativeLayout.setBackgroundResource(R.drawable.background1);
-            } else if (backgroundNumber == 2){
-                relativeLayout.setBackgroundResource(R.drawable.background2);
-            } else if (backgroundNumber == 3){
-                relativeLayout.setBackgroundResource(R.drawable.background3);
-            } else if (backgroundNumber == 4){
-                relativeLayout.setBackgroundResource(R.drawable.background4);
-            } else if (backgroundNumber == 5){
-                relativeLayout.setBackgroundResource(R.drawable.background5);
-            } else if (backgroundNumber == 6){
-                relativeLayout.setBackgroundResource(R.drawable.background6);
-            } else if (backgroundNumber == 7){
-                relativeLayout.setBackgroundResource(R.drawable.background7);
-            } else if (backgroundNumber == 8){
-                relativeLayout.setBackgroundResource(R.drawable.background8);
-            } else if (backgroundNumber == 9){
-                relativeLayout.setBackgroundResource(R.drawable.background9);
-            } else if (backgroundNumber == 10){
-                relativeLayout.setBackgroundResource(R.drawable.background10);
-            } else if (backgroundNumber == 11){
-                relativeLayout.setBackgroundResource(R.drawable.background11);
-            } else if (backgroundNumber == 12){
-                relativeLayout.setBackgroundResource(R.drawable.background12);
-            } else if (backgroundNumber == 13){
-                relativeLayout.setBackgroundResource(R.drawable.background13);
-            } else if (backgroundNumber == 14){
-                relativeLayout.setBackgroundResource(R.drawable.background14);
-            } else if (backgroundNumber == 15){
-                relativeLayout.setBackgroundResource(R.drawable.background15);
-            } else if (backgroundNumber == 16){
-                relativeLayout.setBackgroundResource(R.drawable.background16);
-            } else if (backgroundNumber == 17){
-                relativeLayout.setBackgroundResource(R.drawable.background17);
-            } else if (backgroundNumber == 18){
-                relativeLayout.setBackgroundResource(R.drawable.background18);
-            } else if (backgroundNumber == 19){
-                relativeLayout.setBackgroundResource(R.drawable.background19);
-            } else if (backgroundNumber == 20){
-                relativeLayout.setBackgroundResource(R.drawable.background20);
-            } else if (backgroundNumber == 21){
-                relativeLayout.setBackgroundResource(R.drawable.background21);
-            } else if (backgroundNumber == 22){
-                relativeLayout.setBackgroundResource(R.drawable.background22);
-            } else if (backgroundNumber == 23){
-                relativeLayout.setBackgroundResource(R.drawable.background23);
-            } else if (backgroundNumber == 24){
-                relativeLayout.setBackgroundResource(R.drawable.background24);
-            } else if (backgroundNumber == 25){
-                relativeLayout.setBackgroundResource(R.drawable.background25);
-            } else if (backgroundNumber == 26){
-                relativeLayout.setBackgroundResource(R.drawable.background26);
-            } else if (backgroundNumber == 27){
-                relativeLayout.setBackgroundResource(R.drawable.background27);
-            } else if (backgroundNumber == 28){
-                relativeLayout.setBackgroundResource(R.drawable.background28);
-            } else if (backgroundNumber == 29){
-                relativeLayout.setBackgroundResource(R.drawable.background29);
-            } else if (backgroundNumber == 30){
-                relativeLayout.setBackgroundResource(R.drawable.background30);
-            } else if (backgroundNumber == 31){
-                relativeLayout.setBackgroundResource(R.drawable.background31);
-            } else if (backgroundNumber == 32){
-                relativeLayout.setBackgroundResource(R.drawable.background32);
-            } else if (backgroundNumber == 33){
-                relativeLayout.setBackgroundResource(R.drawable.background33);
-            } else if (backgroundNumber == 34){
-                relativeLayout.setBackgroundResource(R.drawable.background34);
-            } else if (backgroundNumber == 35){
-                relativeLayout.setBackgroundResource(R.drawable.background35);
-            } else if (backgroundNumber == 36){
-                relativeLayout.setBackgroundResource(R.drawable.background36);
-            } else if (backgroundNumber == 37){
-                relativeLayout.setBackgroundResource(R.drawable.background37);
-            } else if (backgroundNumber == 38){
-                relativeLayout.setBackgroundResource(R.drawable.background38);
-            } else if (backgroundNumber == 39){
-                relativeLayout.setBackgroundResource(R.drawable.background39);
-            } else if (backgroundNumber == 40){
-                relativeLayout.setBackgroundResource(R.drawable.background40);
-            }
+            relativeLayout.setBackgroundResource(backgrounds[backgroundNumber-1]);
 
             SharedPreferences.Editor editorBackground = preferencesBackground.edit();
             editorBackground.putInt("background", backgroundNumber);
@@ -1695,89 +842,54 @@ public class CreateActivity extends AppCompatActivity {
         }
     };
 
+    public boolean setRightAngle(Boolean flag, View view, SharedPreferences pref, String key){
+        if (flag == true){
+            view.setRotation(angle);
+            SharedPreferences.Editor editorPref = pref.edit();
+            editorPref.putFloat(key, angle);
+            editorPref.apply();
+
+            flag = false;
+        }
+
+        return false;
+    }
+
     public void right(View v){
         ssb = (SpannableStringBuilder)rotationEditText.getText();
         Degree = ssb.toString();
         angle = Integer.parseInt(Degree);
 
-        if (imageViewRotateFlag == true){
-            imageView.setRotation(angle);
-            imageViewRotateFlag = false;
-            SharedPreferences.Editor editorImageViewRotation = preferencesImageViewRotation.edit();
-            editorImageViewRotation.putFloat("iRotation", angle); editorImageViewRotation.apply();
-        } else if (editTextRotateFlag == true){
-            editText.setRotation(angle);
-            editTextRotateFlag = false;
-            SharedPreferences.Editor editorEditTextRotation = preferencesEditTextRotation.edit();
-            editorEditTextRotation.putFloat("eRotation", angle); editorEditTextRotation.apply();
-        } else if (tapeChoiceFlag1 == true){
-            dragTapeView1.setRotation(angle);
-            SharedPreferences.Editor tape1r = prefDragTapeView1rotation.edit();
-            tape1r.putFloat("tp1R", angle); tape1r.apply();
-            tapeChoiceFlag1 = false;
-        } else if (tapeChoiceFlag2 == true){
-            dragTapeView2.setRotation(angle);
-            SharedPreferences.Editor tape2r = prefDragTapeView2rotation.edit();
-            tape2r.putFloat("tp2R", angle); tape2r.apply();
-            tapeChoiceFlag2 = false;
-        } else if (tapeChoiceFlag3 == true){
-            dragTapeView3.setRotation(angle);
-            SharedPreferences.Editor tape3r = prefDragTapeView3rotation.edit();
-            tape3r.putFloat("tp3R", angle); tape3r.apply();
-            tapeChoiceFlag3 = false;
-        } else if (tapeChoiceFlag4 == true){
-            dragTapeView4.setRotation(angle);
-            SharedPreferences.Editor tape4r = prefDragTapeView4rotation.edit();
-            tape4r.putFloat("tp4R", angle); tape4r.apply();
-            tapeChoiceFlag4 = false;
-        } else if (tapeChoiceFlag5 == true){
-            dragTapeView5.setRotation(angle);
-            SharedPreferences.Editor tape5r = prefDragTapeView5rotation.edit();
-            tape5r.putFloat("tp5R", angle); tape5r.apply();
-            tapeChoiceFlag5 = false;
-        } else if (ornamentChoiceFlag1 == true){
-            dragOrnamentView1.setRotation(angle);
-            SharedPreferences.Editor ornament1r = prefDragOrnamentView1rotation.edit();
-            ornament1r.putFloat("om1R", angle); ornament1r.apply();
-            ornamentChoiceFlag1 = false;
-        } else if (ornamentChoiceFlag2 == true){
-            dragOrnamentView2.setRotation(angle);
-            SharedPreferences.Editor ornament2r = prefDragOrnamentView2rotation.edit();
-            ornament2r.putFloat("om2R", angle); ornament2r.apply();
-            ornamentChoiceFlag2 = false;
-        } else if (ornamentChoiceFlag3 == true){
-            dragOrnamentView3.setRotation(angle);
-            SharedPreferences.Editor ornament3r = prefDragOrnamentView3rotation.edit();
-            ornament3r.putFloat("om3R", angle); ornament3r.apply();
-            ornamentChoiceFlag3 = false;
-        } else if (ornamentChoiceFlag4 == true){
-            dragOrnamentView4.setRotation(angle);
-            SharedPreferences.Editor ornament4r = prefDragOrnamentView4rotation.edit();
-            ornament4r.putFloat("om2R", angle); ornament4r.apply();
-            ornamentChoiceFlag4 = false;
-        } else if (ornamentChoiceFlag5 == true){
-            dragOrnamentView5.setRotation(angle);
-            SharedPreferences.Editor ornament5r = prefDragOrnamentView5rotation.edit();
-            ornament5r.putFloat("om2R", angle); ornament5r.apply();
-            ornamentChoiceFlag5 = false;
-        } else if (ornamentChoiceFlag6 == true){
-            dragOrnamentView6.setRotation(angle);
-            SharedPreferences.Editor ornament6r = prefDragOrnamentView6rotation.edit();
-            ornament6r.putFloat("om6R", angle); ornament6r.apply();
-            ornamentChoiceFlag6 = false;
-        } else if (ornamentChoiceFlag7 == true){
-            dragOrnamentView7.setRotation(angle);
-            SharedPreferences.Editor ornament7r = prefDragOrnamentView7rotation.edit();
-            ornament7r.putFloat("om7R", angle); ornament7r.apply();
-            ornamentChoiceFlag7 = false;
-        } else if (ornamentChoiceFlag8 == true){
-            dragOrnamentView8.setRotation(angle);
-            SharedPreferences.Editor ornament8r = prefDragOrnamentView8rotation.edit();
-            ornament8r.putFloat("om8R", angle); ornament8r.apply();
-            ornamentChoiceFlag8 = false;
-        }
+        setRightAngle(imageViewRotateFlag, imageView, preferencesImageViewRotation, "iRotation");
+        setRightAngle(editTextRotateFlag, editText, preferencesEditTextRotation, "eRotation");
+        setRightAngle(tapeChoiceFlag1, dragTapeView1, prefDragTapeView1rotation, "tp1R");
+        setRightAngle(tapeChoiceFlag2, dragTapeView2, prefDragTapeView2rotation, "tp2R");
+        setRightAngle(tapeChoiceFlag3, dragTapeView3, prefDragTapeView3rotation, "tp3R");
+        setRightAngle(tapeChoiceFlag4, dragTapeView4, prefDragTapeView4rotation, "tp4R");
+        setRightAngle(tapeChoiceFlag5, dragTapeView5, prefDragTapeView5rotation, "tp5R");
+        setRightAngle(ornamentChoiceFlag1, dragOrnamentView1, prefDragOrnamentView1rotation, "om1R");
+        setRightAngle(ornamentChoiceFlag2, dragOrnamentView2, prefDragOrnamentView2rotation, "om2R");
+        setRightAngle(ornamentChoiceFlag3, dragOrnamentView3, prefDragOrnamentView3rotation, "om3R");
+        setRightAngle(ornamentChoiceFlag4, dragOrnamentView4, prefDragOrnamentView4rotation, "om4R");
+        setRightAngle(ornamentChoiceFlag5, dragOrnamentView5, prefDragOrnamentView5rotation, "om5R");
+        setRightAngle(ornamentChoiceFlag6, dragOrnamentView6, prefDragOrnamentView6rotation, "om6R");
+        setRightAngle(ornamentChoiceFlag7, dragOrnamentView7, prefDragOrnamentView7rotation, "om7R");
+        setRightAngle(ornamentChoiceFlag8, dragOrnamentView8, prefDragOrnamentView8rotation, "om8R");
 
         angleLinearLayout.setVisibility(View.GONE);
+    }
+
+    public boolean setLeftAngle(Boolean flag, View view,SharedPreferences pref, String key){
+        if (flag == true){
+            view.setRotation(angle);
+            SharedPreferences.Editor editorPref = pref.edit();
+            editorPref.putFloat(key, angle);
+            editorPref.apply();
+
+            flag = false;
+        }
+
+        return false;
     }
 
     public void left(View v){
@@ -1785,82 +897,21 @@ public class CreateActivity extends AppCompatActivity {
         Degree = ssb.toString();
         angle = Integer.parseInt(Degree);
 
-        if (imageViewRotateFlag == true){
-            imageView.setRotation(-angle);
-            imageViewRotateFlag = false;
-            SharedPreferences.Editor editorImageViewRotation = preferencesImageViewRotation.edit();
-            editorImageViewRotation.putFloat("iRotation", -angle); editorImageViewRotation.apply();
-        } else if (editTextRotateFlag == true){
-            editText.setRotation(-angle);
-            editTextRotateFlag = false;
-            SharedPreferences.Editor editorEditTextRotation = preferencesEditTextRotation.edit();
-            editorEditTextRotation.putFloat("eRotation", -angle); editorEditTextRotation.apply();
-        } else if (tapeChoiceFlag1 == true){
-            dragTapeView1.setRotation(-angle);
-            SharedPreferences.Editor tape1r = prefDragTapeView1rotation.edit();
-            tape1r.putFloat("tp1R", -angle); tape1r.apply();
-            tapeChoiceFlag1 = false;
-        } else if (tapeChoiceFlag2 == true){
-            dragTapeView2.setRotation(-angle);
-            SharedPreferences.Editor tape2r = prefDragTapeView2rotation.edit();
-            tape2r.putFloat("tp2R", -angle); tape2r.apply();
-            tapeChoiceFlag2 = false;
-        } else if (tapeChoiceFlag3 == true){
-            dragTapeView3.setRotation(-angle);
-            SharedPreferences.Editor tape3r = prefDragTapeView3rotation.edit();
-            tape3r.putFloat("tp3R", -angle); tape3r.apply();
-            tapeChoiceFlag3 = false;
-        } else if (tapeChoiceFlag4 == true){
-            dragTapeView4.setRotation(-angle);
-            SharedPreferences.Editor tape4r = prefDragTapeView4rotation.edit();
-            tape4r.putFloat("tp4R", -angle); tape4r.apply();
-            tapeChoiceFlag4 = false;
-        } else if (tapeChoiceFlag5 == true){
-            dragTapeView5.setRotation(-angle);
-            SharedPreferences.Editor tape5r = prefDragTapeView5rotation.edit();
-            tape5r.putFloat("tp5R", -angle); tape5r.apply();
-            tapeChoiceFlag5 = false;
-        } else if (ornamentChoiceFlag1 == true){
-            dragOrnamentView1.setRotation(-angle);
-            SharedPreferences.Editor ornament1r = prefDragOrnamentView1rotation.edit();
-            ornament1r.putFloat("om1R", -angle); ornament1r.apply();
-            ornamentChoiceFlag1 = false;
-        } else if (ornamentChoiceFlag2 == true){
-            dragOrnamentView2.setRotation(-angle);
-            SharedPreferences.Editor ornament2r = prefDragOrnamentView2rotation.edit();
-            ornament2r.putFloat("om2R", -angle); ornament2r.apply();
-            ornamentChoiceFlag2 = false;
-        } else if (ornamentChoiceFlag3 == true){
-            dragOrnamentView3.setRotation(-angle);
-            SharedPreferences.Editor ornament3r = prefDragOrnamentView3rotation.edit();
-            ornament3r.putFloat("om3R", -angle); ornament3r.apply();
-            ornamentChoiceFlag3 = false;
-        } else if (ornamentChoiceFlag4 == true){
-            dragOrnamentView4.setRotation(-angle);
-            SharedPreferences.Editor ornament4r = prefDragOrnamentView4rotation.edit();
-            ornament4r.putFloat("om4R", -angle); ornament4r.apply();
-            ornamentChoiceFlag4 = false;
-        } else if (ornamentChoiceFlag5 == true){
-            dragOrnamentView5.setRotation(-angle);
-            SharedPreferences.Editor ornament5r = prefDragOrnamentView5rotation.edit();
-            ornament5r.putFloat("om5R", -angle); ornament5r.apply();
-            ornamentChoiceFlag5 = false;
-        } else if (ornamentChoiceFlag6 == true){
-            dragOrnamentView6.setRotation(-angle);
-            SharedPreferences.Editor ornament6r = prefDragOrnamentView6rotation.edit();
-            ornament6r.putFloat("om6R", -angle); ornament6r.apply();
-            ornamentChoiceFlag6 = false;
-        } else if (ornamentChoiceFlag7 == true){
-            dragOrnamentView7.setRotation(-angle);
-            SharedPreferences.Editor ornament7r = prefDragOrnamentView7rotation.edit();
-            ornament7r.putFloat("om7R", -angle); ornament7r.apply();
-            ornamentChoiceFlag7 = false;
-        } else if (ornamentChoiceFlag8 == true){
-            dragOrnamentView8.setRotation(-angle);
-            SharedPreferences.Editor ornament8r = prefDragOrnamentView8rotation.edit();
-            ornament8r.putFloat("om8R", -angle); ornament8r.apply();
-            ornamentChoiceFlag8 = false;
-        }
+        setLeftAngle(imageViewRotateFlag, imageView, preferencesImageViewRotation, "iRotation");
+        setLeftAngle(editTextRotateFlag, editText, preferencesEditTextRotation, "eRotation");
+        setLeftAngle(tapeChoiceFlag1, dragTapeView1, prefDragTapeView1rotation, "tp1R");
+        setLeftAngle(tapeChoiceFlag2, dragTapeView2, prefDragTapeView2rotation, "tp2R");
+        setLeftAngle(tapeChoiceFlag3, dragTapeView3, prefDragTapeView3rotation, "tp3R");
+        setLeftAngle(tapeChoiceFlag4, dragTapeView4, prefDragTapeView4rotation, "tp4R");
+        setLeftAngle(tapeChoiceFlag5, dragTapeView5, prefDragTapeView5rotation, "tp5R");
+        setLeftAngle(ornamentChoiceFlag1, dragOrnamentView1, prefDragOrnamentView1rotation, "om1R");
+        setLeftAngle(ornamentChoiceFlag2, dragOrnamentView2, prefDragOrnamentView2rotation, "om2R");
+        setLeftAngle(ornamentChoiceFlag3, dragOrnamentView3, prefDragOrnamentView3rotation, "om3R");
+        setLeftAngle(ornamentChoiceFlag4, dragOrnamentView4, prefDragOrnamentView4rotation, "om4R");
+        setLeftAngle(ornamentChoiceFlag5, dragOrnamentView5, prefDragOrnamentView5rotation, "om5R");
+        setLeftAngle(ornamentChoiceFlag6, dragOrnamentView6, prefDragOrnamentView6rotation, "om6R");
+        setLeftAngle(ornamentChoiceFlag7, dragOrnamentView7, prefDragOrnamentView7rotation, "om7R");
+        setLeftAngle(ornamentChoiceFlag8, dragOrnamentView8, prefDragOrnamentView8rotation, "om8R");
 
         angleLinearLayout.setVisibility(View.GONE);
     }
@@ -1871,29 +922,6 @@ public class CreateActivity extends AppCompatActivity {
     public void background(View v) {
         Intent intentBackground = new Intent(this, BackGroundActivity.class);
         intentBackground.putExtra("iF", imageFlag);
-
-        if (layoutNumber == 1){
-            intentBackground.putExtra("M", 1);
-        } else if (layoutNumber == 2){
-            intentBackground.putExtra("M", 2);
-        } else if (layoutNumber == 3){
-            intentBackground.putExtra("M", 3);
-        } else if (layoutNumber == 4){
-            intentBackground.putExtra("M", 4);
-        } else if (layoutNumber == 5){
-            intentBackground.putExtra("M", 5);
-        } else if (layoutNumber == 6){
-            intentBackground.putExtra("M", 6);
-        } else if (layoutNumber == 7){
-            intentBackground.putExtra("M", 7);
-        } else if (layoutNumber == 8){
-            intentBackground.putExtra("M", 8);
-        } else if (layoutNumber == 9){
-            intentBackground.putExtra("M", 9);
-        } else if (layoutNumber == 10){
-            intentBackground.putExtra("M", 10);
-        }
-
         startActivity(intentBackground);
     }
 
@@ -1911,9 +939,6 @@ public class CreateActivity extends AppCompatActivity {
 
         ornamentFlag = false;
 
-        Log.d("number", String.valueOf(tapeNumber));
-
-
         if (dragTapeView1.getVisibility() == View.GONE){
             tapeNumber = 0;
         } else if (dragTapeView2.getVisibility() == View.GONE){
@@ -1927,1306 +952,46 @@ public class CreateActivity extends AppCompatActivity {
         }
     }
 
-    public void tape1(View v){
+    public void choiceTape(View v){
         tapesLinearLayout.setVisibility(View.GONE);
         tapeNumber++;
-        dragTapeDNumber = 41;
+        dragTapeDNumber = Integer.parseInt(v.getTag().toString())+40;
 
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape1);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
+        int tapes[] ={
+                R.drawable.tape1,  R.drawable.tape2,  R.drawable.tape3,  R.drawable.tape4,
+                R.drawable.tape5,  R.drawable.tape6,  R.drawable.tape7,  R.drawable.tape8,
+                R.drawable.tape9,  R.drawable.tape10, R.drawable.tape11, R.drawable.tape12,
+                R.drawable.tape13, R.drawable.tape14, R.drawable.tape15, R.drawable.tape16,
+                R.drawable.tape17, R.drawable.tape18, R.drawable.tape19, R.drawable.tape20,
+        };
 
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
+        ImageView dragTapes [] = {
+                dragTapeView1, dragTapeView2, dragTapeView3, dragTapeView4, dragTapeView5
+        };
 
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape1);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
+        SharedPreferences prefDTVNumbers [] = {
+                prefDTV1Number, prefDTV2Number, prefDTV3Number, prefDTV4Number, prefDTV5Number
+        };
 
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
+        String prefDTVDNKeys [] = {
+                "tp1DN", "tp2DN", "tp3DN", "tp4DN", "tp5DN"
+        };
 
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape1);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape1);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape1);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
+        if (tapeNumber > 5){
             Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        } else {
+            dragTapes[tapeNumber].setImageResource(tapes[dragTapeDNumber-41]);
+            dragTapes[tapeNumber].setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragTapes[tapeNumber]);
+
+            //tapeの画像を保存
+            SharedPreferences.Editor prefTapeDrawableNumber = prefDTVNumbers[tapeNumber].edit();
+            prefTapeDrawableNumber.putInt(prefDTVDNKeys[tapeNumber], dragTapeDNumber);
+            prefTapeDrawableNumber.apply();
+
+            dragTapes[tapeNumber].setOnTouchListener(listener);
         }
     }
-
-    public void tape2(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 42;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape2);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape2);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape2);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape2);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape2);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape3(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 43;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape3);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape3);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape3);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape3);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape3);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape4(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 44;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape4);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape4);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape4);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape4);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape4);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape5(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 45;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape5);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape5);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape5);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape5);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape5);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape6(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 46;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape6);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape6);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape6);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape6);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape6);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape7(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 47;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape7);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape7);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape7);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape7);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape7);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape8(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 48;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape8);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape8);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape8);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape8);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape8);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape9(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 49;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape9);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape9);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape9);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape9);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape9);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape10(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 50;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape10);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape10);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape10);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape10);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape10);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape11(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 51;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape11);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape11);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape11);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape11);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape11);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape12(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 52;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape12);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape12);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape12);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape12);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape12);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape13(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 53;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape13);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape13);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape13);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape13);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape13);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape14(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 54;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape14);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape14);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape14);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape14);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape14);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape15(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 55;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape15);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape15);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape15);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape15);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape15);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape16(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 56;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape16);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape16);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape16);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape16);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape16);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape17(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 57;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape17);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape17);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape17);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape17);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape17);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape18(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 58;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape18);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape18);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape18);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape18);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape18);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape19(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 59;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape19);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape19);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape19);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape19);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape19);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void tape20(View v){
-        tapesLinearLayout.setVisibility(View.GONE);
-        tapeNumber++;
-        dragTapeDNumber = 60;
-
-        if (tapeNumber == 1){
-            dragTapeView1.setImageResource(R.drawable.tape20);
-            dragTapeView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView1);
-
-            //dragTapeView1の画像を保存
-            editorDTV1DNumber = prefDTV1Number.edit();
-            editorDTV1DNumber.putInt("tp1DN", dragTapeDNumber);
-            editorDTV1DNumber.apply();
-
-            dragTapeView1.setOnTouchListener(listener);
-        } else if (tapeNumber == 2){
-            dragTapeView2.setImageResource(R.drawable.tape20);
-            dragTapeView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView2);
-
-            //dragTapeView2の画像を保存
-            editorDTV2DNumber = prefDTV2Number.edit();
-            editorDTV2DNumber.putInt("tp2DN", dragTapeDNumber);
-            editorDTV2DNumber.apply();
-
-            dragTapeView2.setOnTouchListener(listener);
-        } else if (tapeNumber == 3){
-            dragTapeView3.setImageResource(R.drawable.tape20);
-            dragTapeView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView3);
-
-            //dragTapeView3の画像を保存
-            editorDTV3DNumber = prefDTV3Number.edit();
-            editorDTV3DNumber.putInt("tp3DN", dragTapeDNumber);
-            editorDTV3DNumber.apply();
-
-            dragTapeView3.setOnTouchListener(listener);
-        } else if (tapeNumber == 4){
-            dragTapeView4.setImageResource(R.drawable.tape20);
-            dragTapeView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView4);
-
-            //dragTapeView4の画像を保存
-            editorDTV4DNumber = prefDTV4Number.edit();
-            editorDTV4DNumber.putInt("tp4DN", dragTapeDNumber);
-            editorDTV4DNumber.apply();
-
-            dragTapeView4.setOnTouchListener(listener);
-        } else if (tapeNumber == 5){
-            dragTapeView5.setImageResource(R.drawable.tape20);
-            dragTapeView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragTapeView5);
-
-            //dragTapeView5の画像を保存
-            editorDTV5DNumber = prefDTV5Number.edit();
-            editorDTV5DNumber.putInt("tp5DN", dragTapeDNumber);
-            editorDTV5DNumber.apply();
-
-            dragTapeView5.setOnTouchListener(listener);
-        } else if (tapeNumber > 5){
-            Toast.makeText(this, "can't use more than 5 tapes", Toast.LENGTH_SHORT).show();
-        }
-    }
-
 
     public void ornament(View v){
         if (ornamentFlag == false){
@@ -3270,610 +1035,10 @@ public class CreateActivity extends AppCompatActivity {
         pinLinearLayout.setVisibility(View.VISIBLE);
     }
 
-    public void pin1(View v){
-        pinLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 61;
-
-        if (ornamentNumber == 1){
-            dragOrnamentView1.setImageResource(R.drawable.pin1);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setImageResource(R.drawable.pin1);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setImageResource(R.drawable.pin1);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setImageResource(R.drawable.pin1);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setImageResource(R.drawable.pin1);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setImageResource(R.drawable.pin1);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setImageResource(R.drawable.pin1);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setImageResource(R.drawable.pin1);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8){
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void pin2(View v){
-        pinLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 62;
-
-        if (ornamentNumber == 1){
-            dragOrnamentView1.setImageResource(R.drawable.pin2);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setImageResource(R.drawable.pin2);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setImageResource(R.drawable.pin2);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setImageResource(R.drawable.pin2);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setImageResource(R.drawable.pin2);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setImageResource(R.drawable.pin2);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setImageResource(R.drawable.pin2);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setImageResource(R.drawable.pin2);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8){
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void pin3(View v){
-        pinLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 63;
-
-        if (ornamentNumber == 1){
-            dragOrnamentView1.setImageResource(R.drawable.pin3);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setImageResource(R.drawable.pin3);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setImageResource(R.drawable.pin3);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setImageResource(R.drawable.pin3);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setImageResource(R.drawable.pin3);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setImageResource(R.drawable.pin3);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setImageResource(R.drawable.pin3);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setImageResource(R.drawable.pin3);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8){
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void pin4(View v){
-        pinLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 64;
-
-        if (ornamentNumber == 1){
-            dragOrnamentView1.setImageResource(R.drawable.pin4);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setImageResource(R.drawable.pin4);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setImageResource(R.drawable.pin4);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setImageResource(R.drawable.pin4);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setImageResource(R.drawable.pin4);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setImageResource(R.drawable.pin4);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setImageResource(R.drawable.pin4);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setImageResource(R.drawable.pin4);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8){
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
     public void ribbon(View v){
         choiceOrnamentLinearLayout.setVisibility(View.GONE);
         eachOrnamentsLinearLayout.setVisibility(View.VISIBLE);
         ribbonLinearLayout.setVisibility(View.VISIBLE);
-    }
-
-    public void ribbon1(View v){
-        ribbonLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 65;
-
-        if(ornamentNumber == 1){
-            dragOrnamentView1.setImageResource(R.drawable.ribbon1);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setImageResource(R.drawable.ribbon1);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setImageResource(R.drawable.ribbon1);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setImageResource(R.drawable.ribbon1);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setImageResource(R.drawable.ribbon1);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setImageResource(R.drawable.ribbon1);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setImageResource(R.drawable.ribbon1);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setImageResource(R.drawable.ribbon1);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8){
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void ribbon2(View v){
-        ribbonLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 66;
-
-        if(ornamentNumber == 1){
-            dragOrnamentView1.setImageResource(R.drawable.ribbon2);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setImageResource(R.drawable.ribbon2);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setImageResource(R.drawable.ribbon2);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setImageResource(R.drawable.ribbon2);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setImageResource(R.drawable.ribbon2);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setImageResource(R.drawable.ribbon2);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setImageResource(R.drawable.ribbon2);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setImageResource(R.drawable.ribbon2);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8){
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void ribbon3(View v){
-        ribbonLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 67;
-
-        if(ornamentNumber == 1){
-            dragOrnamentView1.setImageResource(R.drawable.ribbon3);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setImageResource(R.drawable.ribbon3);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setImageResource(R.drawable.ribbon3);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setImageResource(R.drawable.ribbon3);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setImageResource(R.drawable.ribbon3);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setImageResource(R.drawable.ribbon3);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setImageResource(R.drawable.ribbon3);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setImageResource(R.drawable.ribbon3);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8){
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void ribbon4(View v){
-        ribbonLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 68;
-
-        if(ornamentNumber == 1){
-            dragOrnamentView1.setImageResource(R.drawable.ribbon4);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setImageResource(R.drawable.ribbon4);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setImageResource(R.drawable.ribbon4);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setImageResource(R.drawable.ribbon4);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setImageResource(R.drawable.ribbon4);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setImageResource(R.drawable.ribbon4);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setImageResource(R.drawable.ribbon4);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setImageResource(R.drawable.ribbon4);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8){
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void ribbon5(View v){
-        ribbonLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 69;
-
-        if(ornamentNumber == 1){
-            dragOrnamentView1.setImageResource(R.drawable.ribbon5);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setImageResource(R.drawable.ribbon5);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setImageResource(R.drawable.ribbon5);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setImageResource(R.drawable.ribbon5);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setImageResource(R.drawable.ribbon5);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setImageResource(R.drawable.ribbon5);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setImageResource(R.drawable.ribbon5);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setImageResource(R.drawable.ribbon5);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8){
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void ribbon6(View v){
-        ribbonLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 70;
-
-        if(ornamentNumber == 1){
-            dragOrnamentView1.setImageResource(R.drawable.ribbon6);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setImageResource(R.drawable.ribbon6);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setImageResource(R.drawable.ribbon6);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setImageResource(R.drawable.ribbon6);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setImageResource(R.drawable.ribbon6);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setImageResource(R.drawable.ribbon6);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setImageResource(R.drawable.ribbon6);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setImageResource(R.drawable.ribbon6);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8){
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void ribbon7(View v){
-        ribbonLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 71;
-
-        if(ornamentNumber == 1){
-            dragOrnamentView1.setImageResource(R.drawable.ribbon7);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setImageResource(R.drawable.ribbon7);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setImageResource(R.drawable.ribbon7);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setImageResource(R.drawable.ribbon7);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setImageResource(R.drawable.ribbon7);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setImageResource(R.drawable.ribbon7);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setImageResource(R.drawable.ribbon7);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setImageResource(R.drawable.ribbon7);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8){
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void ribbon8(View v){
-        ribbonLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 72;
-
-        if(ornamentNumber == 1){
-            dragOrnamentView1.setImageResource(R.drawable.ribbon8);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setImageResource(R.drawable.ribbon8);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setImageResource(R.drawable.ribbon8);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setImageResource(R.drawable.ribbon8);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setImageResource(R.drawable.ribbon8);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setImageResource(R.drawable.ribbon8);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setImageResource(R.drawable.ribbon8);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setImageResource(R.drawable.ribbon8);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8){
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
     }
 
     public void button(View v){
@@ -3882,1011 +1047,57 @@ public class CreateActivity extends AppCompatActivity {
         buttonLinearLayout.setVisibility(View.VISIBLE);
     }
 
-    public void button1(View v){
-        buttonLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 73;
-
-        if(ornamentNumber == 1){
-            dragOrnamentView1.setImageResource(R.drawable.button1);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setImageResource(R.drawable.button1);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setImageResource(R.drawable.button1);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setImageResource(R.drawable.button1);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setImageResource(R.drawable.button1);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setImageResource(R.drawable.button1);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setImageResource(R.drawable.button1);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setImageResource(R.drawable.button1);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8){
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void button2(View v){
-        buttonLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 74;
-
-        if(ornamentNumber == 1){
-            dragOrnamentView1.setImageResource(R.drawable.button2);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setImageResource(R.drawable.button2);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setImageResource(R.drawable.button2);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setImageResource(R.drawable.button2);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setImageResource(R.drawable.button2);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setImageResource(R.drawable.button2);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setImageResource(R.drawable.button2);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setImageResource(R.drawable.button2);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8){
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void button3(View v){
-        buttonLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 75;
-
-        if(ornamentNumber == 1){
-            dragOrnamentView1.setImageResource(R.drawable.button3);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setImageResource(R.drawable.button3);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setImageResource(R.drawable.button3);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setImageResource(R.drawable.button3);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setImageResource(R.drawable.button3);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setImageResource(R.drawable.button3);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setImageResource(R.drawable.button3);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setImageResource(R.drawable.button3);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8){
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void button4(View v){
-        buttonLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 76;
-
-        if(ornamentNumber == 1){
-            dragOrnamentView1.setImageResource(R.drawable.button4);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2){
-            dragOrnamentView2.setImageResource(R.drawable.button4);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3){
-            dragOrnamentView3.setImageResource(R.drawable.button4);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4){
-            dragOrnamentView4.setImageResource(R.drawable.button4);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5){
-            dragOrnamentView5.setImageResource(R.drawable.button4);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6){
-            dragOrnamentView6.setImageResource(R.drawable.button4);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7){
-            dragOrnamentView7.setImageResource(R.drawable.button4);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8){
-            dragOrnamentView8.setImageResource(R.drawable.button4);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8){
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
     public void the_others(View v){
         choiceOrnamentLinearLayout.setVisibility(View.GONE);
         eachOrnamentsLinearLayout.setVisibility(View.VISIBLE);
         the_othersLinearLayout.setVisibility(View.VISIBLE);
     }
 
-    public void the_others1(View v) {
-        the_othersLinearLayout.setVisibility(View.GONE);
+    public void choiceOrnament(View v){
+        pinLinearLayout.setVisibility(View.GONE);
         ornamentNumber++;
-        dragOrnamentDNumber = 77;
 
-        if (ornamentNumber == 1) {
-            dragOrnamentView1.setImageResource(R.drawable.the_others1);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2) {
-            dragOrnamentView2.setImageResource(R.drawable.the_others1);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3) {
-            dragOrnamentView3.setImageResource(R.drawable.the_others1);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4) {
-            dragOrnamentView4.setImageResource(R.drawable.the_others1);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5) {
-            dragOrnamentView5.setImageResource(R.drawable.the_others1);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6) {
-            dragOrnamentView6.setImageResource(R.drawable.the_others1);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7) {
-            dragOrnamentView7.setImageResource(R.drawable.the_others1);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8) {
-            dragOrnamentView8.setImageResource(R.drawable.the_others1);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8) {
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
+        dragOrnamentDNumber = Integer.parseInt(v.getTag().toString())+40;
+
+        int ornaments[] ={
+                R.drawable.pin1,         R.drawable.pin2,         R.drawable.pin3,             R.drawable.pin4,
+                R.drawable.ribbon1,      R.drawable.ribbon2,      R.drawable.ribbon3,     R.drawable.ribbon4,
+                R.drawable.ribbon5,      R.drawable.ribbon6,      R.drawable.ribbon7,     R.drawable.ribbon8,
+                R.drawable.button1,      R.drawable.button2,      R.drawable.button3,     R.drawable.button4,
+                R.drawable.the_others1,  R.drawable.the_others2, R.drawable.the_others3, R.drawable.the_others4,
+                R.drawable.the_others5,  R.drawable.the_others6, R.drawable.the_others7, R.drawable.the_others8,
+                R.drawable.the_others9,  R.drawable.the_others10, R.drawable.the_others11, R.drawable.the_others12,
+                R.drawable.the_others13, R.drawable.the_others14, R.drawable.the_others15, R.drawable.the_others16,
+        };
+
+        ImageView dragOrnaments [] = {
+                dragOrnamentView1, dragOrnamentView2, dragOrnamentView3, dragOrnamentView4, dragOrnamentView5
+        };
+
+        SharedPreferences prefDOVNumbers [] = {
+                prefDOV1Number, prefDOV2Number, prefDOV3Number, prefDOV4Number, prefDOV5Number
+        };
+
+        String prefDTVDNKeys [] = {
+                "om1DN", "om2DN", "om3DN", "om4DN", "om5DN"
+        };
+
+        if (tapeNumber > 5){
+            Toast.makeText(this, "can use 5 tapes", Toast.LENGTH_SHORT).show();
+        } else {
+            dragOrnaments[tapeNumber].setImageResource(ornaments[dragTapeDNumber-41]);
+            dragOrnaments[tapeNumber].setVisibility(View.VISIBLE);
+            listener = new DragViewListener(dragOrnaments[tapeNumber]);
+
+            //tapeの画像を保存
+            SharedPreferences.Editor prefTapeDrawableNumber = prefDOVNumbers[tapeNumber].edit();
+            prefTapeDrawableNumber.putInt(prefDTVDNKeys[tapeNumber], dragTapeDNumber);
+            prefTapeDrawableNumber.apply();
+
+            dragOrnaments[tapeNumber].setOnTouchListener(listener);
         }
     }
 
-    public void the_others2(View v) {
-        the_othersLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 78;
-
-        if (ornamentNumber == 1) {
-            dragOrnamentView1.setImageResource(R.drawable.the_others2);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2) {
-            dragOrnamentView2.setImageResource(R.drawable.the_others2);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3) {
-            dragOrnamentView3.setImageResource(R.drawable.the_others2);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4) {
-            dragOrnamentView4.setImageResource(R.drawable.the_others2);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5) {
-            dragOrnamentView5.setImageResource(R.drawable.the_others2);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6) {
-            dragOrnamentView6.setImageResource(R.drawable.the_others2);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7) {
-            dragOrnamentView7.setImageResource(R.drawable.the_others2);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8) {
-            dragOrnamentView8.setImageResource(R.drawable.the_others2);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8) {
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void the_others3(View v) {
-        the_othersLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 79;
-
-        if (ornamentNumber == 1) {
-            dragOrnamentView1.setImageResource(R.drawable.the_others3);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2) {
-            dragOrnamentView2.setImageResource(R.drawable.the_others3);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3) {
-            dragOrnamentView3.setImageResource(R.drawable.the_others3);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4) {
-            dragOrnamentView4.setImageResource(R.drawable.the_others3);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5) {
-            dragOrnamentView5.setImageResource(R.drawable.the_others3);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6) {
-            dragOrnamentView6.setImageResource(R.drawable.the_others3);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7) {
-            dragOrnamentView7.setImageResource(R.drawable.the_others3);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8) {
-            dragOrnamentView8.setImageResource(R.drawable.the_others3);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8) {
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void the_others4(View v) {
-        the_othersLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 80;
-
-        if (ornamentNumber == 1) {
-            dragOrnamentView1.setImageResource(R.drawable.the_others4);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2) {
-            dragOrnamentView2.setImageResource(R.drawable.the_others4);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3) {
-            dragOrnamentView3.setImageResource(R.drawable.the_others4);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4) {
-            dragOrnamentView4.setImageResource(R.drawable.the_others4);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5) {
-            dragOrnamentView5.setImageResource(R.drawable.the_others4);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6) {
-            dragOrnamentView6.setImageResource(R.drawable.the_others4);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7) {
-            dragOrnamentView7.setImageResource(R.drawable.the_others4);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8) {
-            dragOrnamentView8.setImageResource(R.drawable.the_others4);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8) {
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void the_others5(View v) {
-        the_othersLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 81;
-
-        if (ornamentNumber == 1) {
-            dragOrnamentView1.setImageResource(R.drawable.the_others5);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2) {
-            dragOrnamentView2.setImageResource(R.drawable.the_others5);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3) {
-            dragOrnamentView3.setImageResource(R.drawable.the_others5);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4) {
-            dragOrnamentView4.setImageResource(R.drawable.the_others5);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5) {
-            dragOrnamentView5.setImageResource(R.drawable.the_others5);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6) {
-            dragOrnamentView6.setImageResource(R.drawable.the_others5);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7) {
-            dragOrnamentView7.setImageResource(R.drawable.the_others5);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8) {
-            dragOrnamentView8.setImageResource(R.drawable.the_others5);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8) {
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void the_others6(View v) {
-        the_othersLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 82;
-
-        if (ornamentNumber == 1) {
-            dragOrnamentView1.setImageResource(R.drawable.the_others6);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2) {
-            dragOrnamentView2.setImageResource(R.drawable.the_others6);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3) {
-            dragOrnamentView3.setImageResource(R.drawable.the_others6);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4) {
-            dragOrnamentView4.setImageResource(R.drawable.the_others6);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5) {
-            dragOrnamentView5.setImageResource(R.drawable.the_others6);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6) {
-            dragOrnamentView6.setImageResource(R.drawable.the_others6);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7) {
-            dragOrnamentView7.setImageResource(R.drawable.the_others6);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8) {
-            dragOrnamentView8.setImageResource(R.drawable.the_others6);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8) {
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void the_others7(View v) {
-        the_othersLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 83;
-
-        if (ornamentNumber == 1) {
-            dragOrnamentView1.setImageResource(R.drawable.the_others7);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2) {
-            dragOrnamentView2.setImageResource(R.drawable.the_others7);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3) {
-            dragOrnamentView3.setImageResource(R.drawable.the_others7);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4) {
-            dragOrnamentView4.setImageResource(R.drawable.the_others7);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5) {
-            dragOrnamentView5.setImageResource(R.drawable.the_others7);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6) {
-            dragOrnamentView6.setImageResource(R.drawable.the_others7);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7) {
-            dragOrnamentView7.setImageResource(R.drawable.the_others7);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8) {
-            dragOrnamentView8.setImageResource(R.drawable.the_others7);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8) {
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void the_others8(View v) {
-        the_othersLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 84;
-
-        if (ornamentNumber == 1) {
-            dragOrnamentView1.setImageResource(R.drawable.the_others8);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2) {
-            dragOrnamentView2.setImageResource(R.drawable.the_others8);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3) {
-            dragOrnamentView3.setImageResource(R.drawable.the_others8);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4) {
-            dragOrnamentView4.setImageResource(R.drawable.the_others8);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5) {
-            dragOrnamentView5.setImageResource(R.drawable.the_others8);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6) {
-            dragOrnamentView6.setImageResource(R.drawable.the_others8);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7) {
-            dragOrnamentView7.setImageResource(R.drawable.the_others8);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8) {
-            dragOrnamentView8.setImageResource(R.drawable.the_others8);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8) {
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void the_others9(View v) {
-        the_othersLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 85;
-
-        if (ornamentNumber == 1) {
-            dragOrnamentView1.setImageResource(R.drawable.the_others9);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2) {
-            dragOrnamentView2.setImageResource(R.drawable.the_others9);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3) {
-            dragOrnamentView3.setImageResource(R.drawable.the_others9);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4) {
-            dragOrnamentView4.setImageResource(R.drawable.the_others9);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5) {
-            dragOrnamentView5.setImageResource(R.drawable.the_others9);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6) {
-            dragOrnamentView6.setImageResource(R.drawable.the_others9);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7) {
-            dragOrnamentView7.setImageResource(R.drawable.the_others9);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8) {
-            dragOrnamentView8.setImageResource(R.drawable.the_others9);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8) {
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void the_others10(View v) {
-        the_othersLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 86;
-
-        if (ornamentNumber == 1) {
-            dragOrnamentView1.setImageResource(R.drawable.the_others10);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2) {
-            dragOrnamentView2.setImageResource(R.drawable.the_others10);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3) {
-            dragOrnamentView3.setImageResource(R.drawable.the_others10);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4) {
-            dragOrnamentView4.setImageResource(R.drawable.the_others10);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5) {
-            dragOrnamentView5.setImageResource(R.drawable.the_others10);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6) {
-            dragOrnamentView6.setImageResource(R.drawable.the_others10);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7) {
-            dragOrnamentView7.setImageResource(R.drawable.the_others10);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8) {
-            dragOrnamentView8.setImageResource(R.drawable.the_others10);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8) {
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void the_others11(View v) {
-        the_othersLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 87;
-
-        if (ornamentNumber == 1) {
-            dragOrnamentView1.setImageResource(R.drawable.the_others11);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2) {
-            dragOrnamentView2.setImageResource(R.drawable.the_others11);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3) {
-            dragOrnamentView3.setImageResource(R.drawable.the_others11);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4) {
-            dragOrnamentView4.setImageResource(R.drawable.the_others11);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5) {
-            dragOrnamentView5.setImageResource(R.drawable.the_others11);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6) {
-            dragOrnamentView6.setImageResource(R.drawable.the_others11);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7) {
-            dragOrnamentView7.setImageResource(R.drawable.the_others11);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8) {
-            dragOrnamentView8.setImageResource(R.drawable.the_others11);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8) {
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void the_others12(View v) {
-        the_othersLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 88;
-
-        if (ornamentNumber == 1) {
-            dragOrnamentView1.setImageResource(R.drawable.the_others12);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2) {
-            dragOrnamentView2.setImageResource(R.drawable.the_others12);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3) {
-            dragOrnamentView3.setImageResource(R.drawable.the_others12);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4) {
-            dragOrnamentView4.setImageResource(R.drawable.the_others12);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5) {
-            dragOrnamentView5.setImageResource(R.drawable.the_others12);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6) {
-            dragOrnamentView6.setImageResource(R.drawable.the_others12);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7) {
-            dragOrnamentView7.setImageResource(R.drawable.the_others12);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8) {
-            dragOrnamentView8.setImageResource(R.drawable.the_others12);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8) {
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void the_others13(View v) {
-        the_othersLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 89;
-
-        if (ornamentNumber == 1) {
-            dragOrnamentView1.setImageResource(R.drawable.the_others13);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2) {
-            dragOrnamentView2.setImageResource(R.drawable.the_others13);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3) {
-            dragOrnamentView3.setImageResource(R.drawable.the_others13);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4) {
-            dragOrnamentView4.setImageResource(R.drawable.the_others13);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5) {
-            dragOrnamentView5.setImageResource(R.drawable.the_others13);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6) {
-            dragOrnamentView6.setImageResource(R.drawable.the_others13);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7) {
-            dragOrnamentView7.setImageResource(R.drawable.the_others13);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8) {
-            dragOrnamentView8.setImageResource(R.drawable.the_others13);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8) {
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void the_others14(View v) {
-        the_othersLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 90;
-
-        if (ornamentNumber == 1) {
-            dragOrnamentView1.setImageResource(R.drawable.the_others14);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2) {
-            dragOrnamentView2.setImageResource(R.drawable.the_others14);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3) {
-            dragOrnamentView3.setImageResource(R.drawable.the_others14);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4) {
-            dragOrnamentView4.setImageResource(R.drawable.the_others14);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5) {
-            dragOrnamentView5.setImageResource(R.drawable.the_others14);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6) {
-            dragOrnamentView6.setImageResource(R.drawable.the_others14);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7) {
-            dragOrnamentView7.setImageResource(R.drawable.the_others14);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8) {
-            dragOrnamentView8.setImageResource(R.drawable.the_others14);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8) {
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void the_others15(View v) {
-        the_othersLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 91;
-
-        if (ornamentNumber == 1) {
-            dragOrnamentView1.setImageResource(R.drawable.the_others15);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2) {
-            dragOrnamentView2.setImageResource(R.drawable.the_others15);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3) {
-            dragOrnamentView3.setImageResource(R.drawable.the_others15);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4) {
-            dragOrnamentView4.setImageResource(R.drawable.the_others15);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5) {
-            dragOrnamentView5.setImageResource(R.drawable.the_others15);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6) {
-            dragOrnamentView6.setImageResource(R.drawable.the_others15);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7) {
-            dragOrnamentView7.setImageResource(R.drawable.the_others15);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8) {
-            dragOrnamentView8.setImageResource(R.drawable.the_others15);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8) {
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void the_others16(View v) {
-        the_othersLinearLayout.setVisibility(View.GONE);
-        ornamentNumber++;
-        dragOrnamentDNumber = 92;
-
-        if (ornamentNumber == 1) {
-            dragOrnamentView1.setImageResource(R.drawable.the_others16);
-            dragOrnamentView1.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView1);
-            dragOrnamentView1.setOnTouchListener(listener);
-        } else if (ornamentNumber == 2) {
-            dragOrnamentView2.setImageResource(R.drawable.the_others16);
-            dragOrnamentView2.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView2);
-            dragOrnamentView2.setOnTouchListener(listener);
-        } else if (ornamentNumber == 3) {
-            dragOrnamentView3.setImageResource(R.drawable.the_others16);
-            dragOrnamentView3.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView3);
-            dragOrnamentView3.setOnTouchListener(listener);
-        } else if (ornamentNumber == 4) {
-            dragOrnamentView4.setImageResource(R.drawable.the_others16);
-            dragOrnamentView4.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView4);
-            dragOrnamentView4.setOnTouchListener(listener);
-        } else if (ornamentNumber == 5) {
-            dragOrnamentView5.setImageResource(R.drawable.the_others16);
-            dragOrnamentView5.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView5);
-            dragOrnamentView5.setOnTouchListener(listener);
-        } else if (ornamentNumber == 6) {
-            dragOrnamentView6.setImageResource(R.drawable.the_others16);
-            dragOrnamentView6.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView6);
-            dragOrnamentView6.setOnTouchListener(listener);
-        } else if (ornamentNumber == 7) {
-            dragOrnamentView7.setImageResource(R.drawable.the_others16);
-            dragOrnamentView7.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView7);
-            dragOrnamentView7.setOnTouchListener(listener);
-        } else if (ornamentNumber == 8) {
-            dragOrnamentView8.setImageResource(R.drawable.the_others16);
-            dragOrnamentView8.setVisibility(View.VISIBLE);
-            listener = new DragViewListener(dragOrnamentView8);
-            dragOrnamentView8.setOnTouchListener(listener);
-        } else if (ornamentNumber > 8) {
-            Toast.makeText(this, "can't use more than 8 ornaments", Toast.LENGTH_LONG).show();
-        }
-    }
 
 
     public class DragViewListener implements View.OnTouchListener {
@@ -5632,8 +1843,6 @@ public class CreateActivity extends AppCompatActivity {
             int x = (int) event.getRawX();
             int y = (int) event.getRawY();
 
-            Log.d("OnTouchのところ", "完了");
-
             x = x - 100;
             y = y - 250;
 
@@ -5641,7 +1850,6 @@ public class CreateActivity extends AppCompatActivity {
                 case MotionEvent.ACTION_MOVE:
                     dragOrnamentView1.setX(x);
                     dragOrnamentView1.setY(y);
-                    Log.d("ActionMoveのところ", "完了");
                     break;
             }
 
@@ -5813,37 +2021,15 @@ public class CreateActivity extends AppCompatActivity {
         }
     };
 
-    //ByteArrayOutputStream:String型のデータを保存できるbyte配列の変数
-    //output:出力（入力を受けた機械が仕事として外部に送るデータ（エネルギーや信号、情報）
-    //input:入力（外部から機械にデータ（エネルギーや信号、情報など）を供給すること（例:ボタンを押す））
-    //inputStream,outputStreamは大まかに言うと入出力の可能範囲を広げたもの
-    //（→どんなデータ（エネルギーでも信号でも情報でも）でも入出力可能にしている）
-    //※streamは「流れ」という意味（様々なデータを同じものになるまで分解して流してそして再構築していく感じ）
-    //                                    ↑人や物も原子単位まで分解したら同じですよ～　ってやつ
-    //byte型:bitmapを配列にできる変数の一つ
-    //           .compress(Bitmap.compressFormat.ほにゃらら, 　int quality　, ByteArrayOutputStream型の変数)
-    //pngなのかjpegなのかみたいな…（ようは画像の型）↑       　　　↑
-    // 圧縮率:画像のデータ容量 (ファイルサイズともいう) を小さくすること
-    //Base64:64進数（ここでは、すべてのデータをアルファベット(a~z, A~Z)と数字(0~9)、一部の記号(+,/)の64文字で表す
-    // 　　　　　　　エンコード方式のことを指す）　
-    //encode:（暗号などに）書き直すこと　→ここではString型に書き直す
-    //Base64.DEFAULT:初期値からBase64にされていることを表すもの（flagに近い）
-
     //gitHub
     //VCSのCommitChangesでコメントを書いてCommit, Commitしたら再びVCSのGitHubのPush
 
     //valuesのdimens.xml見てみて
 
     //フレーム機能設定
-    //画鋲をおけるようにする
     //背景の画像(その他とか…　ちょっと再検討して)
     //影がつけられるようにする
     //editTextに背景つけられるように
-    //画鋲やボタンの画像集め
-    //画鋲やボタンおくときのパレットつくらんと
-    //Dailyに写真をのせて、そのあとギャラリーから移した写真を消してもきちんとDailyでは保存できてるようにする
-    //（→アルバム整理みたいなのに役に立てるように！！）
-    //（→追記　bitmapにしてるので後で消しても大丈夫っぽい）
     //レイアウト選ぶところからmakeに飛ぶときに、背景選択画面みたいに配列つくってmakeは1つにしてhtmlだけ変えればいい！　アイデアbyゴディバ
     //エミュレータのDeveloper Optionsのshow layout boundsでレイアウトの細かいのみれるよ‼
     //スマホだと画像の比は3:4か1:1

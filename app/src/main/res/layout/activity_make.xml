@@ -265,7 +265,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="#a0a0a0"
-                            android:onClick="pin1"
+                            android:onClick="choiceOrnament"
                             android:src="@drawable/pin1" />
 
                         <ImageButton
@@ -274,7 +274,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="#a0a0a0"
-                            android:onClick="pin2"
+                            android:onClick="choiceOrnament"
                             android:src="@drawable/pin2" />
 
                         <ImageButton
@@ -283,7 +283,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="#a0a0a0"
-                            android:onClick="pin3"
+                            android:onClick="choiceOrnament"
                             android:src="@drawable/pin3" />
 
                         <ImageButton
@@ -292,7 +292,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="#a0a0a0"
-                            android:onClick="pin4"
+                            android:onClick="choiceOrnament"
                             android:src="@drawable/pin4" />
                     </LinearLayout>
 
@@ -317,7 +317,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:background="@drawable/ribbon1"
-                                android:onClick="ribbon1" />
+                                android:onClick="choiceOrnament" />
 
                             <ImageButton
                                 android:id="@+id/ribbon2"
@@ -325,7 +325,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:background="@drawable/ribbon2"
-                                android:onClick="ribbon2" />
+                                android:onClick="choiceOrnament" />
 
                             <ImageButton
                                 android:id="@+id/ribbon3"
@@ -333,7 +333,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:background="@drawable/ribbon3"
-                                android:onClick="ribbon3" />
+                                android:onClick="choiceOrnament" />
 
                             <ImageButton
                                 android:id="@+id/ribbon4"
@@ -341,7 +341,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:background="@drawable/ribbon4"
-                                android:onClick="ribbon4" />
+                                android:onClick="choiceOrnament" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -356,7 +356,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:background="@drawable/ribbon5"
-                                android:onClick="ribbon5" />
+                                android:onClick="choiceOrnament" />
 
                             <ImageButton
                                 android:id="@+id/ribbon6"
@@ -364,7 +364,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:background="@drawable/ribbon6"
-                                android:onClick="ribbon6" />
+                                android:onClick="choiceOrnament" />
 
                             <ImageButton
                                 android:id="@+id/ribbon7"
@@ -372,7 +372,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:background="@drawable/ribbon7"
-                                android:onClick="ribbon7" />
+                                android:onClick="choiceOrnament" />
 
                             <ImageButton
                                 android:id="@+id/ribbon8"
@@ -380,7 +380,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:background="@drawable/ribbon8"
-                                android:onClick="ribbon8" />
+                                android:onClick="choiceOrnament" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -400,7 +400,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:background="@drawable/button1"
-                            android:onClick="button1" />
+                            android:onClick="choiceOrnament" />
 
                         <ImageButton
                             android:id="@+id/button2"
@@ -408,7 +408,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:background="@drawable/button2"
-                            android:onClick="button2" />
+                            android:onClick="choiceOrnament" />
 
                         <ImageButton
                             android:id="@+id/button3"
@@ -416,7 +416,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:background="@drawable/button3"
-                            android:onClick="button3" />
+                            android:onClick="choiceOrnament" />
 
                         <ImageButton
                             android:id="@+id/button4"
@@ -424,7 +424,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:background="@drawable/button4"
-                            android:onClick="button4" />
+                            android:onClick="choiceOrnament" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -449,7 +449,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="11"
                                 android:background="@drawable/the_others1"
-                                android:onClick="the_others1" />
+                                android:onClick="choiceOrnament" />
 
                             <ImageButton
                                 android:id="@+id/the_others2"
@@ -457,7 +457,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="10"
                                 android:background="@drawable/the_others2"
-                                android:onClick="the_others2" />
+                                android:onClick="choiceOrnament" />
 
                             <ImageButton
                                 android:id="@+id/the_others3"
@@ -465,7 +465,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="12"
                                 android:background="@drawable/the_others3"
-                                android:onClick="the_others3" />
+                                android:onClick="choiceOrnament" />
 
                             <ImageButton
                                 android:id="@+id/the_others4"
@@ -473,7 +473,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="8"
                                 android:background="@drawable/the_others4"
-                                android:onClick="the_others4" />
+                                android:onClick="choiceOrnament" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -489,7 +489,7 @@
                                 android:layout_marginTop="5dp"
                                 android:layout_weight="10"
                                 android:background="@drawable/the_others5"
-                                android:onClick="the_others5" />
+                                android:onClick="choiceOrnament" />
 
                             <ImageButton
                                 android:id="@+id/the_others6"
@@ -498,7 +498,7 @@
                                 android:layout_marginTop="5dp"
                                 android:layout_weight="4"
                                 android:background="@drawable/the_others6"
-                                android:onClick="the_others6" />
+                                android:onClick="choiceOrnament" />
 
                             <ImageButton
                                 android:id="@+id/the_others7"
@@ -508,7 +508,7 @@
                                 android:layout_marginRight="14dp"
                                 android:layout_weight="19"
                                 android:background="@drawable/the_others7"
-                                android:onClick="the_others7" />
+                                android:onClick="choiceOrnament" />
 
                             <ImageButton
                                 android:id="@+id/the_others8"
@@ -516,7 +516,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="47"
                                 android:background="@drawable/the_others8"
-                                android:onClick="the_others8" />
+                                android:onClick="choiceOrnament" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -539,7 +539,7 @@
                                     android:layout_marginRight="14dp"
                                     android:layout_weight="1"
                                     android:background="@drawable/the_others9"
-                                    android:onClick="the_others9" />
+                                    android:onClick="choiceOrnament" />
 
                                 <ImageButton
                                     android:id="@+id/the_others10"
@@ -549,7 +549,7 @@
                                     android:layout_marginRight="6dp"
                                     android:layout_weight="1"
                                     android:background="@drawable/the_others10"
-                                    android:onClick="the_others10" />
+                                    android:onClick="choiceOrnament" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -566,7 +566,7 @@
                                     android:layout_marginRight="14dp"
                                     android:layout_weight="1"
                                     android:background="@drawable/the_others11"
-                                    android:onClick="the_others11" />
+                                    android:onClick="choiceOrnament" />
 
                                 <ImageButton
                                     android:id="@+id/the_others12"
@@ -576,7 +576,7 @@
                                     android:layout_marginRight="6dp"
                                     android:layout_weight="1"
                                     android:background="@drawable/the_others12"
-                                    android:onClick="the_others12" />
+                                    android:onClick="choiceOrnament" />
                             </LinearLayout>
                         </LinearLayout>
 
@@ -592,7 +592,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:background="@drawable/the_others13"
-                                android:onClick="the_others13" />
+                                android:onClick="choiceOrnament" />
 
                             <ImageButton
                                 android:id="@+id/the_others14"
@@ -600,7 +600,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:background="@drawable/the_others14"
-                                android:onClick="the_others14" />
+                                android:onClick="choiceOrnament" />
 
                             <ImageButton
                                 android:id="@+id/the_others15"
@@ -609,7 +609,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_weight="1"
                                 android:background="@drawable/the_others15"
-                                android:onClick="the_others15" />
+                                android:onClick="choiceOrnament" />
 
                             <ImageButton
                                 android:id="@+id/the_others16"
@@ -618,7 +618,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_weight="1"
                                 android:background="@drawable/the_others16"
-                                android:onClick="the_others16" />
+                                android:onClick="choiceOrnament" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -889,8 +889,8 @@
                         android:layout_marginRight="1dp"
                         android:layout_weight="1"
                         android:background="#a0a0a0"
-                        android:onClick="tape1"
-                        android:src="@drawable/tape1" />
+                        android:onClick="choiceTape"
+                        android:tag="1" />
 
                     <ImageButton
                         android:id="@+id/imageButton41"
@@ -900,8 +900,8 @@
                         android:layout_marginRight="1dp"
                         android:layout_weight="1"
                         android:background="#a0a0a0"
-                        android:onClick="tape2"
-                        android:src="@drawable/tape2" />
+                        android:onClick="choiceTape"
+                        android:tag="2" />
 
                     <ImageButton
                         android:id="@+id/imageButton42"
@@ -911,8 +911,8 @@
                         android:layout_marginRight="1dp"
                         android:layout_weight="1"
                         android:background="#a0a0a0"
-                        android:onClick="tape3"
-                        android:src="@drawable/tape3" />
+                        android:onClick="choiceTape"
+                        android:tag="3" />
 
                     <ImageButton
                         android:id="@+id/imageButton43"
@@ -921,8 +921,8 @@
                         android:layout_marginLeft="1dp"
                         android:layout_weight="1"
                         android:background="#a0a0a0"
-                        android:onClick="tape4"
-                        android:src="@drawable/tape4" />
+                        android:onClick="choiceTape"
+                        android:tag="4" />
 
                 </LinearLayout>
 
@@ -939,8 +939,8 @@
                         android:layout_marginRight="1dp"
                         android:layout_weight="1"
                         android:background="#a0a0a0"
-                        android:onClick="tape5"
-                        android:src="@drawable/tape5" />
+                        android:onClick="choiceTape"
+                        android:tag="5" />
 
                     <ImageButton
                         android:id="@+id/imageButton45"
@@ -950,8 +950,8 @@
                         android:layout_marginRight="1dp"
                         android:layout_weight="1"
                         android:background="#a0a0a0"
-                        android:onClick="tape6"
-                        android:src="@drawable/tape6" />
+                        android:onClick="choiceTape"
+                        android:tag="6" />
 
                     <ImageButton
                         android:id="@+id/imageButton46"
@@ -961,8 +961,8 @@
                         android:layout_marginRight="1dp"
                         android:layout_weight="1"
                         android:background="#a0a0a0"
-                        android:onClick="tape7"
-                        android:src="@drawable/tape7" />
+                        android:onClick="choiceTape"
+                        android:tag="7" />
 
                     <ImageButton
                         android:id="@+id/imageButton47"
@@ -972,8 +972,8 @@
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
                         android:background="#a0a0a0"
-                        android:onClick="tape8"
-                        android:src="@drawable/tape8" />
+                        android:onClick="choiceTape"
+                        android:tag="8" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -989,8 +989,8 @@
                         android:layout_marginRight="1dp"
                         android:layout_weight="1"
                         android:background="#a0a0a0"
-                        android:onClick="tape9"
-                        android:src="@drawable/tape9" />
+                        android:onClick="choiceTape"
+                        android:tag="9" />
 
                     <ImageButton
                         android:id="@+id/imageButton49"
@@ -1000,8 +1000,8 @@
                         android:layout_marginRight="1dp"
                         android:layout_weight="1"
                         android:background="#a0a0a0"
-                        android:onClick="tape10"
-                        android:src="@drawable/tape10" />
+                        android:onClick="choiceTape"
+                        android:tag="10" />
 
                     <ImageButton
                         android:id="@+id/imageButton50"
@@ -1011,8 +1011,8 @@
                         android:layout_marginRight="1dp"
                         android:layout_weight="1"
                         android:background="#a0a0a0"
-                        android:onClick="tape11"
-                        android:src="@drawable/tape11" />
+                        android:onClick="choiceTape"
+                        android:tag="11" />
 
                     <ImageButton
                         android:id="@+id/imageButton51"
@@ -1022,8 +1022,8 @@
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
                         android:background="#a0a0a0"
-                        android:onClick="tape12"
-                        android:src="@drawable/tape12" />
+                        android:onClick="choiceTape"
+                        android:tag="12" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -1039,8 +1039,8 @@
                         android:layout_marginRight="1dp"
                         android:layout_weight="1"
                         android:background="#a0a0a0"
-                        android:onClick="tape13"
-                        android:src="@drawable/tape13" />
+                        android:onClick="choiceTape"
+                        android:tag="13" />
 
                     <ImageButton
                         android:id="@+id/imageButton53"
@@ -1050,8 +1050,8 @@
                         android:layout_marginRight="1dp"
                         android:layout_weight="1"
                         android:background="#a0a0a0"
-                        android:onClick="tape14"
-                        android:src="@drawable/tape14" />
+                        android:onClick="choiceTape"
+                        android:tag="14" />
 
                     <ImageButton
                         android:id="@+id/imageButton54"
@@ -1061,8 +1061,8 @@
                         android:layout_marginRight="1dp"
                         android:layout_weight="1"
                         android:background="#a0a0a0"
-                        android:onClick="tape15"
-                        android:src="@drawable/tape15" />
+                        android:onClick="choiceTape"
+                        android:tag="15" />
 
                     <ImageButton
                         android:id="@+id/imageButton55"
@@ -1072,8 +1072,8 @@
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
                         android:background="#a0a0a0"
-                        android:onClick="tape16"
-                        android:src="@drawable/tape16" />
+                        android:onClick="choiceTape"
+                        android:tag="16" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -1089,8 +1089,8 @@
                         android:layout_marginRight="1dp"
                         android:layout_weight="1"
                         android:background="#a0a0a0"
-                        android:onClick="tape17"
-                        android:src="@drawable/tape17" />
+                        android:onClick="choiceTape"
+                        android:tag="17" />
 
                     <ImageButton
                         android:id="@+id/imageButton57"
@@ -1100,8 +1100,8 @@
                         android:layout_marginRight="1dp"
                         android:layout_weight="1"
                         android:background="#a0a0a0"
-                        android:onClick="tape18"
-                        android:src="@drawable/tape18" />
+                        android:onClick="choiceTape"
+                        android:tag="18" />
 
                     <ImageButton
                         android:id="@+id/imageButton58"
@@ -1112,8 +1112,8 @@
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
                         android:background="#a0a0a0"
-                        android:onClick="tape19"
-                        android:src="@drawable/tape19" />
+                        android:onClick="choiceTape"
+                        android:tag="19" />
 
                     <ImageButton
                         android:id="@+id/imageButton59"
@@ -1122,8 +1122,8 @@
                         android:layout_marginLeft="1dp"
                         android:layout_weight="1"
                         android:background="#a0a0a0"
-                        android:onClick="tape20"
-                        android:src="@drawable/tape20" />
+                        android:onClick="choiceTape"
+                        android:tag="20" />
                 </LinearLayout>
             </LinearLayout>
 
