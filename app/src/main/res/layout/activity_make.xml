@@ -641,7 +641,8 @@
                         android:layout_weight="1"
                         android:background="#ffffff"
                         android:gravity="center"
-                        android:onClick="pin"
+                        android:onClick="ornamentKind"
+                        android:tag="pin"
                         android:text="pin"
                         android:textSize="20sp" />
 
@@ -654,7 +655,8 @@
                         android:layout_weight="1"
                         android:background="#ffffff"
                         android:gravity="center"
-                        android:onClick="ribbon"
+                        android:onClick="ornamentKind"
+                        android:tag="ribbon"
                         android:text="ribbon"
                         android:textSize="20sp" />
 
@@ -667,7 +669,8 @@
                         android:layout_weight="1"
                         android:background="#ffffff"
                         android:gravity="center"
-                        android:onClick="button"
+                        android:onClick="ornamentKind"
+                        android:tag="button"
                         android:text="button"
                         android:textSize="20sp" />
 
@@ -679,7 +682,8 @@
                         android:layout_weight="1"
                         android:background="#ffffff"
                         android:gravity="center"
-                        android:onClick="the_others"
+                        android:onClick="ornamentKind"
+                        android:tag="the_others"
                         android:text="the others"
                         android:textSize="20sp" />
 
@@ -890,6 +894,7 @@
                         android:layout_weight="1"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape1"
                         android:tag="1" />
 
                     <ImageButton
@@ -901,6 +906,7 @@
                         android:layout_weight="1"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape2"
                         android:tag="2" />
 
                     <ImageButton
@@ -912,6 +918,7 @@
                         android:layout_weight="1"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape3"
                         android:tag="3" />
 
                     <ImageButton
@@ -922,6 +929,7 @@
                         android:layout_weight="1"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape4"
                         android:tag="4" />
 
                 </LinearLayout>
@@ -940,6 +948,7 @@
                         android:layout_weight="1"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape5"
                         android:tag="5" />
 
                     <ImageButton
@@ -951,6 +960,7 @@
                         android:layout_weight="1"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape6"
                         android:tag="6" />
 
                     <ImageButton
@@ -962,6 +972,7 @@
                         android:layout_weight="1"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape7"
                         android:tag="7" />
 
                     <ImageButton
@@ -973,6 +984,7 @@
                         android:adjustViewBounds="false"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape8"
                         android:tag="8" />
                 </LinearLayout>
 
@@ -990,6 +1002,7 @@
                         android:layout_weight="1"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape9"
                         android:tag="9" />
 
                     <ImageButton
@@ -1001,6 +1014,7 @@
                         android:layout_weight="1"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape10"
                         android:tag="10" />
 
                     <ImageButton
@@ -1012,6 +1026,7 @@
                         android:layout_weight="1"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape11"
                         android:tag="11" />
 
                     <ImageButton
@@ -1023,6 +1038,7 @@
                         android:adjustViewBounds="false"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape12"
                         android:tag="12" />
                 </LinearLayout>
 
@@ -1040,6 +1056,7 @@
                         android:layout_weight="1"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape13"
                         android:tag="13" />
 
                     <ImageButton
@@ -1051,6 +1068,7 @@
                         android:layout_weight="1"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape14"
                         android:tag="14" />
 
                     <ImageButton
@@ -1062,6 +1080,7 @@
                         android:layout_weight="1"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape15"
                         android:tag="15" />
 
                     <ImageButton
@@ -1073,6 +1092,7 @@
                         android:adjustViewBounds="false"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape16"
                         android:tag="16" />
                 </LinearLayout>
 
@@ -1090,6 +1110,7 @@
                         android:layout_weight="1"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape17"
                         android:tag="17" />
 
                     <ImageButton
@@ -1101,6 +1122,7 @@
                         android:layout_weight="1"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape18"
                         android:tag="18" />
 
                     <ImageButton
@@ -1113,6 +1135,7 @@
                         android:adjustViewBounds="false"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape19"
                         android:tag="19" />
 
                     <ImageButton
@@ -1123,6 +1146,7 @@
                         android:layout_weight="1"
                         android:background="#a0a0a0"
                         android:onClick="choiceTape"
+                        android:src="@drawable/tape20"
                         android:tag="20" />
                 </LinearLayout>
             </LinearLayout>
